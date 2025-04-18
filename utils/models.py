@@ -1,5 +1,5 @@
 from pydantic import BaseModel, HttpUrl
-from fastapi import UploadFile
+
 
 class ChatRequest(BaseModel):
     query: str
