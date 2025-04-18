@@ -1,4 +1,5 @@
 from pydantic import BaseModel, HttpUrl
+from fastapi import UploadFile
 
 class ChatRequest(BaseModel):
     query: str
@@ -6,7 +7,7 @@ class ChatRequest(BaseModel):
 
 class ChatResponse(BaseModel):
     response: str
-    sources: list[str] = []
+    sources: list[str]
 
 class CrawlRequest(BaseModel):
     url: HttpUrl
@@ -14,5 +15,9 @@ class CrawlRequest(BaseModel):
     depth: int = 2
 
 class CrawlResponse(BaseModel):
+    message: str
+    documents_indexed: int
+
+class PdfUploadResponse(BaseModel):
     message: str
     documents_indexed: int

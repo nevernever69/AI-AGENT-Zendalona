@@ -1,9 +1,11 @@
 import logging
-from fastapi import FastAPI, HTTPException
-from utils.models import ChatRequest, ChatResponse, CrawlRequest, CrawlResponse
+from fastapi import FastAPI, HTTPException, UploadFile, File
+from utils.models import ChatRequest, ChatResponse, CrawlRequest, CrawlResponse, PdfUploadResponse
 from utils.langchain_utils import get_rag_chain, process_query
 from crawler.crawler import process_and_index_url
+from utils.chroma_utils import process_pdf, index_documents_to_chroma
 from config import settings
+from io import BytesIO
 
 # Setup logging
 logging.basicConfig(filename=settings.log_path, level=logging.INFO)
@@ -28,7 +30,7 @@ async def chat(request: ChatRequest):
 @app.post("/crawl", response_model=CrawlResponse)
 async def crawl(request: CrawlRequest):
     try:
-        documents_indexed = await process_and_index_url(  # Changed to await
+        documents_indexed = await process_and_index_url(
             str(request.url), request.max_pages, request.depth
         )
         message = f"Successfully crawled and indexed {documents_indexed} documents from {request.url}"
@@ -36,6 +38,26 @@ async def crawl(request: CrawlRequest):
         return CrawlResponse(message=message, documents_indexed=documents_indexed)
     except Exception as e:
         logging.error(f"Error crawling {request.url}: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/upload-pdf", response_model=PdfUploadResponse)
+async def upload_pdf(file: UploadFile = File(...)):
+    try:
+        if not file.filename.lower().endswith('.pdf'):
+            raise HTTPException(status_code=400, detail="File must be a PDF")
+        
+        # Read file content
+        content = await file.read()
+        documents = process_pdf(BytesIO(content), file.filename)
+        
+        # Index documents in ChromaDB
+        documents_indexed = index_documents_to_chroma(documents, collection_name="zendalona")
+        
+        message = f"Successfully processed and indexed {documents_indexed} pages from PDF: {file.filename}"
+        logging.info(message)
+        return PdfUploadResponse(message=message, documents_indexed=documents_indexed)
+    except Exception as e:
+        logging.error(f"Error processing PDF upload: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
