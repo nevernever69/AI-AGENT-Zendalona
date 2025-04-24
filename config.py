@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     crawler_depth: int = 2
     crawler_max_pages: int = 10
     document_store_path: str = "./document_store"  # Added new field
-
+    PORT: int
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"

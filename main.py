@@ -11,6 +11,7 @@ import uuid
 import time
 from io import BytesIO
 
+
 # Import routers
 from routers import chat, indexing, system
 from utils.langchain_utils import get_rag_chain, process_query, get_streaming_chain
@@ -69,4 +70,4 @@ async def custom_swagger_ui_html():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=settings.PORT)
