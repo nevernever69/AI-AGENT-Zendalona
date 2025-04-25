@@ -4,7 +4,7 @@ from utils.models import CrawlRequest, CrawlResponse, PdfUploadResponse
 from utils.chroma_utils import process_pdf, index_documents_to_chroma
 from crawler.crawler import process_and_index_url
 import logging
-
+from io import BytesIO
 router = APIRouter(prefix="/indexing", tags=["Indexing"])
 
 @router.post(
