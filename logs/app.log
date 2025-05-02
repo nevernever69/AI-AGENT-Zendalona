@@ -1,0 +1,5 @@
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:root:Extracted 2 pages from PDF: abz.pdf
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:root:Indexed 2 new documents to ChromaDB collection 'zendalona'
+INFO:root:Successfully processed and indexed 2 pages from PDF: abz.pdf
