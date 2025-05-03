@@ -4,6 +4,7 @@ from sse_starlette.sse import EventSourceResponse
 from typing import Dict, Any, AsyncGenerator, Optional, List
 from utils.models import ChatRequest, ChatResponse, StreamingChatRequest
 from utils.langchain_utils import get_rag_chain, process_query, get_streaming_chain
+from utils.cache_utils import get_from_cache, cache_chatbot_response
 import logging
 import asyncio
 import uuid
@@ -29,9 +30,21 @@ async def chat(request: ChatRequest):
     - **session_id**: Optional unique identifier for the chat session
     """
     try:
+        # First, try to find a similar question in the cache
+        found, cached_answer, cached_sources = get_from_cache(request.query)
+        
+        if found:
+            logging.info(f"Returning cached response for query: {request.query}")
+            return ChatResponse(response=cached_answer, sources=cached_sources)
+        
+        # If no cache hit, proceed with Gemini API
         chain = get_rag_chain()
         response, sources = process_query(chain, request.query)
-        logging.info(f"Processed query: {request.query}")
+        logging.info(f"Processed query with Gemini: {request.query}")
+        
+        # Cache the response for future use
+        cache_chatbot_response(request.query, response, sources)
+        
         return ChatResponse(response=response, sources=sources)
     except Exception as e:
         logging.error(f"Error processing chat query: {str(e)}")
@@ -40,12 +53,26 @@ async def chat(request: ChatRequest):
 async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, None]:
     """Generate a streaming response for the chat query."""
     try:
-        # Initialize the RAG chain with streaming capability
-        chain, retriever = get_streaming_chain()
+        # Check cache first for streaming responses too
+        found, cached_answer, cached_sources = get_from_cache(query)
         
-        # Retrieve documents based on the query
-        docs = retriever.get_relevant_documents(query)
-        sources = [doc.metadata.get("source", "") for doc in docs if doc.metadata.get("source")]
+        if found:
+            logging.info(f"Streaming cached response for query: {query}")
+            # Send the cached response in chunks to simulate streaming
+            words = cached_answer.split()
+            chunk_size = max(1, len(words) // 10)  # Break into ~10 chunks
+            
+            for i in range(0, len(words), chunk_size):
+                chunk = " ".join(words[i:i+chunk_size])
+                yield {"event": "message", "data": chunk}
+                await asyncio.sleep(0.1)  # Simulate natural typing speed
+            
+            # Send sources as the final event
+            yield {"event": "sources", "data": ",".join(cached_sources)}
+            
+            # Send completion event
+            yield {"event": "done", "data": ""}
+            return
         
         # Track the session
         if session_id not in active_sessions:
@@ -53,13 +80,25 @@ async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, N
         active_sessions[session_id]["queries"].append(query)
         active_sessions[session_id]["last_active"] = time.time()
         
+        # If no cache hit, initialize the RAG chain with streaming capability
+        chain, retriever = get_streaming_chain()
+        
+        # Retrieve documents based on the query
+        docs = retriever.get_relevant_documents(query)
+        sources = [doc.metadata.get("source", "") for doc in docs if doc.metadata.get("source")]
+        
         # Stream the response
         context = "\n\n".join([doc.page_content for doc in docs]) if docs else ""
         
+        # Variables to collect the full response for caching
+        full_response = []
+        
         async for chunk in chain.astream({"context": context, "question": query}):
             if hasattr(chunk, "content"):
+                full_response.append(chunk.content)
                 yield {"event": "message", "data": chunk.content}
             else:
+                full_response.append(str(chunk))
                 yield {"event": "message", "data": str(chunk)}
             await asyncio.sleep(0.01)  # Small delay to control flow
         
@@ -68,6 +107,9 @@ async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, N
         
         # Send completion event
         yield {"event": "done", "data": ""}
+        
+        # Cache the complete response
+        cache_chatbot_response(query, "".join(full_response), sources)
         
     except Exception as e:
         logging.error(f"Error in streaming response: {str(e)}")

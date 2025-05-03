@@ -13,7 +13,7 @@ from io import BytesIO
 
 
 # Import routers
-from routers import chat, indexing, system
+from routers import chat, indexing, system, cache
 from utils.langchain_utils import get_rag_chain, process_query, get_streaming_chain
 from utils.chroma_utils import process_pdf, index_documents_to_chroma
 from crawler.crawler import process_and_index_url
@@ -30,7 +30,7 @@ app = FastAPI(
     This API provides endpoints for chatting with the bot, streaming responses,
     indexing content from websites, and uploading PDFs for knowledge base enrichment.
     """,
-    version="0.2.0",
+    version="0.3.0",
     docs_url=None,
     redoc_url=None,
 )
@@ -48,6 +48,7 @@ app.add_middleware(
 app.include_router(chat.router)
 app.include_router(indexing.router)
 app.include_router(system.router)
+app.include_router(cache.router)
 
 # Custom OpenAPI endpoint
 @app.get("/openapi.json", include_in_schema=False)

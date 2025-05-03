@@ -3,3 +3,37 @@ INFO:root:Extracted 2 pages from PDF: abz.pdf
 INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
 INFO:root:Indexed 2 new documents to ChromaDB collection 'zendalona'
 INFO:root:Successfully processed and indexed 2 pages from PDF: abz.pdf
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.cache_utils:Added question to cache: 'What is Zendalona's flagship product?...' (source: manual)
+INFO:utils.cache_utils:Cache miss for question: 'Can you tell me about Zendalona's main product?...'
+INFO:root:Processed query with Gemini: Can you tell me about Zendalona's main product?
+INFO:utils.cache_utils:Added question to cache: 'Can you tell me about Zendalona's main product?...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'Can you tell me about Zendalona's main product?...'
+INFO:utils.cache_utils:Cache miss for question: 'What is Zendalona's flagship product?...'
+INFO:root:Processed query with Gemini: What is Zendalona's flagship product?
+INFO:utils.cache_utils:Added question to cache: 'What is Zendalona's flagship product?...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'What is Zendalona's flagship product?...'
+INFO:utils.cache_utils:Cache miss for question: 'What is Zendalona's flagship product?...'
+INFO:root:Processed query with Gemini: What is Zendalona's flagship product?
+INFO:utils.cache_utils:Added question to cache: 'What is Zendalona's flagship product?...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'What is Zendalona's flagship product?...'
+INFO:utils.cache_utils:Added question to cache: 'What is Zendalona's flagship product?...' (source: manual)
+INFO:utils.cache_utils:Cache miss for question: 'What is Zendalona's flagship product?...'
+INFO:root:Processed query with Gemini: What is Zendalona's flagship product?
+INFO:utils.cache_utils:Added question to cache: 'What is Zendalona's flagship product?...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'What is Zendalona's flagship product?...'
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.cache_utils:Cache hit for question: 'Can you tell me about Zendalona's main product?...' (similarity: 79.37%)
+INFO:root:Returning cached response for query: Can you tell me about Zendalona's main product?
+INFO:utils.cache_utils:Cache hit for question: 'Can you tell me about Zendalona's main product?...' (similarity: 79.37%)
+INFO:root:Returning cached response for query: Can you tell me about Zendalona's main product?
+INFO:utils.cache_utils:Cache miss for question: 'what is java...'
+INFO:root:Processed query with Gemini: what is java
+INFO:utils.cache_utils:Added question to cache: 'what is java...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'what is java...'
+INFO:utils.cache_utils:Cache hit for question: 'Can you tell me about Zendalona's main product?...' (similarity: 79.37%)
+INFO:root:Streaming cached response for query: Can you tell me about Zendalona's main product?
+INFO:utils.cache_utils:Cache hit for question: 'Can you tell me about Zendalona's main product?...' (similarity: 79.37%)
+INFO:root:Streaming cached response for query: Can you tell me about Zendalona's main product?
+INFO:utils.cache_utils:Cache hit for question: 'What is Zendalona's flagship product?...' (similarity: 79.48%)
+INFO:root:Returning cached response for query: What is Zendalona's flagship product?

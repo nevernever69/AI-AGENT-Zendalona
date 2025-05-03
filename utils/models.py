@@ -102,3 +102,27 @@ class SessionInfo(BaseModel):
 
 class SessionListResponse(BaseModel):
     sessions: List[SessionInfo] = Field(..., description="List of active sessions")
+    
+class SessionListResponse(BaseModel):
+    sessions: List[SessionInfo] = Field(..., description="List of active sessions")
+    
+class CacheEntryRequest(BaseModel):
+    question: str = Field(..., description="The question to cache", 
+                       example="What is Zendalona's flagship product?")
+    answer: str = Field(..., description="The answer to cache",
+                      example="Zendalona's flagship product is Accessible-Coconut, which provides screen reading capabilities.")
+    source: str = Field(default="manual", description="Source of the cached answer",
+                      example="manual")
+    
+    class Config:
+        schema_extra = {
+            "example": {
+                "question": "What is Zendalona's flagship product?",
+                "answer": "Zendalona's flagship product is Accessible-Coconut, which provides screen reading capabilities.",
+                "source": "manual"
+            }
+        }
+
+class CacheAddResponse(BaseModel):
+    success: bool = Field(..., description="Whether the operation was successful")
+    message: str = Field(..., description="Status message")
