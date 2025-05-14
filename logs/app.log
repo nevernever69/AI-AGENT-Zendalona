@@ -37,3 +37,41 @@ INFO:utils.cache_utils:Cache hit for question: 'Can you tell me about Zendalona'
 INFO:root:Streaming cached response for query: Can you tell me about Zendalona's main product?
 INFO:utils.cache_utils:Cache hit for question: 'What is Zendalona's flagship product?...' (similarity: 79.48%)
 INFO:root:Returning cached response for query: What is Zendalona's flagship product?
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.cache_utils:Cache miss for question: 'what is zendalona...'
+INFO:utils.cache_utils:Added question to cache: 'what is zendalona...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'what is zendalona...'
+INFO:utils.cache_utils:Cache hit for question: 'What is Zendalona's flagship product?...' (similarity: 79.48%)
+INFO:root:Returning cached response for query: What is Zendalona's flagship product?
+INFO:utils.cache_utils:Cache hit for question: 'What is Zendalona's flagship product?...' (similarity: 79.48%)
+INFO:root:Streaming cached response for query: What is Zendalona's flagship product?
+INFO:utils.cache_utils:Cache miss for question: 'list products of zendalona...'
+INFO:utils.cache_utils:Added question to cache: 'list products of zendalona...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'list products of zendalona...'
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.cache_utils:Cache hit for question: 'What is Zendalona's flagship product?...' (similarity: 79.48%)
+INFO:root:Streaming cached response for query: What is Zendalona's flagship product?
+INFO:utils.cache_utils:Cache miss for question: 'What is c/c++...'
+INFO:utils.cache_utils:Added question to cache: 'What is c/c++...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'What is c/c++...'
+INFO:utils.cache_utils:Cache hit for question: 'Can you tell me about Zendalona's main product?...' (similarity: 79.37%)
+INFO:root:Streaming cached response for query: Can you tell me about Zendalona's main product?
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.cache_utils:Cache hit for question: 'Can you tell me about Zendalona's main product?...' (similarity: 79.37%)
+INFO:root:Streaming cached response for query: Can you tell me about Zendalona's main product?
+INFO:utils.cache_utils:Cache hit for question: 'Can you tell me about Zendalona's main product?...' (similarity: 79.37%)
+INFO:root:Streaming cached response for query: Can you tell me about Zendalona's main product?
+INFO:utils.cache_utils:Cache miss for question: 'where is zendalona situtated...'
+INFO:utils.cache_utils:Added question to cache: 'where is zendalona situtated...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'where is zendalona situtated...'
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.cache_utils:Cache miss for question: 'hi...'
+INFO:utils.cache_utils:Added question to cache: 'hi...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'hi...'
+INFO:utils.cache_utils:Cache hit for question: 'Can you tell me about Zendalona's main product?...' (similarity: 79.37%)
+INFO:root:Streaming cached response for query: Can you tell me about Zendalona's main product?
+INFO:utils.cache_utils:Cache hit for question: 'list of zendalona product...' (similarity: 69.79%)
+INFO:root:Streaming cached response for query: list of zendalona product
+INFO:utils.cache_utils:Cache hit for question: 'list of zendalona product...' (similarity: 69.79%)
+INFO:root:Streaming cached response for query: list of zendalona product

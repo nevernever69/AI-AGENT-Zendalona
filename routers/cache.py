@@ -59,6 +59,42 @@ async def add_cache_entry(request: CacheEntryRequest):
     except Exception as e:
         logging.error(f"Error adding cache entry: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
+from fastapi import Query
+from utils.cache_utils import get_cache_summary
+from fastapi import APIRouter
+from fastapi.responses import JSONResponse
+from utils.cache_utils import get_cache_count
+# from utils.cache_utils import clear_cache
+
+# @router.delete("clear")
+# async def clear_cache_endpoint():
+#     success = clear_cache()
+#     if success:
+#         return JSONResponse(content={"success": True, "message": "Cache cleared successfully."})
+#     else:
+#         return JSONResponse(content={"success": False, "message": "Failed to clear cache."}, status_code=500)
+
+
+@router.get("/count")
+async def cache_count():
+    try:
+        count = get_cache_count()
+        return JSONResponse(content={"success": True, "count": count})
+    except Exception as e:
+        return JSONResponse(content={"success": False, "error": str(e)}, status_code=500)
+
+@router.get("/summary")
+async def cache_summary(limit: Optional[int] = Query(None, description="Maximum number of questions to return")):
+    try:
+        count, questions = get_cache_summary(limit=limit)
+        return JSONResponse(content={
+            "success": True,
+            "count": count,
+            "questions": questions
+        })
+    except Exception as e:
+        return JSONResponse(content={"success": False, "error": str(e)}, status_code=500)
+
 
 @router.get(
     "/check/{question}",

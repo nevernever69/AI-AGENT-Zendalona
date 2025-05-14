@@ -10,6 +10,22 @@ logger = logging.getLogger(__name__)
 
 CACHE_COLLECTION_NAME = "zendalona_cache"
 SIMILARITY_THRESHOLD = 0.65
+def get_cache_summary(limit: Optional[int] = None) -> Tuple[int, List[str]]:
+    """
+    Returns the number of cached entries and optionally the latest cached questions.
+    """
+    try:
+        db = get_chroma_db(collection_name=CACHE_COLLECTION_NAME)
+        total = db._collection.count()
+        # Load all documents or up to the limit
+        all_docs = db._collection.get(include=["documents"])
+        questions = all_docs["documents"]
+        if limit:
+            questions = questions[:limit]
+        return total, questions
+    except Exception as e:
+        logger.error(f"Error fetching cache summary: {str(e)}")
+        return 0, []
 
 def add_to_cache(question: str, answer: str, source: str = "manual") -> bool:
     """
@@ -102,3 +118,14 @@ def cache_chatbot_response(question: str, answer: str, sources: List[str]) -> No
             logger.info(f"Cached Gemini response for: '{question[:50]}...'")
     except Exception as e:
         logger.error(f"Error caching chatbot response: {str(e)}")
+
+def get_cache_count() -> int:
+    """
+    Returns the number of cached question-answer pairs.
+    """
+    try:
+        db = get_chroma_db(collection_name=CACHE_COLLECTION_NAME)
+        return db._collection.count()
+    except Exception as e:
+        logger.error(f"Error getting cache count: {str(e)}")
+        return 0
