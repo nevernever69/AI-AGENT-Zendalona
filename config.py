@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     PORT: int = 8000
 
     # New MongoDB settings
-    mongodb_uri: str = dotenv.mongodb_uri
+    mongodb_uri: str
     mongodb_database: str = "zendalona"
     mongodb_feedback_collection: str = "feedback"
 

@@ -120,3 +120,10 @@ INFO:utils.cache_utils:Cache miss for question: 'what is  java...'
 INFO:utils.cache_utils:Added question to cache: 'what is  java...' (source: gemini)
 INFO:utils.cache_utils:Cached Gemini response for: 'what is  java...'
 INFO:utils.mongo_utils:Saved feedback with ID: 6824b02dba4d7fca7a36ce6c
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.cache_utils:Cache miss for question: 'hi...'
+INFO:utils.cache_utils:Added question to cache: 'hi...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'hi...'
+INFO:utils.cache_utils:Cache miss for question: 'hi...'
+INFO:utils.cache_utils:Added question to cache: 'hi...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'hi...'
