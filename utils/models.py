@@ -32,14 +32,15 @@ class StreamingChatRequest(BaseModel):
 
 class ChatResponse(BaseModel):
     response: str = Field(..., description="The AI-generated response")
-    sources: List[str] = Field(default_factory=list, 
-                              description="List of sources used to generate the response")
+    sources: List[str] = Field(default_factory=list, description="List of sources used to generate the response")
+    feedback_enabled: bool = Field(True, description="Whether feedback can be submitted for this response")
     
     class Config:
         schema_extra = {
             "example": {
-                "response": "Zendalona products offer accessibility features designed for users with diverse needs. Their key features include screen reader compatibility, customizable interfaces, and voice control options.",
-                "sources": ["zendalona_website.pdf", "product_guide.pdf"]
+                "response": "Zendalona products offer accessibility features...",
+                "sources": ["zendalona_website.pdf", "product_guide.pdf"],
+                "feedback_enabled": True
             }
         }
 
@@ -126,3 +127,26 @@ class CacheEntryRequest(BaseModel):
 class CacheAddResponse(BaseModel):
     success: bool = Field(..., description="Whether the operation was successful")
     message: str = Field(..., description="Status message")
+    
+from datetime import datetime
+from pydantic import BaseModel, Field
+class FeedbackRequest(BaseModel):
+    session_id: str = Field(..., description="Unique identifier for the chat session")
+    query: str = Field(..., description="The user's query that received feedback")
+    response: str = Field(..., description="The AI-generated response")
+    feedback: str = Field(..., description="Feedback type: 'positive' or 'negative'")
+    timestamp: float = Field(default_factory=lambda: datetime.utcnow().timestamp(), 
+                           description="Timestamp of the feedback")
+    additional_comments: Optional[str] = Field(None, description="Optional user comments")
+
+    class Config:
+        schema_extra = {
+            "example": {
+                "session_id": "550e8400-e29b-41d4-a716-446655440000",
+                "query": "What features do Zendalona products have?",
+                "response": "Zendalona products offer accessibility features...",
+                "feedback": "negative",
+                "timestamp": 1697059200.0,
+                "additional_comments": "The response was not detailed enough."
+            }
+        }

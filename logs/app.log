@@ -75,3 +75,48 @@ INFO:utils.cache_utils:Cache hit for question: 'list of zendalona product...' (s
 INFO:root:Streaming cached response for query: list of zendalona product
 INFO:utils.cache_utils:Cache hit for question: 'list of zendalona product...' (similarity: 69.79%)
 INFO:root:Streaming cached response for query: list of zendalona product
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.cache_utils:Cache miss for question: 'hi...'
+INFO:utils.cache_utils:Added question to cache: 'hi...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'hi...'
+INFO:utils.cache_utils:Cache miss for question: 'what is java...'
+INFO:utils.cache_utils:Added question to cache: 'what is java...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'what is java...'
+INFO:utils.cache_utils:Cache miss for question: 'hi...'
+INFO:utils.cache_utils:Added question to cache: 'hi...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'hi...'
+INFO:utils.cache_utils:Cache miss for question: 'Test message...'
+INFO:utils.cache_utils:Added question to cache: 'Test message...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'Test message...'
+INFO:utils.cache_utils:Cache miss for question: 'hi...'
+INFO:utils.cache_utils:Added question to cache: 'hi...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'hi...'
+INFO:utils.cache_utils:Cache miss for question: 'hi...'
+INFO:utils.cache_utils:Added question to cache: 'hi...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'hi...'
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.cache_utils:Cache miss for question: 'hi...'
+INFO:utils.cache_utils:Added question to cache: 'hi...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'hi...'
+INFO:utils.cache_utils:Cache miss for question: 'hi...'
+INFO:utils.cache_utils:Added question to cache: 'hi...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'hi...'
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.cache_utils:Cache miss for question: 'hi...'
+INFO:utils.cache_utils:Added question to cache: 'hi...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'hi...'
+INFO:utils.cache_utils:Cache miss for question: 'that's why...'
+INFO:utils.cache_utils:Added question to cache: 'that's why...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'that's why...'
+INFO:utils.mongo_utils:Saved feedback with ID: 6824a852ba4d7fca7a36ce6a
+INFO:utils.cache_utils:Cache hit for question: 'list zendalona products...' (similarity: 69.99%)
+INFO:root:Streaming cached response for query: list zendalona products
+INFO:utils.cache_utils:Cache miss for question: 'hi...'
+INFO:utils.cache_utils:Added question to cache: 'hi...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'hi...'
+INFO:utils.cache_utils:Cache hit for question: 'list all zendalona products...' (similarity: 69.13%)
+INFO:root:Streaming cached response for query: list all zendalona products
+INFO:utils.cache_utils:Cache miss for question: 'what is  java...'
+INFO:utils.cache_utils:Added question to cache: 'what is  java...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'what is  java...'
+INFO:utils.mongo_utils:Saved feedback with ID: 6824b02dba4d7fca7a36ce6c

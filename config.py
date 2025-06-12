@@ -1,15 +1,24 @@
-import os
 from pydantic_settings import BaseSettings
+from pydantic import Extra
+
 
 class Settings(BaseSettings):
-    gemini_api_key: str  # Renamed from GOOGLE_API_KEY
-    chroma_db_path: str = "chroma_db"
-    log_path: str = "logs/app.log"
-    crawler_depth: int = 2
-    crawler_max_pages: int = 10
-    document_store_path: str = "./document_store"  # Added new field
-    PORT: int
+    # Existing settings
+    chroma_db_path: str
+    log_path: str
+    gemini_api_key: str
+    crawler_depth: int
+    crawler_max_pages: int
+    document_store_path: str
+    PORT: int = 8000
+
+    # New MongoDB settings
+    mongodb_uri: str = "mongodb+srv://ashishashish7440:ashish@cluster0.xpgjr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    mongodb_database: str = "zendalona"
+    mongodb_feedback_collection: str = "feedback"
+
     class Config:
+        extra = Extra.allow
         env_file = ".env"
         env_file_encoding = "utf-8"
 

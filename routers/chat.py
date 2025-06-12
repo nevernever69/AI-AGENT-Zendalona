@@ -1,11 +1,13 @@
+import json
+import logging
 from fastapi import APIRouter, HTTPException, Depends, Body
 from fastapi.responses import JSONResponse
 from sse_starlette.sse import EventSourceResponse
 from typing import Dict, Any, AsyncGenerator, Optional, List
-from utils.models import ChatRequest, ChatResponse, StreamingChatRequest
+from utils.models import ChatRequest, ChatResponse, StreamingChatRequest, FeedbackRequest
 from utils.langchain_utils import get_rag_chain, process_query, get_streaming_chain
 from utils.cache_utils import get_from_cache, cache_chatbot_response
-import logging
+from utils.mongo_utils import save_feedback
 import asyncio
 import uuid
 import time
@@ -30,22 +32,19 @@ async def chat(request: ChatRequest):
     - **session_id**: Optional unique identifier for the chat session
     """
     try:
-        # First, try to find a similar question in the cache
         found, cached_answer, cached_sources = get_from_cache(request.query)
         
         if found:
             logging.info(f"Returning cached response for query: {request.query}")
-            return ChatResponse(response=cached_answer, sources=cached_sources)
+            return ChatResponse(response=cached_answer, sources=cached_sources, feedback_enabled=True)
         
-        # If no cache hit, proceed with Gemini API
         chain = get_rag_chain()
         response, sources = process_query(chain, request.query)
         logging.info(f"Processed query with Gemini: {request.query}")
         
-        # Cache the response for future use
         cache_chatbot_response(request.query, response, sources)
         
-        return ChatResponse(response=response, sources=sources)
+        return ChatResponse(response=response, sources=sources, feedback_enabled=True)
     except Exception as e:
         logging.error(f"Error processing chat query: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
@@ -53,44 +52,32 @@ async def chat(request: ChatRequest):
 async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, None]:
     """Generate a streaming response for the chat query."""
     try:
-        # Check cache first for streaming responses too
         found, cached_answer, cached_sources = get_from_cache(query)
         
         if found:
             logging.info(f"Streaming cached response for query: {query}")
-            # Send the cached response in chunks to simulate streaming
             words = cached_answer.split()
-            chunk_size = max(1, len(words) // 10)  # Break into ~10 chunks
+            chunk_size = max(1, len(words) // 10)
             
             for i in range(0, len(words), chunk_size):
                 chunk = " ".join(words[i:i+chunk_size])
                 yield {"event": "message", "data": chunk}
-                await asyncio.sleep(0.1)  # Simulate natural typing speed
+                await asyncio.sleep(0.1)
             
-            # Send sources as the final event
             yield {"event": "sources", "data": ",".join(cached_sources)}
-            
-            # Send completion event
+            yield {"event": "metadata", "data": json.dumps({"feedback_enabled": True})}
             yield {"event": "done", "data": ""}
             return
         
-        # Track the session
         if session_id not in active_sessions:
             active_sessions[session_id] = {"created_at": time.time(), "queries": []}
         active_sessions[session_id]["queries"].append(query)
         active_sessions[session_id]["last_active"] = time.time()
         
-        # If no cache hit, initialize the RAG chain with streaming capability
         chain, retriever = get_streaming_chain()
-        
-        # Retrieve documents based on the query
         docs = retriever.get_relevant_documents(query)
         sources = [doc.metadata.get("source", "") for doc in docs if doc.metadata.get("source")]
-        
-        # Stream the response
         context = "\n\n".join([doc.page_content for doc in docs]) if docs else ""
-        
-        # Variables to collect the full response for caching
         full_response = []
         
         async for chunk in chain.astream({"context": context, "question": query}):
@@ -100,21 +87,18 @@ async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, N
             else:
                 full_response.append(str(chunk))
                 yield {"event": "message", "data": str(chunk)}
-            await asyncio.sleep(0.01)  # Small delay to control flow
+            await asyncio.sleep(0.01)
         
-        # Send sources as the final event
         yield {"event": "sources", "data": ",".join(sources)}
-        
-        # Send completion event
+        yield {"event": "metadata", "data": json.dumps({"feedback_enabled": True})}
         yield {"event": "done", "data": ""}
         
-        # Cache the complete response
         cache_chatbot_response(query, "".join(full_response), sources)
         
     except Exception as e:
         logging.error(f"Error in streaming response: {str(e)}")
         yield {"event": "error", "data": str(e)}
-        
+
 @router.post(
     "/stream",
     summary="Stream a chat response",
@@ -135,6 +119,42 @@ async def stream_chat(request: StreamingChatRequest):
         stream_response(request.query, request.session_id),
         media_type="text/event-stream"
     )
+
+@router.post(
+    "/feedback",
+    summary="Submit feedback for a chat response",
+    description="Submit thumbs up or thumbs down feedback for a chat response, storing negative feedback in MongoDB",
+    response_description="Status of the feedback submission",
+)
+async def submit_feedback(feedback: FeedbackRequest):
+    """
+    Submit feedback for a chat response.
+    
+    - **session_id**: Unique identifier for the chat session
+    - **query**: The user's query
+    - **response**: The AI-generated response
+    - **feedback**: 'positive' or 'negative'
+    - **timestamp**: When the feedback was submitted
+    - **additional_comments**: Optional user comments
+    """
+    try:
+        if feedback.feedback == "negative":
+            feedback_data = {
+                "session_id": feedback.session_id,
+                "query": feedback.query,
+                "response": feedback.response,
+                "feedback": feedback.feedback,
+                "timestamp": feedback.timestamp,
+                "additional_comments": feedback.additional_comments
+            }
+            success = await save_feedback(feedback_data)
+            if not success:
+                raise HTTPException(status_code=500, detail="Failed to save feedback")
+        
+        return {"message": "Feedback submitted successfully"}
+    except Exception as e:
+        logging.error(f"Error submitting feedback: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 @router.delete(
     "/sessions/{session_id}",
