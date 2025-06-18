@@ -12,8 +12,8 @@ class Settings(BaseSettings):
 
     mongo_url: str = Field(..., alias="MONGO_URL")
 
-    # jwt_secret: str = Field(..., alias="JWT_SECRET")
-    # jwt_expire_minutes: int = Field(default=60)  # default = 1 hour
+    jwt_secret: str = Field(..., alias="JWT_SECRET")
+    jwt_algorithm: str = Field(..., alias="JWT_ALGORITHM")
 
     port: int = Field(..., alias="PORT")
     debug: bool = Field(default=False, alias="DEBUG")
