@@ -13,7 +13,7 @@ from io import BytesIO
 
 
 # Import routers
-from routers import chat, indexing, system
+from routers import chat, indexing, system, auth
 from utils.langchain_utils import get_rag_chain, process_query, get_streaming_chain
 from utils.chroma_utils import process_pdf, index_documents_to_chroma
 from crawler.crawler import process_and_index_url
@@ -45,9 +45,11 @@ app.add_middleware(
 )
 
 # Include routers
+app.include_router(auth.router)
 app.include_router(chat.router)
 app.include_router(indexing.router)
 app.include_router(system.router)
+
 
 # Custom OpenAPI endpoint
 @app.get("/openapi.json", include_in_schema=False)
@@ -68,6 +70,6 @@ async def custom_swagger_ui_html():
         swagger_favicon_url="",
     )
 
-if __name__ == "__main__":
+if __name__ == "__main__": 
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=settings.PORT)

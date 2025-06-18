@@ -1,2 +1,24 @@
-.env
+# Python cache
 __pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+ENV/
+env/
+.VENV/
+
+# Ignore the default .env only, but allow .env.local
+.env
+!.env.local
+
+# VS Code or PyCharm settings (optional)
+.vscode/
+
+# Logs
+*.log
+logs/
+
+# OS-specific
+.DS_Store
+Thumbs.db
