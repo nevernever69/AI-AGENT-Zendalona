@@ -10,19 +10,27 @@ logger = logging.getLogger(__name__)
 
 CACHE_COLLECTION_NAME = "zendalona_cache"
 SIMILARITY_THRESHOLD = 0.65
-def get_cache_summary(limit: Optional[int] = None) -> Tuple[int, List[str]]:
+def get_cache_summary(limit: Optional[int] = None) -> Tuple[int, List[dict]]:
     """
-    Returns the number of cached entries and optionally the latest cached questions.
+    Returns the number of cached entries and optionally the latest cached questions with their IDs and answers.
     """
     try:
         db = get_chroma_db(collection_name=CACHE_COLLECTION_NAME)
         total = db._collection.count()
         # Load all documents or up to the limit
-        all_docs = db._collection.get(include=["documents"])
-        questions = all_docs["documents"]
-        if limit:
-            questions = questions[:limit]
-        return total, questions
+        all_docs = db._collection.get(include=["documents", "metadatas"], limit=limit)
+        
+        # Combine IDs, questions, and answers into a list of dictionaries
+        entries = [
+            {
+                "id": all_docs["ids"][i],
+                "question": all_docs["documents"][i],
+                "answer": all_docs["metadatas"][i].get("answer", "")
+            }
+            for i in range(len(all_docs["ids"]))
+        ]
+        
+        return total, entries
     except Exception as e:
         logger.error(f"Error fetching cache summary: {str(e)}")
         return 0, []
@@ -129,3 +137,16 @@ def get_cache_count() -> int:
     except Exception as e:
         logger.error(f"Error getting cache count: {str(e)}")
         return 0
+
+def delete_from_cache(entry_id: str) -> bool:
+    """
+    Deletes a cache entry by its ID.
+    """
+    try:
+        db = get_chroma_db(collection_name=CACHE_COLLECTION_NAME)
+        db._collection.delete(ids=[entry_id])
+        logger.info(f"Deleted cache entry with ID: {entry_id}")
+        return True
+    except Exception as e:
+        logger.error(f"Error deleting cache entry {entry_id}: {str(e)}")
+        return False

@@ -127,3 +127,78 @@ INFO:utils.cache_utils:Cached Gemini response for: 'hi...'
 INFO:utils.cache_utils:Cache miss for question: 'hi...'
 INFO:utils.cache_utils:Added question to cache: 'hi...' (source: gemini)
 INFO:utils.cache_utils:Cached Gemini response for: 'hi...'
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.cache_utils:Cache miss for question: 'hi...'
+INFO:utils.cache_utils:Added question to cache: 'hi...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'hi...'
+INFO:utils.cache_utils:Cache miss for question: 'what is java...'
+INFO:utils.cache_utils:Added question to cache: 'what is java...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'what is java...'
+INFO:utils.mongo_utils:Saved feedback with ID: 684b9dfad5dbb5d3c495bb9d
+INFO:utils.cache_utils:Cache miss for question: 'hi...'
+INFO:utils.cache_utils:Added question to cache: 'hi...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'hi...'
+INFO:utils.mongo_utils:Saved feedback with ID: 684b9fe5d5dbb5d3c495bb9f
+INFO:utils.cache_utils:Cache miss for question: 'what is java...'
+INFO:utils.cache_utils:Added question to cache: 'what is java...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'what is java...'
+INFO:utils.mongo_utils:Saved feedback with ID: 684ba2d1d5dbb5d3c495bba1
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.cache_utils:Cache miss for question: 'hi...'
+INFO:utils.cache_utils:Added question to cache: 'hi...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'hi...'
+INFO:utils.mongo_utils:Saved feedback with ID: 685fd6614d97182eb05a1a42
+INFO:utils.cache_utils:Cache hit for question: 'what is zendalona...' (similarity: 65.58%)
+INFO:root:Streaming cached response for query: what is zendalona
+INFO:utils.mongo_utils:Saved feedback with ID: 685fdbd94d97182eb05a1a44
+INFO:root:Extracted 7 pages from PDF: Accessible-Coconut3.pdf
+INFO:root:Indexed 7 new documents to ChromaDB collection 'zendalona'
+INFO:root:Successfully processed and indexed 7 pages from PDF: Accessible-Coconut3.pdf
+INFO:utils.cache_utils:Cache miss for question: 'how to open terminal...'
+INFO:utils.cache_utils:Added question to cache: 'how to open terminal...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'how to open terminal...'
+INFO:utils.cache_utils:Cache miss for question: 'what is java...'
+INFO:utils.cache_utils:Added question to cache: 'what is java...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'what is java...'
+INFO:utils.cache_utils:Cache miss for question: 'how can i open zoom in accessble coconut...'
+INFO:utils.cache_utils:Added question to cache: 'how can i open zoom in accessble coconut...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'how can i open zoom in accessble coconut...'
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.cache_utils:Cache miss for question: 'hi...'
+INFO:utils.cache_utils:Added question to cache: 'hi...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'hi...'
+INFO:utils.cache_utils:Cache hit for question: 'list of zendalona products...' (similarity: 69.04%)
+INFO:root:Streaming cached response for query: list of zendalona products
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.cache_utils:Cache miss for question: 'hi...'
+INFO:utils.cache_utils:Added question to cache: 'hi...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'hi...'
+INFO:utils.mongo_utils:Saved feedback with ID: 6873169cdb445d8803389872
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.cache_utils:Deleted cache entry with ID: 069508de-4024-47da-99fd-4b33655aaf4f
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:root:Successfully deleted document df4dec21-d823-48f2-a42a-873f2e81d762 from collection zendalona_cache
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:root:Extracted 7 pages from PDF: zendalona-com-bluff%20user%20guide-....pdf
+INFO:root:Indexed 7 new documents to ChromaDB collection 'zendalona'
+INFO:utils.cache_utils:Added question to cache: 'Is the training online or offline?...' (source: manual)
+INFO:utils.cache_utils:Cache miss for question: 'Is the training online or offline?...'
+INFO:utils.cache_utils:Added question to cache: 'Is the training online or offline?...' (source: gemini)
+INFO:utils.cache_utils:Cached Gemini response for: 'Is the training online or offline?...'
+INFO:utils.cache_utils:Cache hit for question: 'what is zendalona...' (similarity: 65.58%)
+INFO:root:Streaming cached response for query: what is zendalona
+INFO:utils.cache_utils:Deleted cache entry with ID: 5758e4bb-d078-4e8f-87d7-5e7e5aa2d954
+INFO:utils.cache_utils:Cache hit for question: 'Can you tell me about Zendalona's main product?...' (similarity: 79.37%)
+INFO:root:Streaming cached response for query: Can you tell me about Zendalona's main product?
+INFO:backoff:Backing off send_request(...) for 0.5s (requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Read timed out. (read timeout=15))
+INFO:root:Successfully deleted document 5e908586-89b7-4712-a86b-684830c20442 from collection zendalona
+INFO:root:Successfully deleted collection: zendalona_cache
+INFO:utils.cache_utils:Added question to cache: 'Is it possible to install Accessible Coconut witho...' (source: manual)
+INFO:utils.cache_utils:Cache hit for question: 'Is it possible to install Accessible Coconut witho...' (similarity: 79.90%)
+INFO:root:Streaming cached response for query: Is it possible to install Accessible Coconut without a software store, and how?

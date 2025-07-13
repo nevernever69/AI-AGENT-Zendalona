@@ -72,3 +72,48 @@ def process_pdf(file: BytesIO, filename: str) -> list[Document]:
     except Exception as e:
         logging.error(f"Error processing PDF {filename}: {str(e)}")
         return []
+
+def list_collections():
+    try:
+        db = get_chroma_db()
+        collections = db._client.list_collections()
+        return [collection.name for collection in collections]
+    except Exception as e:
+        logging.error(f"Error listing collections: {str(e)}")
+        return []
+
+def delete_collection(collection_name: str):
+    try:
+        db = get_chroma_db()
+        db._client.delete_collection(name=collection_name)
+        logging.info(f"Successfully deleted collection: {collection_name}")
+        return True
+    except Exception as e:
+        logging.error(f"Error deleting collection {collection_name}: {str(e)}")
+        return False
+
+def get_collection_documents(collection_name: str):
+    try:
+        db = get_chroma_db(collection_name)
+        results = db.get(include=["metadatas"])
+        
+        # Extracting id and source from the results
+        documents = []
+        for i, doc_id in enumerate(results['ids']):
+            source = results['metadatas'][i].get('source', 'N/A')
+            documents.append({'id': doc_id, 'source': source})
+            
+        return documents
+    except Exception as e:
+        logging.error(f"Error getting documents from collection {collection_name}: {str(e)}")
+        return None
+
+def delete_document_from_collection(collection_name: str, document_id: str):
+    try:
+        db = get_chroma_db(collection_name)
+        db.delete(ids=[document_id])
+        logging.info(f"Successfully deleted document {document_id} from collection {collection_name}")
+        return True
+    except Exception as e:
+        logging.error(f"Error deleting document {document_id} from collection {collection_name}: {str(e)}")
+        return False
