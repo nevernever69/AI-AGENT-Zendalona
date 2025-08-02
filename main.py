@@ -13,7 +13,7 @@ from io import BytesIO
 
 
 # Import routers
-from routers import chat, indexing, system, cache
+from routers import chat, indexing, system, cache, temp_cache, feedback
 from utils.langchain_utils import get_rag_chain, process_query, get_streaming_chain
 from utils.chroma_utils import process_pdf, index_documents_to_chroma
 from crawler.crawler import process_and_index_url
@@ -49,6 +49,8 @@ app.include_router(chat.router)
 app.include_router(indexing.router)
 app.include_router(system.router)
 app.include_router(cache.router)
+app.include_router(temp_cache.router)
+app.include_router(feedback.router)
 
 # Custom OpenAPI endpoint
 @app.get("/openapi.json", include_in_schema=False)

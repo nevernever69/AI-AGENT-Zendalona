@@ -7,7 +7,7 @@ from typing import Dict, Any, AsyncGenerator, Optional, List
 from utils.models import ChatRequest, ChatResponse, StreamingChatRequest, FeedbackRequest
 from utils.langchain_utils import get_rag_chain, process_query, get_streaming_chain
 from utils.cache_utils import get_from_cache, cache_chatbot_response
-from utils.mongo_utils import save_feedback
+from utils.mongo_utils import save_feedback, save_to_temp_cache
 import asyncio
 import uuid
 import time
@@ -42,7 +42,8 @@ async def chat(request: ChatRequest):
         response, sources = process_query(chain, request.query)
         logging.info(f"Processed query with Gemini: {request.query}")
         
-        cache_chatbot_response(request.query, response, sources)
+        # Save to temporary cache
+        await save_to_temp_cache(request.query, response, sources)
         
         return ChatResponse(response=response, sources=sources, feedback_enabled=True)
     except Exception as e:
@@ -93,7 +94,8 @@ async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, N
         yield {"event": "metadata", "data": json.dumps({"feedback_enabled": True})}
         yield {"event": "done", "data": ""}
         
-        cache_chatbot_response(query, "".join(full_response), sources)
+        # Save to temporary cache
+        await save_to_temp_cache(query, "".join(full_response), sources)
         
     except Exception as e:
         logging.error(f"Error in streaming response: {str(e)}")
@@ -138,18 +140,17 @@ async def submit_feedback(feedback: FeedbackRequest):
     - **additional_comments**: Optional user comments
     """
     try:
-        if feedback.feedback == "negative":
-            feedback_data = {
-                "session_id": feedback.session_id,
-                "query": feedback.query,
-                "response": feedback.response,
-                "feedback": feedback.feedback,
-                "timestamp": feedback.timestamp,
-                "additional_comments": feedback.additional_comments
-            }
-            success = await save_feedback(feedback_data)
-            if not success:
-                raise HTTPException(status_code=500, detail="Failed to save feedback")
+        feedback_data = {
+            "session_id": feedback.session_id,
+            "query": feedback.query,
+            "response": feedback.response,
+            "feedback": feedback.feedback,
+            "timestamp": feedback.timestamp,
+            "additional_comments": feedback.additional_comments
+        }
+        success = await save_feedback(feedback_data)
+        if not success:
+            raise HTTPException(status_code=500, detail="Failed to save feedback")
         
         return {"message": "Feedback submitted successfully"}
     except Exception as e:
