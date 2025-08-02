@@ -33,6 +33,7 @@ class StreamingChatRequest(BaseModel):
 class ChatResponse(BaseModel):
     response: str = Field(..., description="The AI-generated response")
     sources: List[str] = Field(default_factory=list, description="List of sources used to generate the response")
+    suggestions: List[str] = Field(default_factory=list, description="List of suggested questions")
     feedback_enabled: bool = Field(True, description="Whether feedback can be submitted for this response")
     
     class Config:

@@ -5,7 +5,7 @@ from fastapi.responses import JSONResponse
 from sse_starlette.sse import EventSourceResponse
 from typing import Dict, Any, AsyncGenerator, Optional, List
 from utils.models import ChatRequest, ChatResponse, StreamingChatRequest, FeedbackRequest
-from utils.langchain_utils import get_rag_chain, process_query, get_streaming_chain
+from utils.langchain_utils import get_rag_chain, process_query, get_streaming_chain, generate_suggestions
 from utils.cache_utils import get_from_cache, cache_chatbot_response
 from utils.mongo_utils import save_feedback, save_to_temp_cache
 import asyncio
@@ -16,6 +16,8 @@ router = APIRouter(prefix="/chat", tags=["Chat"])
 
 # Track active chat sessions
 active_sessions: Dict[str, Dict[str, Any]] = {}
+
+from utils.chroma_utils import get_chroma_db
 
 @router.post(
     "",
@@ -32,20 +34,27 @@ async def chat(request: ChatRequest):
     - **session_id**: Optional unique identifier for the chat session
     """
     try:
-        found, cached_answer, cached_sources = get_from_cache(request.query)
+        cached_results = get_from_cache(request.query)
         
-        if found:
-            logging.info(f"Returning cached response for query: {request.query}")
-            return ChatResponse(response=cached_answer, sources=cached_sources, feedback_enabled=True)
-        
+        if cached_results:
+            top_hit, score = cached_results[0]
+            similarity = 1.0 - score
+            if similarity >= 0.9:
+                answer = top_hit.metadata.get("answer", "")
+                sources = [f"[CACHED - {top_hit.metadata.get('source', 'unknown')} - similarity: {similarity:.2f}]"]
+                suggestions = await generate_suggestions(request.query, answer)
+                return ChatResponse(response=answer, sources=sources, suggestions=suggestions, feedback_enabled=True)
+
         chain = get_rag_chain()
         response, sources = process_query(chain, request.query)
         logging.info(f"Processed query with Gemini: {request.query}")
         
+        suggestions = await generate_suggestions(request.query, response)
+        
         # Save to temporary cache
         await save_to_temp_cache(request.query, response, sources)
         
-        return ChatResponse(response=response, sources=sources, feedback_enabled=True)
+        return ChatResponse(response=response, sources=sources, suggestions=suggestions, feedback_enabled=True)
     except Exception as e:
         logging.error(f"Error processing chat query: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
@@ -53,50 +62,60 @@ async def chat(request: ChatRequest):
 async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, None]:
     """Generate a streaming response for the chat query."""
     try:
-        found, cached_answer, cached_sources = get_from_cache(query)
+        # Use the streaming chain for all responses to ensure consistency
+        chain, retriever = get_streaming_chain()
         
-        if found:
-            logging.info(f"Streaming cached response for query: {query}")
-            words = cached_answer.split()
-            chunk_size = max(1, len(words) // 10)
-            
-            for i in range(0, len(words), chunk_size):
-                chunk = " ".join(words[i:i+chunk_size])
-                yield {"event": "message", "data": chunk}
-                await asyncio.sleep(0.1)
-            
-            yield {"event": "sources", "data": ",".join(cached_sources)}
-            yield {"event": "metadata", "data": json.dumps({"feedback_enabled": True})}
-            yield {"event": "done", "data": ""}
-            return
-        
+        # Check cache first
+        cached_results = get_from_cache(query)
+        if cached_results:
+            top_hit, score = cached_results[0]
+            similarity = 1.0 - score
+            if similarity >= 0.9:
+                logging.info(f"Streaming cached response for query: {query}")
+                answer = top_hit.metadata.get("answer", "")
+                sources = [f"[CACHED - {top_hit.metadata.get('source', 'unknown')} - similarity: {similarity:.2f}]"]
+                suggestions = await generate_suggestions(query, answer)
+
+                # Stream the cached answer word by word
+                words = answer.split()
+                for word in words:
+                    yield {"event": "message", "data": f"{word} "}
+                    await asyncio.sleep(0.05)
+                
+                yield {"event": "sources", "data": ",".join(sources)}
+                yield {"event": "suggestions", "data": "|".join(suggestions)}
+                yield {"event": "metadata", "data": json.dumps({"feedback_enabled": True})}
+                yield {"event": "done", "data": ""}
+                return
+
+        # If not in cache, proceed with the streaming chain
         if session_id not in active_sessions:
             active_sessions[session_id] = {"created_at": time.time(), "queries": []}
         active_sessions[session_id]["queries"].append(query)
         active_sessions[session_id]["last_active"] = time.time()
-        
-        chain, retriever = get_streaming_chain()
+
         docs = retriever.get_relevant_documents(query)
         sources = [doc.metadata.get("source", "") for doc in docs if doc.metadata.get("source")]
         context = "\n\n".join([doc.page_content for doc in docs]) if docs else ""
         full_response = []
-        
+
         async for chunk in chain.astream({"context": context, "question": query}):
-            if hasattr(chunk, "content"):
-                full_response.append(chunk.content)
-                yield {"event": "message", "data": chunk.content}
-            else:
-                full_response.append(str(chunk))
-                yield {"event": "message", "data": str(chunk)}
+            content = chunk.content if hasattr(chunk, "content") else str(chunk)
+            full_response.append(content)
+            yield {"event": "message", "data": content}
             await asyncio.sleep(0.01)
-        
+
+        final_response = "".join(full_response)
+        suggestions = await generate_suggestions(query, final_response)
+
         yield {"event": "sources", "data": ",".join(sources)}
+        yield {"event": "suggestions", "data": "|".join(suggestions)}
         yield {"event": "metadata", "data": json.dumps({"feedback_enabled": True})}
         yield {"event": "done", "data": ""}
-        
-        # Save to temporary cache
-        await save_to_temp_cache(query, "".join(full_response), sources)
-        
+
+        # Save the complete response to the temporary cache
+        await save_to_temp_cache(query, final_response, sources)
+
     except Exception as e:
         logging.error(f"Error in streaming response: {str(e)}")
         yield {"event": "error", "data": str(e)}

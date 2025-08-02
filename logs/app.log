@@ -237,3 +237,38 @@ INFO:utils.mongo_utils:Saved to temporary cache: 'How can I contact Zendalona su
 INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
 INFO:utils.cache_utils:Updated cache entry with ID: fa239786-4ab9-4d96-a82a-cf9e74b366e7
 INFO:utils.cache_utils:Updated cache entry with ID: fa239786-4ab9-4d96-a82a-cf9e74b366e7
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.cache_utils:Cache miss for question: 'What does Zendalona do?...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'What does Zendalona do?...'
+INFO:utils.cache_utils:Cache miss for question: 'What are Zendalona products?...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'What are Zendalona products?...'
+INFO:utils.cache_utils:Cache miss for question: 'How can I contact Zendalona support?...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'How can I contact Zendalona support?...'
+INFO:utils.cache_utils:Cache miss for question: 'What does Zendalona do?...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'What does Zendalona do?...'
+INFO:utils.mongo_utils:Saved feedback with ID: 688de14670498c84049b14f9
+INFO:utils.cache_utils:Cache miss for question: 'hi what's next...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'hi what's next...'
+INFO:utils.mongo_utils:Saved feedback with ID: 688de15770498c84049b14fb
+INFO:utils.cache_utils:Cache miss for question: 'What does Zendalona do?...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'What does Zendalona do?...'
+INFO:utils.cache_utils:Cache miss for question: 'How can I contact Zendalona support?...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'How can I contact Zendalona support?...'
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+ERROR:root:Error in streaming response: 'Settings' object has no attribute 'google_api_key'
+ERROR:root:Error in streaming response: 'Settings' object has no attribute 'google_api_key'
+ERROR:root:Error in streaming response: 'Settings' object has no attribute 'google_api_key'
+ERROR:root:Error in streaming response: 'Settings' object has no attribute 'google_api_key'
+ERROR:root:Error in streaming response: 'Settings' object has no attribute 'google_api_key'
+ERROR:root:Error in streaming response: 'Settings' object has no attribute 'google_api_key'
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+ERROR:root:Error in streaming response: 'Settings' object has no attribute 'google_api_key'
+ERROR:root:Error in streaming response: 'Settings' object has no attribute 'google_api_key'
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+WARNING:langchain_google_genai.chat_models:Retrying langchain_google_genai.chat_models._achat_with_retry.<locals>._achat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+ERROR:root:Error in streaming response: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.mongo_utils:Saved to temporary cache: 'How can I contact Zendalona support?...'
+INFO:utils.mongo_utils:Saved feedback with ID: 688de76656e553fde791d3e3
+INFO:utils.mongo_utils:Saved to temporary cache: 'How can I contact Zendalona support?...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'What are Zendalona products?...'

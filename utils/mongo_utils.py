@@ -115,6 +115,25 @@ async def update_in_temp_cache(item_id: str, question: str, answer: str) -> bool
         logger.error(f"Error updating item {item_id} in temporary cache: {str(e)}")
         return False
 
+async def update_and_move_to_permanent_cache(item_id: str, question: str, answer: str) -> bool:
+    """Update an item in the temporary cache and move it to the permanent cache."""
+    try:
+        temp_collection = get_temp_cache_collection()
+        from bson.objectid import ObjectId
+
+        # First, add the updated item to the permanent cache
+        from utils.cache_utils import add_to_cache
+        add_to_cache(question, answer, source="from_temp_cache_edited")
+
+        # Then, delete the original item from the temporary cache
+        await temp_collection.delete_one({"_id": ObjectId(item_id)})
+        
+        logger.info(f"Updated and moved item {item_id} to permanent cache.")
+        return True
+    except Exception as e:
+        logger.error(f"Error updating and moving item {item_id} to permanent cache: {str(e)}")
+        return False
+
 async def delete_from_temp_cache(item_id: str) -> bool:
     """Delete an item from the temporary cache."""
     try:

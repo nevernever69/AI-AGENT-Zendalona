@@ -68,47 +68,24 @@ def add_to_cache(question: str, answer: str, source: str = "manual") -> bool:
         logger.error(f"Error adding to cache: {str(e)}")
         return False
 
-def get_from_cache(question: str) -> Tuple[bool, str, List[str]]:
+def get_from_cache(question: str, k: int = 5) -> List[Tuple[Document, float]]:
     """
-    Try to find a cached answer for a similar question
-    
+    Try to find cached answers for a similar question.
+
     Args:
-        question: The user's question
-        
+        question: The user's question.
+        k: The number of similar questions to return.
+
     Returns:
-        Tuple of (found, answer, sources):
-            found: Whether a suitable match was found
-            answer: The cached answer (empty if not found)
-            sources: List of source references (empty if not found)
+        A list of tuples, where each tuple contains a Document and its similarity score.
     """
     try:
         db = get_chroma_db(collection_name=CACHE_COLLECTION_NAME)
-        
-        # Query the database for similar questions
-        results = db.similarity_search_with_score(
-            question,
-            k=1  # Get the closest match
-        )
-        
-        # Check if we got any results and if the similarity score is high enough
-        if results:
-            doc, score = results[0]
-            similarity = 1.0 - score
-            if similarity >= SIMILARITY_THRESHOLD:
-                similarity_percent = (1.0 - score) * 100
-            
-                logger.info(f"Cache hit for question: '{question[:50]}...' (similarity: {similarity_percent:.2f}%)")
-                answer = doc.metadata.get("answer", "")
-                source = doc.metadata.get("source", "unknown")
-            
-                # Return the cached answer with metadata
-                return True, answer, [f"[CACHED - {source} - similarity: {similarity_percent:.2f}%]"]
-            else:
-                logger.info(f"Cache miss for question: '{question[:50]}...'")
-                return False, "", []
+        results = db.similarity_search_with_score(question, k=k)
+        return results
     except Exception as e:
         logger.error(f"Error querying cache: {str(e)}")
-        return False, "", []
+        return []
 
 def cache_chatbot_response(question: str, answer: str, sources: List[str]) -> None:
     """

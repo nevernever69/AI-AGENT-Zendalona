@@ -106,7 +106,19 @@ from fastapi import Query
 from utils.cache_utils import get_cache_summary
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
-from utils.cache_utils import get_cache_count
+@router.get("/export")
+async def export_cache_to_csv():
+    try:
+        count, questions = get_cache_summary()
+        output = io.StringIO()
+        writer = csv.writer(output)
+        writer.writerow(['question', 'answer', 'source'])
+        for entry in questions:
+            writer.writerow([entry['question'], entry['answer'], entry.get('source', 'manual')])
+        output.seek(0)
+        return StreamingResponse(output, media_type="text/csv", headers={"Content-Disposition": "attachment; filename=cache_export.csv"})
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 # from utils.cache_utils import clear_cache
 
 # @router.delete("clear")
