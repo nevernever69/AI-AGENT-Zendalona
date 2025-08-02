@@ -73,6 +73,26 @@ def process_pdf(file: BytesIO, filename: str) -> list[Document]:
         logging.error(f"Error processing PDF {filename}: {str(e)}")
         return []
 
+def process_and_index_file(file_content: bytes, filename: str) -> list[Document]:
+    if filename.endswith(".pdf"):
+        return process_pdf(BytesIO(file_content), filename)
+    # Add other file types here
+    # elif filename.endswith(".txt"):
+    #     return process_txt(BytesIO(file_content), filename)
+    else:
+        logging.warning(f"File type not supported for {filename}")
+        return []
+
+def update_document(document_id: str, document: Document, collection_name: str = "zendalona"):
+    try:
+        db = get_chroma_db(collection_name)
+        db.update_document(document_id, document)
+        logging.info(f"Successfully updated document {document_id} in collection {collection_name}")
+        return True
+    except Exception as e:
+        logging.error(f"Error updating document {document_id} in collection {collection_name}: {str(e)}")
+        return False
+
 def list_collections():
     try:
         db = get_chroma_db()

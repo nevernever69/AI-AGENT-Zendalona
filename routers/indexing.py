@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, UploadFile, File, Form, Depends
 from typing import List
-from utils.chroma_utils import process_pdf, index_documents_to_chroma, list_collections, delete_collection, get_collection_documents, delete_document_from_collection
+from utils.chroma_utils import process_pdf, index_documents_to_chroma, list_collections, delete_collection, get_collection_documents, delete_document_from_collection, process_and_index_file
 from crawler.crawler import process_and_index_url
 from utils.cache_utils import get_cache_summary, delete_from_cache
 from io import BytesIO
@@ -18,6 +18,19 @@ async def crawl(request: CrawlRequest):
     try:
         pages_indexed = await process_and_index_url(request.url, request.max_pages, request.depth)
         return {"message": f"Successfully indexed {pages_indexed} pages from {request.url}", "pages_indexed": pages_indexed}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/import", summary="Import and process a file")
+async def import_file(file: UploadFile = File(...)):
+    try:
+        file_content = await file.read()
+        documents = process_and_index_file(file_content, file.filename)
+        if not documents:
+            return {"message": "No content found in file or failed to process.", "pages_indexed": 0}
+        
+        pages_indexed = index_documents_to_chroma(documents)
+        return {"message": f"Successfully indexed {pages_indexed} pages from {file.filename}", "pages_indexed": pages_indexed}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

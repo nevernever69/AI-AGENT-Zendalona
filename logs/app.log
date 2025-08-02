@@ -202,3 +202,18 @@ INFO:root:Successfully deleted collection: zendalona_cache
 INFO:utils.cache_utils:Added question to cache: 'Is it possible to install Accessible Coconut witho...' (source: manual)
 INFO:utils.cache_utils:Cache hit for question: 'Is it possible to install Accessible Coconut witho...' (similarity: 79.90%)
 INFO:root:Streaming cached response for query: Is it possible to install Accessible Coconut without a software store, and how?
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+WARNING:root:File type not supported for Sample_Question_Import.csv
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.cache_utils:Deleted cache entry with ID: 95055354-75d7-45f7-ae8c-21f0d04cdb21
+INFO:utils.cache_utils:Added question to cache: 'What is Zendalona, and how does it support visuall...' (source: manual)
+INFO:utils.cache_utils:Added question to cache: 'What is Accessible-Coconut and how is it different...' (source: manual)
+INFO:utils.cache_utils:Added question to cache: 'What is the Sharada Braille Writer (SBW) and who c...' (source: manual)
+INFO:utils.cache_utils:Added question to cache: 'Does Zendalona support education for visually impa...' (source: manual)
+INFO:utils.cache_utils:Added question to cache: 'How does Linux Intelligent OCR help visually impai...' (source: manual)
+INFO:utils.cache_utils:Added question to cache: 'Is Zendalona a commercial company?...' (source: manual)
+INFO:utils.cache_utils:Updated cache entry with ID: fa239786-4ab9-4d96-a82a-cf9e74b366e7
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.cache_utils:Cache miss for question: 'hi...'

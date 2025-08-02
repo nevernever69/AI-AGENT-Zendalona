@@ -138,6 +138,33 @@ def get_cache_count() -> int:
         logger.error(f"Error getting cache count: {str(e)}")
         return 0
 
+
+def update_in_cache(entry_id: str, question: str, answer: str) -> bool:
+    """
+    Updates a cache entry by its ID.
+    """
+    try:
+        db = get_chroma_db(collection_name=CACHE_COLLECTION_NAME)
+        
+        # Update the document in ChromaDB
+        db.update_document(
+            document_id=entry_id,
+            document=Document(
+                page_content=question,
+                metadata={
+                    "answer": answer,
+                    "source": "manual_update",
+                    "cached": True
+                }
+            )
+        )
+        
+        logger.info(f"Updated cache entry with ID: {entry_id}")
+        return True
+    except Exception as e:
+        logger.error(f"Error updating cache entry {entry_id}: {str(e)}")
+        return False
+
 def delete_from_cache(entry_id: str) -> bool:
     """
     Deletes a cache entry by its ID.

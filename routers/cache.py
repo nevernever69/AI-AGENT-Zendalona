@@ -1,8 +1,10 @@
-from fastapi import APIRouter, HTTPException, Body
+from fastapi import APIRouter, HTTPException, Body, UploadFile, File, Depends
 from pydantic import BaseModel, Field
 from typing import List, Optional
 import logging
-from utils.cache_utils import add_to_cache, get_from_cache
+import csv
+import io
+from utils.cache_utils import add_to_cache, get_from_cache, update_in_cache, delete_from_cache
 from utils.models import ChatResponse
 
 router = APIRouter(prefix="/cache", tags=["Cache"])
@@ -23,6 +25,10 @@ class CacheEntryRequest(BaseModel):
                 "source": "manual"
             }
         }
+
+class CacheUpdateRequest(BaseModel):
+    question: str
+    answer: str
 
 class CacheAddResponse(BaseModel):
     success: bool = Field(..., description="Whether the operation was successful")
@@ -59,6 +65,43 @@ async def add_cache_entry(request: CacheEntryRequest):
     except Exception as e:
         logging.error(f"Error adding cache entry: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
+
+@router.put("/update/{entry_id}")
+async def update_cache_entry(entry_id: str, request: CacheUpdateRequest):
+    try:
+        success = update_in_cache(entry_id, request.question, request.answer)
+        if success:
+            return {"success": True, "message": "Cache entry updated successfully."}
+        else:
+            raise HTTPException(status_code=500, detail="Failed to update cache entry.")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/import")
+async def import_cache_from_csv(file: UploadFile = File(...)):
+    try:
+        content = await file.read()
+        content = content.decode('utf-8')
+        csv_reader = csv.reader(io.StringIO(content))
+        header = next(csv_reader) # skip header
+        for row in csv_reader:
+            question, answer = row
+            add_to_cache(question, answer, source="csv_import")
+        return {"success": True, "message": "Cache imported successfully."}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.delete("/delete/{entry_id}")
+async def delete_cache_entry(entry_id: str):
+    try:
+        success = delete_from_cache(entry_id)
+        if success:
+            return {"success": True, "message": "Cache entry deleted successfully."}
+        else:
+            raise HTTPException(status_code=500, detail="Failed to delete cache entry.")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 from fastapi import Query
 from utils.cache_utils import get_cache_summary
 from fastapi import APIRouter
