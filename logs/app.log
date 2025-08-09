@@ -599,3 +599,12 @@ INFO:utils.mongo_utils:Saved to temporary cache: 'What are Zendalona products?..
 INFO:utils.mongo_utils:Deleted item 688def18a8c86dd38030cae1 from temporary cache.
 INFO:utils.mongo_utils:Deleted feedback item 684ba2d1d5dbb5d3c495bba1.
 INFO:utils.mongo_utils:Deleted item 688de0f370498c84049b14f8 from temporary cache.
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.mongo_utils:Deleted item 688de03770498c84049b14f5 from temporary cache.
+INFO:utils.mongo_utils:Deleted item 688dee6da8c86dd38030cae0 from temporary cache.
+INFO:utils.mongo_utils:Deleted item 688decfa307f788e50c9c6f1 from temporary cache.
+INFO:utils.cache_utils:Deleted cache entry with ID: c6490af0-35bf-4b93-a7d5-690173b6df4a
+INFO:utils.mongo_utils:Saved to temporary cache: 'How can I contact Zendalona support?...'
+INFO:utils.mongo_utils:Saved feedback with ID: 68971bde741423a667790a8b
+INFO:utils.mongo_utils:Saved to temporary cache: 'what are zendalona products...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'What is Zendalona?...'

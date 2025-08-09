@@ -1,10 +1,11 @@
 from fastapi import APIRouter, HTTPException, Body, UploadFile, File, Depends
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 from typing import List, Optional
 import logging
 import csv
 import io
-from utils.cache_utils import add_to_cache, get_from_cache, update_in_cache, delete_from_cache
+from utils.cache_utils import add_to_cache, get_from_cache, update_in_cache, delete_from_cache, get_cache_summary, get_cache_count
 from utils.models import ChatResponse
 
 router = APIRouter(prefix="/cache", tags=["Cache"])
@@ -103,7 +104,7 @@ async def delete_cache_entry(entry_id: str):
         raise HTTPException(status_code=500, detail=str(e))
 
 from fastapi import Query
-from utils.cache_utils import get_cache_summary
+from utils.cache_utils import get_cache_summary, get_cache_count
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 @router.get("/export")
@@ -116,7 +117,16 @@ async def export_cache_to_csv():
         for entry in questions:
             writer.writerow([entry['question'], entry['answer'], entry.get('source', 'manual')])
         output.seek(0)
-        return StreamingResponse(output, media_type="text/csv", headers={"Content-Disposition": "attachment; filename=cache_export.csv"})
+        
+        # Convert StringIO to BytesIO for proper CSV response
+        output_bytes = io.BytesIO(output.getvalue().encode('utf-8'))
+        output_bytes.seek(0)
+        
+        return StreamingResponse(
+            output_bytes, 
+            media_type="text/csv", 
+            headers={"Content-Disposition": "attachment; filename=cache_export.csv"}
+        )
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 # from utils.cache_utils import clear_cache
