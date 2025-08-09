@@ -24,6 +24,9 @@ async def get_feedback():
                 "feedback": item.get("feedback"),
                 "additional_comments": item.get("additional_comments"),
                 "timestamp": item.get("timestamp"),
+                "user_id": item.get("user_id"),
+                "user_email": item.get("user_email"),
+                "user_name": item.get("user_name"),
                 "_id": item.get("_id")
             })
         return processed_items

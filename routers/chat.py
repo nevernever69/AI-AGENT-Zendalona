@@ -162,6 +162,9 @@ async def submit_feedback(feedback: FeedbackRequest):
     - **feedback**: 'positive' or 'negative'
     - **timestamp**: When the feedback was submitted
     - **additional_comments**: Optional user comments
+    - **user_id**: Optional Firebase user ID
+    - **user_email**: Optional user email
+    - **user_name**: Optional user display name
     """
     try:
         feedback_data = {
@@ -170,7 +173,10 @@ async def submit_feedback(feedback: FeedbackRequest):
             "response": feedback.response,
             "feedback": feedback.feedback,
             "timestamp": feedback.timestamp,
-            "additional_comments": feedback.additional_comments
+            "additional_comments": feedback.additional_comments,
+            "user_id": feedback.user_id,
+            "user_email": feedback.user_email,
+            "user_name": feedback.user_name
         }
         success = await save_feedback(feedback_data)
         if not success:

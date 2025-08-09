@@ -589,3 +589,13 @@ INFO:utils.cache_utils:Added question to cache: 'How can I contact Zendalona sup
 INFO:utils.mongo_utils:Updated and moved item 688dd38493596d72ed9b57e9 to permanent cache.
 INFO:utils.mongo_utils:Saved to temporary cache: 'How can I contact Zendalona support?...'
 INFO:utils.mongo_utils:Saved feedback with ID: 6892f491798553a2c5426616
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.mongo_utils:Deleted item 688de0cf70498c84049b14f6 from temporary cache.
+INFO:utils.mongo_utils:Deleted feedback item 6873169cdb445d8803389872.
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.mongo_utils:Saved to temporary cache: 'What are Zendalona products?...'
+INFO:utils.mongo_utils:Saved feedback with ID: 68971372f23f520fbac81524
+INFO:utils.mongo_utils:Saved to temporary cache: 'What are Zendalona products?...'
+INFO:utils.mongo_utils:Deleted item 688def18a8c86dd38030cae1 from temporary cache.
+INFO:utils.mongo_utils:Deleted feedback item 684ba2d1d5dbb5d3c495bba1.
+INFO:utils.mongo_utils:Deleted item 688de0f370498c84049b14f8 from temporary cache.

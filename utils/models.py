@@ -139,6 +139,9 @@ class FeedbackRequest(BaseModel):
     timestamp: float = Field(default_factory=lambda: datetime.utcnow().timestamp(), 
                            description="Timestamp of the feedback")
     additional_comments: Optional[str] = Field(None, description="Optional user comments")
+    user_id: Optional[str] = Field(None, description="Firebase user ID")
+    user_email: Optional[str] = Field(None, description="User email")
+    user_name: Optional[str] = Field(None, description="User display name")
 
     class Config:
         schema_extra = {
@@ -148,6 +151,9 @@ class FeedbackRequest(BaseModel):
                 "response": "Zendalona products offer accessibility features...",
                 "feedback": "negative",
                 "timestamp": 1697059200.0,
-                "additional_comments": "The response was not detailed enough."
+                "additional_comments": "The response was not detailed enough.",
+                "user_id": "firebase_user_id",
+                "user_email": "user@example.com",
+                "user_name": "John Doe"
             }
         }
