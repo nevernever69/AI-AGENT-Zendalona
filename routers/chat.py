@@ -117,8 +117,13 @@ async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, N
         await save_to_temp_cache(query, final_response, sources)
 
     except Exception as e:
-        logging.error(f"Error in streaming response: {str(e)}")
-        yield {"event": "error", "data": str(e)}
+        error_message = str(e)
+        logging.error(f"Error in streaming response: {error_message}")
+        if "429" in error_message:
+            user_message = "We are currently experiencing high traffic. Please try again in a few moments."
+            yield {"event": "error", "data": user_message}
+        else:
+            yield {"event": "error", "data": error_message}
 
 @router.post(
     "/stream",
