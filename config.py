@@ -10,7 +10,7 @@ class Settings(BaseSettings):
     crawler_depth: int
     crawler_max_pages: int
     document_store_path: str
-    PORT: int = 8000
+    PORT: int = 10000
 
     # New MongoDB settings
     mongodb_uri: str
