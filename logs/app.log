@@ -608,3 +608,163 @@ INFO:utils.mongo_utils:Saved to temporary cache: 'How can I contact Zendalona su
 INFO:utils.mongo_utils:Saved feedback with ID: 68971bde741423a667790a8b
 INFO:utils.mongo_utils:Saved to temporary cache: 'what are zendalona products...'
 INFO:utils.mongo_utils:Saved to temporary cache: 'What is Zendalona?...'
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.mongo_utils:Saved to temporary cache: 'What are Zendalona products?...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'what is zendalona...'
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.mongo_utils:Saved to temporary cache: 'What are Zendalona products?...'
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.mongo_utils:Saved to temporary cache: 'What are Zendalona products?...'
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.mongo_utils:Saved to temporary cache: 'What are Zendalona products?...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'What are Zendalona products?...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'What is Zendalona?...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'What are Zendalona products?...'
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.mongo_utils:Saved to temporary cache: 'What is Zendalona?...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'How can I contact Zendalona support?
+
+...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'How can I contact Zendalona support?...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'What are Zendalona products?...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'Does Zendalona support education for visually impa...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'What are Zendalona products?...'
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.mongo_utils:Saved to temporary cache: 'What are Zendalona products?...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'What is Zendalona?...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'What are Zendalona products?...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'What is Zendalona?...'
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.mongo_utils:Saved to temporary cache: 'What are Zendalona products?...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'What is Zendalona?...'
+WARNING:langchain_google_genai.chat_models:Retrying langchain_google_genai.chat_models._achat_with_retry.<locals>._achat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 51
+}
+].
+ERROR:root:Error in streaming response: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 49
+}
+]
+WARNING:langchain_google_genai.chat_models:Retrying langchain_google_genai.chat_models._achat_with_retry.<locals>._achat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 36
+}
+].
+ERROR:root:Error in streaming response: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 34
+}
+]
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+ERROR:utils.cache_utils:Error querying cache: Error embedding content: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+ERROR:root:Error in streaming response: Error embedding content: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.mongo_utils:Saved to temporary cache: 'How can I contact Zendalona support?...'
+INFO:utils.mongo_utils:Saved to temporary cache: 'What is Zendalona?...'
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+ERROR:root:Error in streaming response: Error embedding content: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.mongo_utils:Saved to temporary cache: 'How can I contact Zendalona support?...' from gemini
+INFO:utils.mongo_utils:Saved to temporary cache: 'How can I contact Zendalona support?...' from gemini
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:utils.mongo_utils:Saved to temporary cache: 'What is Zendalona?...' from gemini
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:root:Streaming cached response for query: What is Zendalona?
+INFO:utils.mongo_utils:Saved to temporary cache: 'What is Zendalona?...' from cache
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:root:Streaming cached response for query: What are Zendalona products?
+INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+INFO:root:Streaming cached response for query: What is Zendalona?
+INFO:utils.mongo_utils:Saved to temporary cache: 'What is Zendalona?...' from cache
+INFO:root:Streaming cached response for query: What does Zendalona do?
+INFO:utils.mongo_utils:Saved to temporary cache: 'What does Zendalona do?...' from cache

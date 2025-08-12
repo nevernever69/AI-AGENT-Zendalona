@@ -39,10 +39,12 @@ async def chat(request: ChatRequest):
         if cached_results:
             top_hit, score = cached_results[0]
             similarity = 1.0 - score
-            if similarity >= 0.9:
+            if similarity >= 0.99:  # Very high threshold to only use exact matches
                 answer = top_hit.metadata.get("answer", "")
                 sources = [f"[CACHED - {top_hit.metadata.get('source', 'unknown')} - similarity: {similarity:.2f}]"]
                 suggestions = await generate_suggestions(request.query, answer)
+                # Save to temporary cache with source information
+                await save_to_temp_cache(request.query, answer, sources, source="cache")
                 return ChatResponse(response=answer, sources=sources, suggestions=suggestions, feedback_enabled=True)
 
         chain = get_rag_chain()
@@ -51,8 +53,8 @@ async def chat(request: ChatRequest):
         
         suggestions = await generate_suggestions(request.query, response)
         
-        # Save to temporary cache
-        await save_to_temp_cache(request.query, response, sources)
+        # Save to temporary cache with source information
+        await save_to_temp_cache(request.query, response, sources, source="gemini")
         
         return ChatResponse(response=response, sources=sources, suggestions=suggestions, feedback_enabled=True)
     except Exception as e:
@@ -65,12 +67,12 @@ async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, N
         # Use the streaming chain for all responses to ensure consistency
         chain, retriever = get_streaming_chain()
         
-        # Check cache first
+        # Check cache first with very high threshold
         cached_results = get_from_cache(query)
         if cached_results:
             top_hit, score = cached_results[0]
             similarity = 1.0 - score
-            if similarity >= 0.9:
+            if similarity >= 0.60:  # Very high threshold to only use exact matches
                 logging.info(f"Streaming cached response for query: {query}")
                 answer = top_hit.metadata.get("answer", "")
                 sources = [f"[CACHED - {top_hit.metadata.get('source', 'unknown')} - similarity: {similarity:.2f}]"]
@@ -86,6 +88,9 @@ async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, N
                 yield {"event": "suggestions", "data": "|".join(suggestions)}
                 yield {"event": "metadata", "data": json.dumps({"feedback_enabled": True})}
                 yield {"event": "done", "data": ""}
+                
+                # Save to temporary cache with source information
+                await save_to_temp_cache(query, answer, sources, source="cache")
                 return
 
         # If not in cache, proceed with the streaming chain
@@ -97,6 +102,7 @@ async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, N
         docs = retriever.get_relevant_documents(query)
         sources = [doc.metadata.get("source", "") for doc in docs if doc.metadata.get("source")]
         context = "\n\n".join([doc.page_content for doc in docs]) if docs else ""
+
         full_response = []
 
         async for chunk in chain.astream({"context": context, "question": query}):
@@ -113,8 +119,8 @@ async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, N
         yield {"event": "metadata", "data": json.dumps({"feedback_enabled": True})}
         yield {"event": "done", "data": ""}
 
-        # Save the complete response to the temporary cache
-        await save_to_temp_cache(query, final_response, sources)
+        # Save the complete response to the temporary cache with source information
+        await save_to_temp_cache(query, final_response, sources, source="gemini")
 
     except Exception as e:
         error_message = str(e)

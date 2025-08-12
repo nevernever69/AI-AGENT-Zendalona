@@ -52,7 +52,7 @@ def get_temp_cache_collection():
         logger.error(f"Error accessing temporary cache collection: {str(e)}")
         raise
 
-async def save_to_temp_cache(question: str, answer: str, sources: list) -> bool:
+async def save_to_temp_cache(question: str, answer: str, sources: list, source: str = "gemini") -> bool:
     """Save a Q&A pair to the temporary cache."""
     try:
         collection = get_temp_cache_collection()
@@ -61,9 +61,10 @@ async def save_to_temp_cache(question: str, answer: str, sources: list) -> bool:
             "question": question,
             "answer": answer,
             "sources": sources,
+            "source": source,  # Add source information
             "createdAt": datetime.now(timezone.utc)
         })
-        logger.info(f"Saved to temporary cache: '{question[:50]}...'" )
+        logger.info(f"Saved to temporary cache: '{question[:50]}...' from {source}")
         return True
     except Exception as e:
         logger.error(f"Error saving to temporary cache: {str(e)}")
