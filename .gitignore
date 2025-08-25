@@ -1,6 +1,3 @@
-debug_csv_import.py
-debug_fastapi_csv_import.py
-routers/debug.py
 
 API_DOCUMENTATION.md
 logs/
