@@ -23,12 +23,14 @@ def get_rag_chain():
     - If asked about Zendalona in general, provide a concise definition
     - If asked about specific products, list those products with descriptions
     - Use simple bullet points with "* " at the start of each item when listing multiple items
-    - Put product names in capital letters when listing them
+    - Put product names in CAPITAL LETTERS when listing them
     - Put a colon and space after product names
     - Each bullet point should be on its own line
     - Do not use markdown formatting like **bold**
     - Write "Zendalona" correctly - never "Z endalona" or similar
     - Keep responses concise and relevant to the question
+    - For simple greetings like "hi", "hello", "hey", etc., respond with a friendly greeting and a brief introduction to Zendalona
+    - If the question is very short and doesn't relate to the context, provide a concise, helpful response
     """
     
     prompt = PromptTemplate.from_template(template)
@@ -57,12 +59,14 @@ def get_streaming_chain():
     - If asked about Zendalona in general, provide a concise definition
     - If asked about specific products, list those products with descriptions
     - Use simple bullet points with "* " at the start of each item when listing multiple items
-    - Put product names in capital letters when listing them
+    - Put product names in CAPITAL LETTERS when listing them
     - Put a colon and space after product names
     - Each bullet point should be on its own line
     - Do not use markdown formatting like **bold**
     - Write "Zendalona" correctly - never "Z endalona" or similar
     - Keep responses concise and relevant to the question
+    - For simple greetings like "hi", "hello", "hey", etc., respond with a friendly greeting and a brief introduction to Zendalona
+    - If the question is very short and doesn't relate to the context, provide a concise, helpful response
     """
     
     prompt = PromptTemplate.from_template(template)

@@ -13,14 +13,47 @@ from io import BytesIO
 
 
 # Import routers
-from routers import chat, indexing, system, cache, temp_cache, feedback
+from routers import chat, indexing, system, cache, temp_cache, feedback, debug
 from utils.langchain_utils import get_rag_chain, process_query, get_streaming_chain
 from utils.chroma_utils import process_pdf, index_documents_to_chroma
 from crawler.crawler import process_and_index_url
 from config import settings
 
 # Setup logging
-logging.basicConfig(filename=settings.log_path, level=logging.INFO)
+from logging.config import dictConfig
+import logging
+
+# Define the logging configuration
+log_config = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "default": {
+            "()": "uvicorn.logging.DefaultFormatter",
+            "fmt": "%(levelprefix)s %(asctime)s - %(message)s",
+        },
+    },
+    "handlers": {
+        "default": {
+            "formatter": "default",
+            "class": "logging.StreamHandler",
+            "stream": "ext://sys.stderr",
+        },
+        "file": {
+            "formatter": "default",
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": settings.log_path,
+            "maxBytes": 1024 * 1024 * 5,  # 5 MB
+            "backupCount": 5,
+        },
+    },
+    "loggers": {
+        "": {"handlers": ["default", "file"], "level": "INFO"},
+    },
+}
+
+# Apply the logging configuration
+dictConfig(log_config)
 
 # Create FastAPI app
 app = FastAPI(
@@ -51,6 +84,7 @@ app.include_router(system.router)
 app.include_router(cache.router)
 app.include_router(temp_cache.router)
 app.include_router(feedback.router)
+app.include_router(debug.router)
 
 # Custom OpenAPI endpoint
 @app.get("/openapi.json", include_in_schema=False)

@@ -82,15 +82,41 @@ async def update_cache_entry(entry_id: str, request: CacheUpdateRequest):
 async def import_cache_from_csv(file: UploadFile = File(...)):
     try:
         content = await file.read()
-        content = content.decode('utf-8')
-        csv_reader = csv.reader(io.StringIO(content))
-        header = next(csv_reader) # skip header
-        for row in csv_reader:
-            question, answer = row
-            add_to_cache(question, answer, source="csv_import")
+        try:
+            # Try decoding with UTF-8 first
+            content_decoded = content.decode('utf-8')
+        except UnicodeDecodeError:
+            # If UTF-8 fails, try latin-1 as a fallback
+            content_decoded = content.decode('latin-1')
+
+        csv_reader = csv.reader(io.StringIO(content_decoded))
+        header = next(csv_reader)  # Skip header
+        logging.info("Starting CSV import...")
+
+        for i, row in enumerate(csv_reader):
+            if not row:  # Skip empty rows
+                logging.warning(f"Skipping empty row at index {i}")
+                continue
+            try:
+                # Assumes 'Sl, No.', 'QUESTION', 'ANSWER' format
+                _, question, answer = row
+                logging.info(f"Processing row {i+1}: Question: {question[:50]}...")
+                success = add_to_cache(question, answer, source="csv_import")
+                if not success:
+                    logging.error(f"Failed to add row {i+1} to cache. Question: {question[:50]}...")
+                else:
+                    logging.info(f"Successfully added row {i+1} to cache.")
+
+            except ValueError:
+                # Log the problematic row and continue
+                logging.warning(f"Skipping malformed row at index {i}: {row}")
+                continue
+        
+        logging.info("CSV import finished.")
         return {"success": True, "message": "Cache imported successfully."}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logging.error(f"Failed to import CSV: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=f"Failed to import CSV: {e}")
 
 @router.delete("/delete/{entry_id}")
 async def delete_cache_entry(entry_id: str):

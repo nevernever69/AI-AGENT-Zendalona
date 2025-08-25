@@ -186,3 +186,14 @@ async def update_and_move_feedback_to_cache(item_id: str, question: str, answer:
     except Exception as e:
         logger.error(f"Error moving feedback item {item_id} to permanent cache: {str(e)}")
         return False
+
+async def clear_temp_cache() -> bool:
+    """Clear all items from the temporary cache collection."""
+    try:
+        collection = get_temp_cache_collection()
+        result = await collection.delete_many({})
+        logger.info(f"Cleared temporary cache. Deleted {result.deleted_count} items.")
+        return True
+    except Exception as e:
+        logger.error(f"Error clearing temporary cache: {str(e)}")
+        return False

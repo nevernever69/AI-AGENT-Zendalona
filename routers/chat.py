@@ -39,7 +39,9 @@ async def chat(request: ChatRequest):
         if cached_results:
             top_hit, score = cached_results[0]
             similarity = 1.0 - score
-            if similarity >= 0.99:  # Very high threshold to only use exact matches
+            # Use a more lenient threshold for short queries (like greetings)
+            threshold = 0.99 if len(request.query) > 10 else 0.85
+            if similarity >= threshold:
                 answer = top_hit.metadata.get("answer", "")
                 sources = [f"[CACHED - {top_hit.metadata.get('source', 'unknown')} - similarity: {similarity:.2f}]"]
                 suggestions = await generate_suggestions(request.query, answer)
@@ -67,12 +69,14 @@ async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, N
         # Use the streaming chain for all responses to ensure consistency
         chain, retriever = get_streaming_chain()
         
-        # Check cache first with very high threshold
+        # Check cache first with dynamic threshold based on query length
         cached_results = get_from_cache(query)
         if cached_results:
             top_hit, score = cached_results[0]
             similarity = 1.0 - score
-            if similarity >= 0.60:  # Very high threshold to only use exact matches
+            # Use a more lenient threshold for short queries (like greetings)
+            threshold = 0.60 if len(query) > 10 else 0.50
+            if similarity >= threshold:
                 logging.info(f"Streaming cached response for query: {query}")
                 answer = top_hit.metadata.get("answer", "")
                 sources = [f"[CACHED - {top_hit.metadata.get('source', 'unknown')} - similarity: {similarity:.2f}]"]

@@ -50,13 +50,18 @@ def add_to_cache(question: str, answer: str, source: str = "manual") -> bool:
     try:
         db = get_chroma_db(collection_name=CACHE_COLLECTION_NAME)
         
+        # Check if this is a common greeting
+        common_greetings = {"hi", "hello", "hey", "good morning", "good afternoon", "good evening"}
+        is_greeting = question.lower().strip() in common_greetings
+        
         # Create a document for the Q&A pair
         doc = Document(
             page_content=question,
             metadata={
                 "answer": answer,
                 "source": source,
-                "cached": True
+                "cached": True,
+                "is_greeting": is_greeting  # Add metadata for greetings
             }
         )
         
@@ -80,6 +85,24 @@ def get_from_cache(question: str, k: int = 5) -> List[Tuple[Document, float]]:
         A list of tuples, where each tuple contains a Document and its similarity score.
     """
     try:
+        # First, try exact match for common greetings
+        common_greetings = {"hi", "hello", "hey", "good morning", "good afternoon", "good evening"}
+        normalized_question = question.lower().strip()
+        if normalized_question in common_greetings:
+            db = get_chroma_db(collection_name=CACHE_COLLECTION_NAME)
+            # Get all documents and check for exact match
+            all_docs = db.get(include=["documents", "metadatas"])
+            for i, doc_content in enumerate(all_docs["documents"]):
+                if doc_content.lower().strip() == normalized_question:
+                    # Create a Document object for the exact match
+                    doc = Document(
+                        page_content=doc_content,
+                        metadata=all_docs["metadatas"][i]
+                    )
+                    # Return with a very high similarity score (low distance)
+                    return [(doc, 0.01)]
+        
+        # If no exact match for greetings, use similarity search
         db = get_chroma_db(collection_name=CACHE_COLLECTION_NAME)
         results = db.similarity_search_with_score(question, k=k)
         return results

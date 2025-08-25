@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
-from utils.mongo_utils import get_all_temp_cache, move_to_permanent_cache, update_and_move_to_permanent_cache, delete_from_temp_cache, update_in_temp_cache
+from utils.mongo_utils import get_all_temp_cache, move_to_permanent_cache, update_and_move_to_permanent_cache, delete_from_temp_cache, update_in_temp_cache, clear_temp_cache
 
 router = APIRouter(prefix="/temp-cache", tags=["Temporary Cache"])
 
@@ -17,6 +17,18 @@ async def get_temp_cache():
         for item in items:
             item['_id'] = str(item['_id'])
         return items
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.delete("/clear", summary="Clear all temporary cache items")
+async def clear_temp_cache_endpoint():
+    """Clear all question-answer pairs from the temporary cache."""
+    try:
+        success = await clear_temp_cache()
+        if success:
+            return {"message": "Temporary cache cleared successfully."}
+        else:
+            raise HTTPException(status_code=500, detail="Failed to clear temporary cache.")
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
