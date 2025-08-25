@@ -1,10 +1,14 @@
 import logging
+import os
 from langchain_chroma import Chroma
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain.schema import Document
 from config import settings
 from PyPDF2 import PdfReader
 from io import BytesIO
+
+# Disable ChromaDB telemetry
+os.environ["ANONYMIZED_TELEMETRY"] = "False"
 
 # Setup logging
 logging.basicConfig(filename=settings.log_path, level=logging.INFO)

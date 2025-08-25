@@ -10,6 +10,10 @@ import asyncio
 import uuid
 import time
 from io import BytesIO
+import os
+
+# Disable ChromaDB telemetry to avoid errors
+os.environ["ANONYMIZED_TELEMETRY"] = "False"
 
 
 # Import routers
