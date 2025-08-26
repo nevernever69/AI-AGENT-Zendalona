@@ -8,6 +8,7 @@ from utils.models import ChatRequest, ChatResponse, StreamingChatRequest, Feedba
 from utils.langchain_utils import get_rag_chain, process_query, get_streaming_chain, generate_suggestions
 from utils.cache_utils import get_from_cache, cache_chatbot_response
 from utils.mongo_utils import save_feedback, save_to_temp_cache
+from config import settings
 import asyncio
 import uuid
 import time
@@ -48,6 +49,16 @@ async def chat(request: ChatRequest):
                 # Save to temporary cache with source information
                 await save_to_temp_cache(request.query, answer, sources, source="cache")
                 return ChatResponse(response=answer, sources=sources, suggestions=suggestions, feedback_enabled=True)
+
+        # Check if Gemini calls are disabled
+        if settings.disable_gemini_call:
+            # Return formal message when no cache match and Gemini is disabled
+            answer = "We don't have much information about that please ask chatgpt regarding this"
+            sources = ["[NO_MATCH_IN_CACHE]"]
+            suggestions = []
+            # Save to temporary cache with source information
+            await save_to_temp_cache(request.query, answer, sources, source="no_match")
+            return ChatResponse(response=answer, sources=sources, suggestions=suggestions, feedback_enabled=False)
 
         chain = get_rag_chain()
         response, sources = process_query(chain, request.query)
@@ -97,7 +108,28 @@ async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, N
                 await save_to_temp_cache(query, answer, sources, source="cache")
                 return
 
-        # If not in cache, proceed with the streaming chain
+        # Check if Gemini calls are disabled
+        if settings.disable_gemini_call:
+            # Return formal message when no cache match and Gemini is disabled
+            answer = "We don't have much information about that please ask chatgpt regarding this"
+            sources = ["[NO_MATCH_IN_CACHE]"]
+            
+            # Stream the formal message word by word
+            words = answer.split()
+            for word in words:
+                yield {"event": "message", "data": f"{word} "}
+                await asyncio.sleep(0.05)
+            
+            yield {"event": "sources", "data": ",".join(sources)}
+            yield {"event": "suggestions", "data": ""}
+            yield {"event": "metadata", "data": json.dumps({"feedback_enabled": False})}
+            yield {"event": "done", "data": ""}
+            
+            # Save to temporary cache with source information
+            await save_to_temp_cache(query, answer, sources, source="no_match")
+            return
+
+        # If not in cache and Gemini is enabled, proceed with the streaming chain
         if session_id not in active_sessions:
             active_sessions[session_id] = {"created_at": time.time(), "queries": []}
         active_sessions[session_id]["queries"].append(query)

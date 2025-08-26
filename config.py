@@ -17,6 +17,9 @@ class Settings(BaseSettings):
     mongodb_database: str = "zendalona"
     mongodb_feedback_collection: str = "feedback"
 
+    # Disable Gemini calls
+    disable_gemini_call: bool = False
+
     class Config:
         extra = Extra.allow
         env_file = ".env"
