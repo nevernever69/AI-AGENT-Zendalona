@@ -1,0 +1,31 @@
+/home/never/miniconda3/envs/poeworld1/lib/python3.10/site-packages/pydantic/_internal/_config.py:341: UserWarning: Valid config keys have changed in V2:
+* 'schema_extra' has been renamed to 'json_schema_extra'
+  warnings.warn(message, UserWarning)
+/home/never/miniconda3/envs/poeworld1/lib/python3.10/site-packages/pydantic/_internal/_config.py:341: UserWarning: Valid config keys have changed in V2:
+* 'schema_extra' has been renamed to 'json_schema_extra'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [40097]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:35010 - "POST /chat/stream HTTP/1.1" 200 OK
+INFO:     2025-08-26 12:20:13,126 - Checking cache for streaming query: What is Zendalona?
+INFO:     2025-08-26 12:20:18,952 - Cache results: 5 items
+INFO:     2025-08-26 12:20:18,952 - Top hit: What is Zendalona?..., score: 0.28064689822966704
+INFO:     2025-08-26 12:20:18,952 - Similarity: 0.719353101770333, threshold: 0.65
+INFO:     2025-08-26 12:20:18,952 - Streaming cached response for query: What is Zendalona?
+INFO:     2025-08-26 12:20:19,979 - Saved to temporary cache: 'What is Zendalona?...' from cache
+INFO:     2025-08-26 12:20:19,979 - Finished streaming cached response
+INFO:     127.0.0.1:37022 - "POST /chat/stream HTTP/1.1" 200 OK
+INFO:     2025-08-26 12:20:23,922 - Checking cache for streaming query: What is the meaning of life?
+INFO:     2025-08-26 12:20:24,461 - Cache results: 5 items
+INFO:     2025-08-26 12:20:24,461 - Top hit: What is the ABK group about?..., score: 0.8189287570302515
+INFO:     2025-08-26 12:20:24,461 - Similarity: 0.18107124296974852, threshold: 0.65
+INFO:     2025-08-26 12:20:24,461 - Cache match found but similarity below threshold
+INFO:     2025-08-26 12:20:24,461 - Gemini calls disabled, returning formal message
+INFO:     2025-08-26 12:20:25,093 - Saved to temporary cache: 'What is the meaning of life?...' from no_match
+INFO:     2025-08-26 12:20:25,093 - Finished streaming formal message
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [40097]

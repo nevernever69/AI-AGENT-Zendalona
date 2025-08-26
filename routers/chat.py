@@ -35,31 +35,48 @@ async def chat(request: ChatRequest):
     - **session_id**: Optional unique identifier for the chat session
     """
     try:
+        logging.info(f"Checking cache for query: {request.query}")
         cached_results = get_from_cache(request.query)
+        logging.info(f"Cache results: {len(cached_results) if cached_results else 0} items")
         
         if cached_results:
             top_hit, score = cached_results[0]
+            logging.info(f"Top hit: {top_hit.page_content[:50]}..., score: {score}")
             similarity = 1.0 - score
             # Use a more lenient threshold for short queries (like greetings)
-            threshold = 0.99 if len(request.query) > 10 else 0.85
+            # For longer queries, use a more reasonable threshold
+            threshold = 0.65 if len(request.query) > 10 else 0.50
+            logging.info(f"Similarity: {similarity}, threshold: {threshold}")
             if similarity >= threshold:
-                answer = top_hit.metadata.get("answer", "")
-                sources = [f"[CACHED - {top_hit.metadata.get('source', 'unknown')} - similarity: {similarity:.2f}]"]
-                suggestions = await generate_suggestions(request.query, answer)
-                # Save to temporary cache with source information
-                await save_to_temp_cache(request.query, answer, sources, source="cache")
-                return ChatResponse(response=answer, sources=sources, suggestions=suggestions, feedback_enabled=True)
+                try:
+                    logging.info("Cache match found, returning cached response")
+                    answer = top_hit.metadata.get("answer", "")
+                    sources = [f"[CACHED - {top_hit.metadata.get('source', 'unknown')} - similarity: {similarity:.2f}]"]
+                    suggestions = await generate_suggestions(request.query, answer)
+                    # Save to temporary cache with source information
+                    await save_to_temp_cache(request.query, answer, sources, source="cache")
+                    logging.info("Returning cached response")
+                    return ChatResponse(response=answer, sources=sources, suggestions=suggestions, feedback_enabled=True)
+                except Exception as e:
+                    logging.error(f"Error processing cached response: {str(e)}")
+                    # Even if there's an error with suggestions or saving to cache, 
+                    # we should still return the cached answer
+                    answer = top_hit.metadata.get("answer", "")
+                    sources = [f"[CACHED - {top_hit.metadata.get('source', 'unknown')} - similarity: {similarity:.2f}]"]
+                    logging.info("Returning cached response despite error")
+                    return ChatResponse(response=answer, sources=sources, suggestions=[], feedback_enabled=True)
 
         # Check if Gemini calls are disabled
         if settings.disable_gemini_call:
+            logging.info("Gemini calls disabled, returning formal message")
             # Return formal message when no cache match and Gemini is disabled
             answer = "We don't have much information about that please ask chatgpt regarding this"
             sources = ["[NO_MATCH_IN_CACHE]"]
-            suggestions = []
             # Save to temporary cache with source information
             await save_to_temp_cache(request.query, answer, sources, source="no_match")
-            return ChatResponse(response=answer, sources=sources, suggestions=suggestions, feedback_enabled=False)
+            return ChatResponse(response=answer, sources=sources, suggestions=[], feedback_enabled=False)
 
+        logging.info("Calling Gemini API")
         chain = get_rag_chain()
         response, sources = process_query(chain, request.query)
         logging.info(f"Processed query with Gemini: {request.query}")
@@ -77,16 +94,18 @@ async def chat(request: ChatRequest):
 async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, None]:
     """Generate a streaming response for the chat query."""
     try:
-        # Use the streaming chain for all responses to ensure consistency
-        chain, retriever = get_streaming_chain()
-        
         # Check cache first with dynamic threshold based on query length
+        logging.info(f"Checking cache for streaming query: {query}")
         cached_results = get_from_cache(query)
+        logging.info(f"Cache results: {len(cached_results) if cached_results else 0} items")
         if cached_results:
             top_hit, score = cached_results[0]
+            logging.info(f"Top hit: {top_hit.page_content[:50]}..., score: {score}")
             similarity = 1.0 - score
             # Use a more lenient threshold for short queries (like greetings)
-            threshold = 0.60 if len(query) > 10 else 0.50
+            # For longer queries, use a more reasonable threshold
+            threshold = 0.65 if len(query) > 10 else 0.50
+            logging.info(f"Similarity: {similarity}, threshold: {threshold}")
             if similarity >= threshold:
                 logging.info(f"Streaming cached response for query: {query}")
                 answer = top_hit.metadata.get("answer", "")
@@ -106,10 +125,14 @@ async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, N
                 
                 # Save to temporary cache with source information
                 await save_to_temp_cache(query, answer, sources, source="cache")
+                logging.info("Finished streaming cached response")
                 return
+            else:
+                logging.info("Cache match found but similarity below threshold")
 
         # Check if Gemini calls are disabled
         if settings.disable_gemini_call:
+            logging.info("Gemini calls disabled, returning formal message")
             # Return formal message when no cache match and Gemini is disabled
             answer = "We don't have much information about that please ask chatgpt regarding this"
             sources = ["[NO_MATCH_IN_CACHE]"]
@@ -127,7 +150,12 @@ async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, N
             
             # Save to temporary cache with source information
             await save_to_temp_cache(query, answer, sources, source="no_match")
+            logging.info("Finished streaming formal message")
             return
+
+        logging.info("Calling Gemini API for streaming response")
+        # Use the streaming chain for all responses to ensure consistency
+        chain, retriever = get_streaming_chain()
 
         # If not in cache and Gemini is enabled, proceed with the streaming chain
         if session_id not in active_sessions:
@@ -157,6 +185,7 @@ async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, N
 
         # Save the complete response to the temporary cache with source information
         await save_to_temp_cache(query, final_response, sources, source="gemini")
+        logging.info("Finished streaming Gemini response")
 
     except Exception as e:
         error_message = str(e)

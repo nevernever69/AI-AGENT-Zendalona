@@ -84,6 +84,11 @@ def process_query(chain, query):
     return response, []
 
 async def generate_suggestions(query: str, answer: str):
+    # Check if Gemini calls are disabled
+    from config import settings
+    if settings.disable_gemini_call:
+        return []
+    
     llm = get_llm()
     prompt = f"""
     Given the following question and answer, generate 3 relevant follow-up questions.

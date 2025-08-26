@@ -2595,3 +2595,529 @@ INFO:     2025-08-26 11:36:38,203 - Saved to temporary cache: 'What does Zendalo
 ...' from no_match
 [32mINFO[0m:     2025-08-26 11:38:58,888 - Added question to cache: 'What is Zendalona?...' (source: from_temp_cache)
 [32mINFO[0m:     2025-08-26 11:38:58,912 - Moved item 68abf94b5a4c51723fc1b8fe to permanent cache.
+INFO:     2025-08-26 12:03:45,230 - Saved to temporary cache: 'What is the meaning of life?...' from no_match
+INFO:     2025-08-26 12:03:49,952 - Saved to temporary cache: 'What is the meaning of life?...' from no_match
+INFO:     2025-08-26 12:04:27,989 - Saved to temporary cache: 'Where does PayPal work for ABK purchases?...' from no_match
+INFO:     2025-08-26 12:04:37,351 - Streaming cached response for query: Where does PayPal work for ABK purchases?
+WARNING:  2025-08-26 12:04:37,754 - Retrying langchain_google_genai.chat_models._achat_with_retry.<locals>._achat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 22
+}
+].
+ERROR:    2025-08-26 12:04:40,110 - Error in streaming response: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 20
+}
+]
+INFO:     2025-08-26 12:06:20,909 - Saved to temporary cache: 'Where does PayPal work for ABK purchases?...' from no_match
+INFO:     2025-08-26 12:06:25,130 - Saved to temporary cache: 'Where does PayPal work for ABK purchases?...' from no_match
+[32mINFO[0m:     2025-08-26 12:07:15,732 - Saved to temporary cache: 'What is Zendalona?...' from no_match
+[32mINFO[0m:     2025-08-26 12:07:19,449 - Saved to temporary cache: 'hi...' from no_match
+[32mINFO[0m:     2025-08-26 12:07:22,157 - Saved to temporary cache: 'hi...' from no_match
+[32mINFO[0m:     2025-08-26 12:07:24,426 - Saved to temporary cache: 'hi...' from no_match
+[32mINFO[0m:     2025-08-26 12:09:53,918 - Saved to temporary cache: 'What is Zendalona?...' from no_match
+[32mINFO[0m:     2025-08-26 12:10:26,981 - Streaming cached response for query: What is Zendalona?
+[33mWARNING[0m:  2025-08-26 12:10:27,457 - Retrying langchain_google_genai.chat_models._achat_with_retry.<locals>._achat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 32
+}
+].
+[31mERROR[0m:    2025-08-26 12:10:29,812 - Error in streaming response: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 30
+}
+]
+[32mINFO[0m:     2025-08-26 12:12:41,175 - Saved to temporary cache: 'What is Zendalona?...' from no_match
+INFO:     2025-08-26 12:13:11,575 - Saved to temporary cache: 'What is Zendalona?...' from no_match
+ERROR:    2025-08-26 12:13:33,728 - Error checking cache: too many values to unpack (expected 3)
+INFO:     2025-08-26 12:14:46,567 - Checking cache for query: What is Zendalona?
+INFO:     2025-08-26 12:14:47,377 - Cache results: 5 items
+INFO:     2025-08-26 12:14:47,378 - Top hit: What is Zendalona?..., score: 0.28064689822966704
+INFO:     2025-08-26 12:14:47,378 - Similarity: 0.719353101770333, threshold: 0.99
+INFO:     2025-08-26 12:14:47,710 - Saved to temporary cache: 'What is Zendalona?...' from no_match
+INFO:     2025-08-26 12:16:15,044 - Checking cache for query: What is Zendalona?
+INFO:     2025-08-26 12:16:15,846 - Cache results: 5 items
+INFO:     2025-08-26 12:16:15,846 - Top hit: What is Zendalona?..., score: 0.28064689822966704
+INFO:     2025-08-26 12:16:15,846 - Similarity: 0.719353101770333, threshold: 0.65
+WARNING:  2025-08-26 12:16:16,236 - Retrying langchain_google_genai.chat_models._achat_with_retry.<locals>._achat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 43
+}
+].
+ERROR:    2025-08-26 12:16:18,593 - Error processing chat query: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 41
+}
+]
+INFO:     2025-08-26 12:18:33,499 - Checking cache for query: What is Zendalona?
+INFO:     2025-08-26 12:18:34,397 - Cache results: 5 items
+INFO:     2025-08-26 12:18:34,397 - Top hit: What is Zendalona?..., score: 0.28064689822966704
+INFO:     2025-08-26 12:18:34,397 - Similarity: 0.719353101770333, threshold: 0.65
+INFO:     2025-08-26 12:18:34,397 - Cache match found, returning cached response
+WARNING:  2025-08-26 12:18:34,786 - Retrying langchain_google_genai.chat_models._achat_with_retry.<locals>._achat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 25
+}
+].
+ERROR:    2025-08-26 12:18:37,141 - Error processing chat query: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 23
+}
+]
+INFO:     2025-08-26 12:19:27,057 - Checking cache for query: What is Zendalona?
+INFO:     2025-08-26 12:19:27,853 - Cache results: 5 items
+INFO:     2025-08-26 12:19:27,853 - Top hit: What is Zendalona?..., score: 0.28064689822966704
+INFO:     2025-08-26 12:19:27,853 - Similarity: 0.719353101770333, threshold: 0.65
+INFO:     2025-08-26 12:19:27,853 - Cache match found, returning cached response
+WARNING:  2025-08-26 12:19:28,239 - Retrying langchain_google_genai.chat_models._achat_with_retry.<locals>._achat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 31
+}
+].
+ERROR:    2025-08-26 12:19:30,594 - Error processing cached response: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 29
+}
+]
+INFO:     2025-08-26 12:19:30,594 - Returning cached response despite error
+INFO:     2025-08-26 12:19:34,491 - Checking cache for query: What is the meaning of life?
+INFO:     2025-08-26 12:19:35,022 - Cache results: 5 items
+INFO:     2025-08-26 12:19:35,022 - Top hit: What is the ABK group about?..., score: 0.8189287570302515
+INFO:     2025-08-26 12:19:35,023 - Similarity: 0.18107124296974852, threshold: 0.65
+INFO:     2025-08-26 12:19:35,023 - Gemini calls disabled, returning formal message
+INFO:     2025-08-26 12:19:35,348 - Saved to temporary cache: 'What is the meaning of life?...' from no_match
+INFO:     2025-08-26 12:19:39,016 - Checking cache for streaming query: What is Zendalona?
+INFO:     2025-08-26 12:19:39,611 - Cache results: 5 items
+INFO:     2025-08-26 12:19:39,611 - Top hit: What is Zendalona?..., score: 0.28064689822966704
+INFO:     2025-08-26 12:19:39,611 - Similarity: 0.719353101770333, threshold: 0.65
+INFO:     2025-08-26 12:19:39,611 - Streaming cached response for query: What is Zendalona?
+WARNING:  2025-08-26 12:19:40,016 - Retrying langchain_google_genai.chat_models._achat_with_retry.<locals>._achat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 20
+}
+].
+ERROR:    2025-08-26 12:19:42,371 - Error in streaming response: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 17
+}
+]
+INFO:     2025-08-26 12:20:13,126 - Checking cache for streaming query: What is Zendalona?
+INFO:     2025-08-26 12:20:18,952 - Cache results: 5 items
+INFO:     2025-08-26 12:20:18,952 - Top hit: What is Zendalona?..., score: 0.28064689822966704
+INFO:     2025-08-26 12:20:18,952 - Similarity: 0.719353101770333, threshold: 0.65
+INFO:     2025-08-26 12:20:18,952 - Streaming cached response for query: What is Zendalona?
+INFO:     2025-08-26 12:20:19,979 - Saved to temporary cache: 'What is Zendalona?...' from cache
+INFO:     2025-08-26 12:20:19,979 - Finished streaming cached response
+INFO:     2025-08-26 12:20:23,922 - Checking cache for streaming query: What is the meaning of life?
+INFO:     2025-08-26 12:20:24,461 - Cache results: 5 items
+INFO:     2025-08-26 12:20:24,461 - Top hit: What is the ABK group about?..., score: 0.8189287570302515
+INFO:     2025-08-26 12:20:24,461 - Similarity: 0.18107124296974852, threshold: 0.65
+INFO:     2025-08-26 12:20:24,461 - Cache match found but similarity below threshold
+INFO:     2025-08-26 12:20:24,461 - Gemini calls disabled, returning formal message
+INFO:     2025-08-26 12:20:25,093 - Saved to temporary cache: 'What is the meaning of life?...' from no_match
+INFO:     2025-08-26 12:20:25,093 - Finished streaming formal message
+[32mINFO[0m:     2025-08-26 12:20:50,410 - Checking cache for streaming query: hi
+[32mINFO[0m:     2025-08-26 12:20:50,625 - Cache results: 1 items
+[32mINFO[0m:     2025-08-26 12:20:50,625 - Top hit: hi..., score: 0.01
+[32mINFO[0m:     2025-08-26 12:20:50,625 - Similarity: 0.99, threshold: 0.5
+[32mINFO[0m:     2025-08-26 12:20:50,625 - Streaming cached response for query: hi
+[32mINFO[0m:     2025-08-26 12:20:51,760 - Saved to temporary cache: 'hi...' from cache
+[32mINFO[0m:     2025-08-26 12:20:51,760 - Finished streaming cached response
+[32mINFO[0m:     2025-08-26 12:20:54,460 - Checking cache for streaming query: what i sjava
+[32mINFO[0m:     2025-08-26 12:20:55,100 - Cache results: 5 items
+[32mINFO[0m:     2025-08-26 12:20:55,101 - Top hit: Why not continue using SBK instead of ABK?..., score: 0.8519830107688904
+[32mINFO[0m:     2025-08-26 12:20:55,101 - Similarity: 0.14801698923110962, threshold: 0.65
+[32mINFO[0m:     2025-08-26 12:20:55,101 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-26 12:20:55,101 - Gemini calls disabled, returning formal message
+[32mINFO[0m:     2025-08-26 12:20:55,728 - Saved to temporary cache: 'what i sjava...' from no_match
+[32mINFO[0m:     2025-08-26 12:20:55,729 - Finished streaming formal message
+[32mINFO[0m:     2025-08-26 12:21:19,138 - Checking cache for streaming query: Does ABK function at all?
+
+
+[32mINFO[0m:     2025-08-26 12:21:25,800 - Cache results: 5 items
+[32mINFO[0m:     2025-08-26 12:21:25,800 - Top hit: Does ABK function at all?..., score: 0.3521410822868347
+[32mINFO[0m:     2025-08-26 12:21:25,800 - Similarity: 0.6478589177131653, threshold: 0.65
+[32mINFO[0m:     2025-08-26 12:21:25,800 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-26 12:21:25,801 - Gemini calls disabled, returning formal message
+[32mINFO[0m:     2025-08-26 12:21:26,429 - Saved to temporary cache: 'Does ABK function at all?
+
+...' from no_match
+[32mINFO[0m:     2025-08-26 12:21:26,429 - Finished streaming formal message
+[32mINFO[0m:     2025-08-26 12:21:41,292 - Checking cache for streaming query: Is the reported ABK issue unique to one user?
+
+
+[32mINFO[0m:     2025-08-26 12:21:41,878 - Cache results: 5 items
+[32mINFO[0m:     2025-08-26 12:21:41,878 - Top hit: Is the reported ABK issue unique to one user?..., score: 0.34866684675216675
+[32mINFO[0m:     2025-08-26 12:21:41,879 - Similarity: 0.6513331532478333, threshold: 0.65
+[32mINFO[0m:     2025-08-26 12:21:41,879 - Streaming cached response for query: Is the reported ABK issue unique to one user?
+
+
+[32mINFO[0m:     2025-08-26 12:21:45,475 - Saved to temporary cache: 'Is the reported ABK issue unique to one user?
+
+...' from cache
+[32mINFO[0m:     2025-08-26 12:21:45,475 - Finished streaming cached response
+[32mINFO[0m:     2025-08-26 12:21:47,499 - Checking cache for streaming query: Does ABK function at all?
+
+
+[32mINFO[0m:     2025-08-26 12:21:48,122 - Cache results: 5 items
+[32mINFO[0m:     2025-08-26 12:21:48,123 - Top hit: Does ABK function at all?..., score: 0.3521410822868347
+[32mINFO[0m:     2025-08-26 12:21:48,123 - Similarity: 0.6478589177131653, threshold: 0.65
+[32mINFO[0m:     2025-08-26 12:21:48,123 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-26 12:21:48,123 - Gemini calls disabled, returning formal message
+[32mINFO[0m:     2025-08-26 12:21:48,760 - Saved to temporary cache: 'Does ABK function at all?
+
+...' from no_match
+[32mINFO[0m:     2025-08-26 12:21:48,760 - Finished streaming formal message
+[32mINFO[0m:     2025-08-26 12:22:01,092 - Checking cache for streaming query: How can emojis be added in ABK?
+
+
+[32mINFO[0m:     2025-08-26 12:22:01,641 - Cache results: 5 items
+[32mINFO[0m:     2025-08-26 12:22:01,642 - Top hit: How can emojis be added in ABK?..., score: 0.23671121895313263
+[32mINFO[0m:     2025-08-26 12:22:01,642 - Similarity: 0.7632887810468674, threshold: 0.65
+[32mINFO[0m:     2025-08-26 12:22:01,642 - Streaming cached response for query: How can emojis be added in ABK?
+
+
+[32mINFO[0m:     2025-08-26 12:22:06,390 - Saved to temporary cache: 'How can emojis be added in ABK?
+
+...' from cache
+[32mINFO[0m:     2025-08-26 12:22:06,391 - Finished streaming cached response
+[32mINFO[0m:     2025-08-26 12:22:28,059 - Checking cache for streaming query: hi
+[32mINFO[0m:     2025-08-26 12:22:28,269 - Cache results: 1 items
+[32mINFO[0m:     2025-08-26 12:22:28,269 - Top hit: hi..., score: 0.01
+[32mINFO[0m:     2025-08-26 12:22:28,269 - Similarity: 0.99, threshold: 0.5
+[32mINFO[0m:     2025-08-26 12:22:28,269 - Streaming cached response for query: hi
+[33mWARNING[0m:  2025-08-26 12:22:28,671 - Retrying langchain_google_genai.chat_models._achat_with_retry.<locals>._achat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 31
+}
+].
+[31mERROR[0m:    2025-08-26 12:22:31,128 - Error in streaming response: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 29
+}
+]
+[32mINFO[0m:     2025-08-26 12:23:05,231 - Checking cache for streaming query: How can emojis be added in ABK?
+
+
+[32mINFO[0m:     2025-08-26 12:23:05,863 - Cache results: 5 items
+[32mINFO[0m:     2025-08-26 12:23:05,863 - Top hit: How can emojis be added in ABK?..., score: 0.23671121895313263
+[32mINFO[0m:     2025-08-26 12:23:05,864 - Similarity: 0.7632887810468674, threshold: 0.65
+[32mINFO[0m:     2025-08-26 12:23:05,864 - Streaming cached response for query: How can emojis be added in ABK?
+
+
+[33mWARNING[0m:  2025-08-26 12:23:06,252 - Retrying langchain_google_genai.chat_models._achat_with_retry.<locals>._achat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 53
+}
+].
+[31mERROR[0m:    2025-08-26 12:23:08,608 - Error in streaming response: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 51
+}
+]
+[32mINFO[0m:     2025-08-26 12:23:19,924 - Checking cache for streaming query: Does ABK function at all?
+
+
+[32mINFO[0m:     2025-08-26 12:23:20,489 - Cache results: 5 items
+[32mINFO[0m:     2025-08-26 12:23:20,490 - Top hit: Does ABK function at all?..., score: 0.3521410822868347
+[32mINFO[0m:     2025-08-26 12:23:20,490 - Similarity: 0.6478589177131653, threshold: 0.65
+[32mINFO[0m:     2025-08-26 12:23:20,490 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-26 12:23:20,490 - Calling Gemini API for streaming response
+[33mWARNING[0m:  2025-08-26 12:23:21,579 - Retrying langchain_google_genai.chat_models._achat_with_retry.<locals>._achat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 38
+}
+].
+[31mERROR[0m:    2025-08-26 12:23:24,072 - Error in streaming response: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 36
+}
+]
