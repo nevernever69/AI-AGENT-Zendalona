@@ -2562,3 +2562,8 @@ INFO:chromadb.telemetry.product.posthog:Anonymized telemetry enabled. See       
 [32mINFO[0m:     2025-08-25 10:36:22,664 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
 [32mINFO[0m:     2025-08-25 10:36:22,769 - Streaming cached response for query: hi
 [32mINFO[0m:     2025-08-25 10:36:24,824 - Saved to temporary cache: 'hi...' from cache
+[31mERROR[0m:    2025-08-26 10:11:35,025 - WebSocket error: Expecting value: line 1 column 1 (char 0)
+[31mERROR[0m:    2025-08-26 10:12:11,061 - WebSocket error: Expecting value: line 1 column 1 (char 0)
+[32mINFO[0m:     2025-08-26 10:12:18,322 - Streaming cached response for query: hi
+[32mINFO[0m:     2025-08-26 10:12:20,520 - Saved to temporary cache: 'hi...' from cache
+[31mERROR[0m:    2025-08-26 10:13:01,708 - WebSocket error: (1012, None)

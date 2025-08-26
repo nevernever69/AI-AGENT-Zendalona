@@ -1,6 +1,6 @@
 import json
 import logging
-from fastapi import APIRouter, HTTPException, Depends, Body
+from fastapi import APIRouter, HTTPException, Depends, Body, WebSocket
 from fastapi.responses import JSONResponse
 from sse_starlette.sse import EventSourceResponse
 from typing import Dict, Any, AsyncGenerator, Optional, List
@@ -229,3 +229,38 @@ async def list_sessions():
             for session_id, data in active_sessions.items()
         ]
     }
+
+@router.websocket("/ws/{session_id}")
+async def websocket_endpoint(websocket: WebSocket, session_id: str):
+    """
+    WebSocket endpoint for streaming chat responses specifically for React Native apps.
+    
+    - **session_id**: Unique identifier for the chat session
+    """
+    await websocket.accept()
+    
+    try:
+        while True:
+            # Receive message from React Native app
+            data = await websocket.receive_text()
+            
+            # Try to parse as JSON first
+            try:
+                json_data = json.loads(data)
+                query = json_data.get("query")
+            except json.JSONDecodeError:
+                # If not JSON, treat the entire message as the query
+                query = data
+            
+            if not query:
+                await websocket.send_json({"event": "error", "data": "No query provided"})
+                continue
+                
+            # Process the query using the existing streaming logic
+            async for event in stream_response(query, session_id):
+                # Send each event over WebSocket
+                await websocket.send_json(event)
+                
+    except Exception as e:
+        logging.error(f"WebSocket error: {str(e)}")
+        await websocket.close()

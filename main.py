@@ -66,6 +66,11 @@ app = FastAPI(
     REST API for an accessible chatbot using LangChain, Gemini, and ChromaDB.
     This API provides endpoints for chatting with the bot, streaming responses,
     indexing content from websites, and uploading PDFs for knowledge base enrichment.
+    
+    ## WebSocket Support
+    For React Native applications, a WebSocket endpoint is available at `/chat/ws/{session_id}` 
+    for streaming responses. This endpoint provides the same functionality as the SSE `/chat/stream` 
+    endpoint but uses WebSocket protocol which works better with React Native.
     """,
     version="0.3.0",
     docs_url=None,
