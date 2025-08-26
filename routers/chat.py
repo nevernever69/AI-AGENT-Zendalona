@@ -104,7 +104,7 @@ async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, N
             similarity = 1.0 - score
             # Use a more lenient threshold for short queries (like greetings)
             # For longer queries, use a more reasonable threshold
-            threshold = 0.65 if len(query) > 10 else 0.50
+            threshold = 0.45 if len(query) > 10 else 0.30
             logging.info(f"Similarity: {similarity}, threshold: {threshold}")
             if similarity >= threshold:
                 logging.info(f"Streaming cached response for query: {query}")
