@@ -22,20 +22,21 @@ Answer the question based only on the following context:
 Question: {question}
 
 Instructions:
-- If the question is a simple greeting (like "hi", "hello", "hey") with no other content, respond ONLY with: "Hello! How can I help you with Zendalona today?"
-- If the question is asking for specific information, answer ONLY that information directly without any greeting
+- Answer the question directly using information from the context
 - If asked about Zendalona in general, provide a concise 1-2 sentence definition
 - If asked about specific products, list them with brief descriptions using bullet points
-- Use simple bullet points with "* " at the start of each item
+- If asked for instructions or how-to information, provide clear step-by-step guidance
+- Use simple bullet points with "* " at the start of each item when listing multiple items
 - Put product names in CAPITAL LETTERS
 - Put a colon and space after product names
 - Each bullet point should be on its own line
 - Do not use markdown formatting like **bold**
 - Write "Zendalona" correctly - never "Z endalona" or similar
-- Keep responses focused and under 5 sentences unless specifically asked for details
-- If the question is very short but asking for specific information, provide that information
+- Keep responses focused and under 10 sentences unless specifically asked for details
 - NEVER start with "Hello! Zendalona provides accessibility solutions"
-- Be concise and get straight to the point
+- NEVER start with "Hello! How can I help you with Zendalona today?"
+- Get straight to the point and provide the requested information
+- If you don't know the answer, say "I don't have specific information about that" rather than providing a greeting
 """
     
     prompt = PromptTemplate.from_template(template)
@@ -63,20 +64,21 @@ Answer the question based only on the following context:
 Question: {question}
 
 Instructions:
-- If the question is a simple greeting (like "hi", "hello", "hey") with no other content, respond ONLY with: "Hello! How can I help you with Zendalona today?"
-- If the question is asking for specific information, answer ONLY that information directly without any greeting
+- Answer the question directly using information from the context
 - If asked about Zendalona in general, provide a concise 1-2 sentence definition
 - If asked about specific products, list them with brief descriptions using bullet points
-- Use simple bullet points with "* " at the start of each item
+- If asked for instructions or how-to information, provide clear step-by-step guidance
+- Use simple bullet points with "* " at the start of each item when listing multiple items
 - Put product names in CAPITAL LETTERS
 - Put a colon and space after product names
 - Each bullet point should be on its own line
 - Do not use markdown formatting like bold
 - Write "Zendalona" correctly - never "Z endalona" or similar
-- Keep responses focused and under 5 sentences unless specifically asked for details
-- If the question is very short but asking for specific information, provide that information
+- Keep responses focused and under 10 sentences unless specifically asked for details
 - NEVER start with "Hello! Zendalona provides accessibility solutions"
-- Be concise and get straight to the point
+- NEVER start with "Hello! How can I help you with Zendalona today?"
+- Get straight to the point and provide the requested information
+- If you don't know the answer, say "I don't have specific information about that" rather than providing a greeting
 """
     
     prompt = PromptTemplate.from_template(template)
