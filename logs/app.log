@@ -3121,3 +3121,557 @@ INFO:     2025-08-26 12:20:25,093 - Finished streaming formal message
   seconds: 36
 }
 ]
+INFO:     2025-08-26 12:25:20,828 - Checking cache for query: What is Zendalona?
+INFO:     2025-08-26 12:25:21,652 - Cache results: 5 items
+INFO:     2025-08-26 12:25:21,652 - Top hit: What is Zendalona?..., score: 0.28064689822966704
+INFO:     2025-08-26 12:25:21,652 - Similarity: 0.719353101770333, threshold: 0.65
+INFO:     2025-08-26 12:25:21,652 - Cache match found, returning cached response
+WARNING:  2025-08-26 12:25:22,139 - Retrying langchain_google_genai.chat_models._achat_with_retry.<locals>._achat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 38
+}
+].
+ERROR:    2025-08-26 12:25:24,495 - Error processing cached response: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 35
+}
+]
+INFO:     2025-08-26 12:25:24,495 - Returning cached response despite error
+INFO:     2025-08-26 12:25:32,284 - Checking cache for query: What is the meaning of life?
+INFO:     2025-08-26 12:25:34,124 - Cache results: 5 items
+INFO:     2025-08-26 12:25:34,124 - Top hit: What is the ABK group about?..., score: 0.8189287570302515
+INFO:     2025-08-26 12:25:34,124 - Similarity: 0.18107124296974852, threshold: 0.65
+INFO:     2025-08-26 12:25:34,124 - Calling Gemini API
+WARNING:  2025-08-26 12:25:35,246 - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 24
+}
+].
+ERROR:    2025-08-26 12:25:37,704 - Error processing chat query: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 22
+}
+]
+[32mINFO[0m:     2025-08-26 12:26:06,866 - Checking cache for streaming query: What is Zendalona?
+[32mINFO[0m:     2025-08-26 12:26:08,055 - Cache results: 5 items
+[32mINFO[0m:     2025-08-26 12:26:08,055 - Top hit: What is Zendalona?..., score: 0.28064689822966704
+[32mINFO[0m:     2025-08-26 12:26:08,055 - Similarity: 0.719353101770333, threshold: 0.65
+[32mINFO[0m:     2025-08-26 12:26:08,056 - Streaming cached response for query: What is Zendalona?
+[33mWARNING[0m:  2025-08-26 12:26:08,527 - Retrying langchain_google_genai.chat_models._achat_with_retry.<locals>._achat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 51
+}
+].
+[31mERROR[0m:    2025-08-26 12:26:10,883 - Error in streaming response: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 49
+}
+]
+INFO:     2025-08-26 12:27:30,237 - Checking cache for query: What is Zendalona?
+INFO:     2025-08-26 12:27:30,981 - Cache results: 5 items
+INFO:     2025-08-26 12:27:30,981 - Top hit: What is Zendalona?..., score: 0.28064689822966704
+INFO:     2025-08-26 12:27:30,981 - Similarity: 0.719353101770333, threshold: 0.65
+INFO:     2025-08-26 12:27:30,981 - Cache match found, returning cached response
+INFO:     2025-08-26 12:27:31,312 - Saved to temporary cache: 'What is Zendalona?...' from cache
+INFO:     2025-08-26 12:27:31,312 - Returning cached response
+INFO:     2025-08-26 12:27:44,958 - Checking cache for query: What is the meaning of life?
+INFO:     2025-08-26 12:27:45,504 - Cache results: 5 items
+INFO:     2025-08-26 12:27:45,505 - Top hit: What is the ABK group about?..., score: 0.8189287570302515
+INFO:     2025-08-26 12:27:45,505 - Similarity: 0.18107124296974852, threshold: 0.65
+INFO:     2025-08-26 12:27:45,505 - Gemini calls disabled, returning formal message
+INFO:     2025-08-26 12:27:45,529 - Saved to temporary cache: 'What is the meaning of life?...' from no_match
+[32mINFO[0m:     2025-08-26 12:28:45,392 - Checking cache for streaming query: What is Zendalona?
+
+
+[32mINFO[0m:     2025-08-26 12:28:46,151 - Cache results: 5 items
+[32mINFO[0m:     2025-08-26 12:28:46,152 - Top hit: What is Zendalona?..., score: 0.28064689822966704
+[32mINFO[0m:     2025-08-26 12:28:46,152 - Similarity: 0.719353101770333, threshold: 0.65
+[32mINFO[0m:     2025-08-26 12:28:46,152 - Streaming cached response for query: What is Zendalona?
+
+
+[33mWARNING[0m:  2025-08-26 12:28:46,635 - Retrying langchain_google_genai.chat_models._achat_with_retry.<locals>._achat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 13
+}
+].
+[31mERROR[0m:    2025-08-26 12:28:48,992 - Error in streaming response: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 11
+}
+]
+INFO:     2025-08-26 12:29:45,026 - Checking cache for query: What is Zendalona?
+INFO:     2025-08-26 12:29:51,890 - Cache results: 5 items
+INFO:     2025-08-26 12:29:51,890 - Top hit: What is Zendalona?..., score: 0.28064689822966704
+INFO:     2025-08-26 12:29:51,890 - Similarity: 0.719353101770333, threshold: 0.65
+INFO:     2025-08-26 12:29:51,890 - Cache match found, returning cached response
+WARNING:  2025-08-26 12:29:52,259 - Retrying langchain_google_genai.chat_models._achat_with_retry.<locals>._achat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 7
+}
+].
+ERROR:    2025-08-26 12:29:54,630 - Error processing cached response: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 5
+}
+]
+INFO:     2025-08-26 12:29:54,630 - Returning cached response despite error
+INFO:     2025-08-26 12:30:09,092 - Checking cache for streaming query: What is Zendalona?
+INFO:     2025-08-26 12:30:09,688 - Cache results: 5 items
+INFO:     2025-08-26 12:30:09,689 - Top hit: What is Zendalona?..., score: 0.28064689822966704
+INFO:     2025-08-26 12:30:09,689 - Similarity: 0.719353101770333, threshold: 0.65
+INFO:     2025-08-26 12:30:09,689 - Streaming cached response for query: What is Zendalona?
+INFO:     2025-08-26 12:30:11,464 - Saved to temporary cache: 'What is Zendalona?...' from cache
+INFO:     2025-08-26 12:30:11,465 - Finished streaming cached response
+INFO:     2025-08-26 12:30:33,750 - Checking cache for streaming query: What is the meaning of life?
+INFO:     2025-08-26 12:30:34,278 - Cache results: 5 items
+INFO:     2025-08-26 12:30:34,278 - Top hit: What is the ABK group about?..., score: 0.8189287570302515
+INFO:     2025-08-26 12:30:34,279 - Similarity: 0.18107124296974852, threshold: 0.65
+INFO:     2025-08-26 12:30:34,279 - Cache match found but similarity below threshold
+INFO:     2025-08-26 12:30:34,279 - Calling Gemini API for streaming response
+INFO:     2025-08-26 12:30:36,846 - Saved to temporary cache: 'What is the meaning of life?...' from gemini
+INFO:     2025-08-26 12:30:36,846 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-26 12:31:23,521 - Checking cache for streaming query: what is zendalona
+[32mINFO[0m:     2025-08-26 12:31:24,363 - Cache results: 5 items
+[32mINFO[0m:     2025-08-26 12:31:24,363 - Top hit: What is Zendalona?..., score: 0.41538089464410893
+[32mINFO[0m:     2025-08-26 12:31:24,363 - Similarity: 0.5846191053558911, threshold: 0.65
+[32mINFO[0m:     2025-08-26 12:31:24,363 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-26 12:31:24,363 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-26 12:31:27,253 - Saved to temporary cache: 'what is zendalona...' from gemini
+[32mINFO[0m:     2025-08-26 12:31:27,253 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-26 12:31:32,514 - Checking cache for streaming query: what is java
+[32mINFO[0m:     2025-08-26 12:31:33,031 - Cache results: 5 items
+[32mINFO[0m:     2025-08-26 12:31:33,032 - Top hit: hello..., score: 0.9093007856407188
+[32mINFO[0m:     2025-08-26 12:31:33,032 - Similarity: 0.09069921435928119, threshold: 0.65
+[32mINFO[0m:     2025-08-26 12:31:33,032 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-26 12:31:33,032 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-26 12:31:35,625 - Saved to temporary cache: 'what is java...' from gemini
+[32mINFO[0m:     2025-08-26 12:31:35,625 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-26 12:31:55,404 - Checking cache for streaming query: what is ubuntu
+[32mINFO[0m:     2025-08-26 12:31:55,950 - Cache results: 5 items
+[32mINFO[0m:     2025-08-26 12:31:55,951 - Top hit: hello..., score: 0.9285775103335949
+[32mINFO[0m:     2025-08-26 12:31:55,951 - Similarity: 0.07142248966640508, threshold: 0.65
+[32mINFO[0m:     2025-08-26 12:31:55,952 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-26 12:31:55,952 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-26 12:31:58,676 - Saved to temporary cache: 'what is ubuntu...' from gemini
+[32mINFO[0m:     2025-08-26 12:31:58,676 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-26 12:33:15,835 - Checking cache for streaming query: what is kerela
+[32mINFO[0m:     2025-08-26 12:33:16,712 - Cache results: 5 items
+[32mINFO[0m:     2025-08-26 12:33:16,713 - Top hit: Can someone share something related to ABK?..., score: 0.8842354416847229
+[32mINFO[0m:     2025-08-26 12:33:16,713 - Similarity: 0.1157645583152771, threshold: 0.65
+[32mINFO[0m:     2025-08-26 12:33:16,714 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-26 12:33:16,714 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-26 12:33:20,197 - Saved to temporary cache: 'what is kerela...' from gemini
+[32mINFO[0m:     2025-08-26 12:33:20,197 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-26 12:33:33,764 - Checking cache for streaming query: what is kerela
+[32mINFO[0m:     2025-08-26 12:33:34,568 - Cache results: 5 items
+[32mINFO[0m:     2025-08-26 12:33:34,568 - Top hit: Can someone share something related to ABK?..., score: 0.8842354416847229
+[32mINFO[0m:     2025-08-26 12:33:34,568 - Similarity: 0.1157645583152771, threshold: 0.65
+[32mINFO[0m:     2025-08-26 12:33:34,569 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-26 12:33:34,569 - Gemini calls disabled, returning formal message
+[32mINFO[0m:     2025-08-26 12:33:35,527 - Saved to temporary cache: 'what is kerela...' from no_match
+[32mINFO[0m:     2025-08-26 12:33:35,527 - Finished streaming formal message
+[32mINFO[0m:     2025-08-27 13:53:40,155 - Checking cache for streaming query: Expand ABK?
+[32mINFO[0m:     2025-08-27 13:53:41,061 - Cache results: 5 items
+[32mINFO[0m:     2025-08-27 13:53:41,061 - Top hit: Are there valid alternatives to ABK?..., score: 0.4634687959490815
+[32mINFO[0m:     2025-08-27 13:53:41,061 - Similarity: 0.5365312040509185, threshold: 0.45
+[32mINFO[0m:     2025-08-27 13:53:41,061 - Streaming cached response for query: Expand ABK?
+[32mINFO[0m:     2025-08-27 13:53:45,089 - Saved to temporary cache: 'Expand ABK?...' from cache
+[32mINFO[0m:     2025-08-27 13:53:45,090 - Finished streaming cached response
+[32mINFO[0m:     2025-08-27 13:54:01,097 - Checking cache for streaming query: how to install accessible coconut?
+[32mINFO[0m:     2025-08-27 13:54:01,898 - Cache results: 5 items
+[32mINFO[0m:     2025-08-27 13:54:01,899 - Top hit: Do I need to install a specific screen reader like..., score: 0.7393946596184826
+[32mINFO[0m:     2025-08-27 13:54:01,899 - Similarity: 0.2606053403815174, threshold: 0.45
+[32mINFO[0m:     2025-08-27 13:54:01,899 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-27 13:54:01,900 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-27 13:54:05,953 - Saved to temporary cache: 'how to install accessible coconut?...' from gemini
+[32mINFO[0m:     2025-08-27 13:54:05,953 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-27 15:53:29,094 - Checking cache for streaming query: how to do Enabling A.B.K
+[32mINFO[0m:     2025-08-27 15:53:30,033 - Cache results: 5 items
+[32mINFO[0m:     2025-08-27 15:53:30,033 - Top hit: Does sliding four fingers from the middle of the s..., score: 0.6381042003631592
+[32mINFO[0m:     2025-08-27 15:53:30,033 - Similarity: 0.3618957996368408, threshold: 0.45
+[32mINFO[0m:     2025-08-27 15:53:30,033 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-27 15:53:30,033 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-27 15:53:33,222 - Saved to temporary cache: 'how to do Enabling A.B.K...' from gemini
+[32mINFO[0m:     2025-08-27 15:53:33,222 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-27 15:54:16,446 - Extracted 25 pages from PDF: Advanced-Braille-Keyboard User Guide _ Zendalona.pdf
+[32mINFO[0m:     2025-08-27 15:54:18,367 - Indexed 25 new documents to ChromaDB collection 'zendalona'
+[32mINFO[0m:     2025-08-27 15:54:24,929 - Checking cache for streaming query: how to do Enabling A.B.K
+
+
+[32mINFO[0m:     2025-08-27 15:54:26,558 - Cache results: 5 items
+[32mINFO[0m:     2025-08-27 15:54:26,558 - Top hit: Does sliding four fingers from the middle of the s..., score: 0.6381042003631592
+[32mINFO[0m:     2025-08-27 15:54:26,558 - Similarity: 0.3618957996368408, threshold: 0.45
+[32mINFO[0m:     2025-08-27 15:54:26,558 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-27 15:54:26,558 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-27 15:54:32,817 - Saved to temporary cache: 'how to do Enabling A.B.K
+
+...' from gemini
+[32mINFO[0m:     2025-08-27 15:54:32,817 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-27 15:54:47,204 - Checking cache for streaming query: how to Enabling required languages
+[32mINFO[0m:     2025-08-27 15:54:48,958 - Cache results: 5 items
+[32mINFO[0m:     2025-08-27 15:54:48,958 - Top hit: Which version of ABK are you using?..., score: 0.7923992276191711
+[32mINFO[0m:     2025-08-27 15:54:48,959 - Similarity: 0.20760077238082886, threshold: 0.45
+[32mINFO[0m:     2025-08-27 15:54:48,959 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-27 15:54:48,959 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-27 15:54:53,003 - Saved to temporary cache: 'how to Enabling required languages...' from gemini
+[32mINFO[0m:     2025-08-27 15:54:53,003 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-27 15:57:36,852 - Checking cache for streaming query: how to Enabling required languages
+
+
+[32mINFO[0m:     2025-08-27 15:57:38,792 - Cache results: 5 items
+[32mINFO[0m:     2025-08-27 15:57:38,792 - Top hit: Which version of ABK are you using?..., score: 0.7923992276191711
+[32mINFO[0m:     2025-08-27 15:57:38,792 - Similarity: 0.20760077238082886, threshold: 0.45
+[32mINFO[0m:     2025-08-27 15:57:38,792 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-27 15:57:38,792 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-27 15:58:43,787 - Checking cache for streaming query: how to Enabling required languages
+
+
+[32mINFO[0m:     2025-08-27 15:58:45,757 - Cache results: 5 items
+[32mINFO[0m:     2025-08-27 15:58:45,758 - Top hit: Which version of ABK are you using?..., score: 0.7923992276191711
+[32mINFO[0m:     2025-08-27 15:58:45,758 - Similarity: 0.20760077238082886, threshold: 0.45
+[32mINFO[0m:     2025-08-27 15:58:45,758 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-27 15:58:45,758 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-27 15:58:52,198 - Saved to temporary cache: 'how to Enabling required languages
+
+...' from gemini
+[32mINFO[0m:     2025-08-27 15:58:52,199 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-27 16:08:55,862 - Checking cache for streaming query: Give me the link for fetching default liblouis tables
+
+
+[32mINFO[0m:     2025-08-27 16:08:57,736 - Cache results: 5 items
+[32mINFO[0m:     2025-08-27 16:08:57,736 - Top hit: How do I make a Liblouis table for ABK?..., score: 0.5934271339017629
+[32mINFO[0m:     2025-08-27 16:08:57,736 - Similarity: 0.40657286609823706, threshold: 0.45
+[32mINFO[0m:     2025-08-27 16:08:57,736 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-27 16:08:57,736 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-27 16:09:00,904 - Saved to temporary cache: 'Give me the link for fetching default liblouis tab...' from gemini
+[32mINFO[0m:     2025-08-27 16:09:00,904 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 08:15:30,027 - Checking cache for streaming query: Which popular apps support typing using the Advanced-Braille-Keyboard?
+[32mINFO[0m:     2025-08-28 08:15:30,879 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:15:30,879 - Top hit: Where can I get the Advanced Braille Keyboard app?..., score: 0.432579888846323
+[32mINFO[0m:     2025-08-28 08:15:30,879 - Similarity: 0.567420111153677, threshold: 0.45
+[32mINFO[0m:     2025-08-28 08:15:30,879 - Streaming cached response for query: Which popular apps support typing using the Advanced-Braille-Keyboard?
+[32mINFO[0m:     2025-08-28 08:15:32,173 - Saved to temporary cache: 'Which popular apps support typing using the Advanc...' from cache
+[32mINFO[0m:     2025-08-28 08:15:32,174 - Finished streaming cached response
+[32mINFO[0m:     2025-08-28 08:15:37,605 - Checking cache for streaming query: What types of input methods are supported by the Advanced-Braille-Keyboard (A.B.K)
+[32mINFO[0m:     2025-08-28 08:15:39,458 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:15:39,459 - Top hit: What braille keyboard is recommended: ABK or TalkB..., score: 0.4619065225124359
+[32mINFO[0m:     2025-08-28 08:15:39,459 - Similarity: 0.5380934774875641, threshold: 0.45
+[32mINFO[0m:     2025-08-28 08:15:39,459 - Streaming cached response for query: What types of input methods are supported by the Advanced-Braille-Keyboard (A.B.K)
+[32mINFO[0m:     2025-08-28 08:15:42,915 - Saved to temporary cache: 'What types of input methods are supported by the A...' from cache
+[32mINFO[0m:     2025-08-28 08:15:42,915 - Finished streaming cached response
+[32mINFO[0m:     2025-08-28 08:15:54,780 - Checking cache for streaming query: How to open A.B.K(Advanced braille keyboard) -abbreviation editor
+[32mINFO[0m:     2025-08-28 08:15:55,296 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:15:55,296 - Top hit: What braille keyboard is recommended: ABK or TalkB..., score: 0.5073930025100708
+[32mINFO[0m:     2025-08-28 08:15:55,296 - Similarity: 0.4926069974899292, threshold: 0.45
+[32mINFO[0m:     2025-08-28 08:15:55,297 - Streaming cached response for query: How to open A.B.K(Advanced braille keyboard) -abbreviation editor
+[32mINFO[0m:     2025-08-28 08:15:58,757 - Saved to temporary cache: 'How to open A.B.K(Advanced braille keyboard) -abbr...' from cache
+[32mINFO[0m:     2025-08-28 08:15:58,757 - Finished streaming cached response
+[32mINFO[0m:     2025-08-28 08:16:07,206 - Checking cache for streaming query: What is Coco-Patcher ?
+[32mINFO[0m:     2025-08-28 08:16:07,825 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:16:07,825 - Top hit: What functions are assigned to ABK gestures before..., score: 0.8073129057884216
+[32mINFO[0m:     2025-08-28 08:16:07,825 - Similarity: 0.19268709421157837, threshold: 0.45
+[32mINFO[0m:     2025-08-28 08:16:07,825 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 08:16:07,825 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 08:16:10,442 - Saved to temporary cache: 'What is Coco-Patcher ?...' from gemini
+[32mINFO[0m:     2025-08-28 08:16:10,442 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 08:16:19,997 - Checking cache for streaming query: How can I toggle caret navigation on or off in Accessible coconut ?
+[32mINFO[0m:     2025-08-28 08:16:20,623 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:16:20,623 - Top hit: What are the options for locating and configuring ..., score: 0.6852270758840387
+[32mINFO[0m:     2025-08-28 08:16:20,624 - Similarity: 0.31477292411596125, threshold: 0.45
+[32mINFO[0m:     2025-08-28 08:16:20,624 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 08:16:20,624 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 08:16:24,037 - Saved to temporary cache: 'How can I toggle caret navigation on or off in Acc...' from gemini
+[32mINFO[0m:     2025-08-28 08:16:24,037 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 08:16:45,157 - Checking cache for streaming query: How do I move by word when reading a document in Orca?
+[32mINFO[0m:     2025-08-28 08:16:45,713 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:16:45,713 - Top hit: How can text be read or navigated by sentence in A..., score: 0.5891552567481995
+[32mINFO[0m:     2025-08-28 08:16:45,713 - Similarity: 0.41084474325180054, threshold: 0.45
+[32mINFO[0m:     2025-08-28 08:16:45,713 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 08:16:45,713 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 08:16:49,330 - Saved to temporary cache: 'How do I move by word when reading a document in O...' from gemini
+[32mINFO[0m:     2025-08-28 08:16:49,330 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 08:28:11,832 - Checking cache for streaming query: How do I move by word when reading a document in Orca?
+
+
+[32mINFO[0m:     2025-08-28 08:28:13,869 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:28:13,869 - Top hit: How can text be read or navigated by sentence in A..., score: 0.5891552567481995
+[32mINFO[0m:     2025-08-28 08:28:13,869 - Similarity: 0.41084474325180054, threshold: 0.45
+[32mINFO[0m:     2025-08-28 08:28:13,869 - Cache match found but similarity below threshold
+[31mERROR[0m:    2025-08-28 08:28:13,869 - Error in streaming response: local variable 'settings' referenced before assignment
+[32mINFO[0m:     2025-08-28 08:29:01,881 - Checking cache for streaming query: local variable 'settings' referenced before assignment
+
+[32mINFO[0m:     2025-08-28 08:29:02,720 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:29:02,720 - Top hit: Is the reported issue occurring with the newest ve..., score: 0.7868183851242065
+[32mINFO[0m:     2025-08-28 08:29:02,720 - Similarity: 0.21318161487579346, threshold: 0.45
+[32mINFO[0m:     2025-08-28 08:29:02,720 - Cache match found but similarity below threshold
+[31mERROR[0m:    2025-08-28 08:29:02,720 - Error in streaming response: local variable 'settings' referenced before assignment
+[32mINFO[0m:     2025-08-28 08:29:43,599 - Checking cache for streaming query: How do I move by word when reading a document in Orca?
+
+
+[32mINFO[0m:     2025-08-28 08:29:44,392 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:29:44,392 - Top hit: How can text be read or navigated by sentence in A..., score: 0.5891552567481995
+[32mINFO[0m:     2025-08-28 08:29:44,393 - Similarity: 0.41084474325180054, threshold: 0.45
+[32mINFO[0m:     2025-08-28 08:29:44,393 - Cache match found but similarity below threshold
+[31mERROR[0m:    2025-08-28 08:29:44,393 - Error in streaming response: local variable 'settings' referenced before assignment
+[32mINFO[0m:     2025-08-28 08:31:11,226 - Checking cache for streaming query: How do I move by word when reading a document in Orca?
+
+\
+[32mINFO[0m:     2025-08-28 08:31:12,054 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:31:12,054 - Top hit: How can text be read or navigated by sentence in A..., score: 0.5944873094558716
+[32mINFO[0m:     2025-08-28 08:31:12,054 - Similarity: 0.4055126905441284, threshold: 0.45
+[32mINFO[0m:     2025-08-28 08:31:12,054 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 08:31:12,054 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 08:31:16,252 - Saved to temporary cache: 'How do I move by word when reading a document in O...' from gemini
+[32mINFO[0m:     2025-08-28 08:31:16,252 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 08:31:39,701 - Checking cache for streaming query: What is the gesture used to close keyboard in ABK 
+[32mINFO[0m:     2025-08-28 08:31:40,291 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:31:40,291 - Top hit: What can I do to avoid changing keyboards repeated..., score: 0.5029707033524126
+[32mINFO[0m:     2025-08-28 08:31:40,292 - Similarity: 0.49702929664758744, threshold: 0.45
+[32mINFO[0m:     2025-08-28 08:31:40,292 - Streaming cached response for query: What is the gesture used to close keyboard in ABK 
+[32mINFO[0m:     2025-08-28 08:31:41,476 - Saved to temporary cache: 'What is the gesture used to close keyboard in ABK ...' from cache
+[32mINFO[0m:     2025-08-28 08:31:41,477 - Finished streaming cached response
+[32mINFO[0m:     2025-08-28 08:31:59,802 - Checking cache for streaming query: What are the steps for adding abbreviations in ABK ?
+[32mINFO[0m:     2025-08-28 08:32:00,363 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:32:00,363 - Top hit: How can a short guide for ABK be created?..., score: 0.4526676535606384
+[32mINFO[0m:     2025-08-28 08:32:00,363 - Similarity: 0.5473323464393616, threshold: 0.45
+[32mINFO[0m:     2025-08-28 08:32:00,363 - Streaming cached response for query: What are the steps for adding abbreviations in ABK ?
+[32mINFO[0m:     2025-08-28 08:32:03,259 - Saved to temporary cache: 'What are the steps for adding abbreviations in ABK...' from cache
+[32mINFO[0m:     2025-08-28 08:32:03,259 - Finished streaming cached response
+[32mINFO[0m:     2025-08-28 08:33:19,071 - Checking cache for streaming query: What are the steps for adding abbreviations in ABK ?
+
+
+[32mINFO[0m:     2025-08-28 08:33:19,861 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:33:19,861 - Top hit: How can a short guide for ABK be created?..., score: 0.4526676535606384
+[32mINFO[0m:     2025-08-28 08:33:19,861 - Similarity: 0.5473323464393616, threshold: 0.65
+[32mINFO[0m:     2025-08-28 08:33:19,861 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 08:33:19,861 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 08:33:22,675 - Saved to temporary cache: 'What are the steps for adding abbreviations in ABK...' from gemini
+[32mINFO[0m:     2025-08-28 08:33:22,675 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 08:33:36,789 - Checking cache for streaming query: How can i export abbreviations IN ABK  ?
+[32mINFO[0m:     2025-08-28 08:33:37,439 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:33:37,439 - Top hit: How do I import settings from an exported file in ..., score: 0.470409400655218
+[32mINFO[0m:     2025-08-28 08:33:37,439 - Similarity: 0.529590599344782, threshold: 0.65
+[32mINFO[0m:     2025-08-28 08:33:37,440 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 08:33:37,440 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 08:33:41,205 - Saved to temporary cache: 'How can i export abbreviations IN ABK  ?...' from gemini
+[32mINFO[0m:     2025-08-28 08:33:41,205 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 08:33:54,138 - Checking cache for streaming query: Which popular apps support typing using the Advanced-Braille-Keyboard?
+[32mINFO[0m:     2025-08-28 08:33:54,743 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:33:54,743 - Top hit: Where can I get the Advanced Braille Keyboard app?..., score: 0.432579888846323
+[32mINFO[0m:     2025-08-28 08:33:54,744 - Similarity: 0.567420111153677, threshold: 0.65
+[32mINFO[0m:     2025-08-28 08:33:54,744 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 08:33:54,744 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 08:33:58,565 - Saved to temporary cache: 'Which popular apps support typing using the Advanc...' from gemini
+[32mINFO[0m:     2025-08-28 08:33:58,565 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 08:34:05,417 - Checking cache for streaming query: What types of input methods are supported by the Advanced-Braille-Keyboard (A.B.K)
+[32mINFO[0m:     2025-08-28 08:34:06,007 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:34:06,008 - Top hit: What braille keyboard is recommended: ABK or TalkB..., score: 0.4619065225124359
+[32mINFO[0m:     2025-08-28 08:34:06,008 - Similarity: 0.5380934774875641, threshold: 0.65
+[32mINFO[0m:     2025-08-28 08:34:06,008 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 08:34:06,008 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 08:34:08,221 - Saved to temporary cache: 'What types of input methods are supported by the A...' from gemini
+[32mINFO[0m:     2025-08-28 08:34:08,222 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 08:34:30,890 - Checking cache for streaming query: How to enable the required language in Advanced-Braille-Keyboard (ABK)
+[32mINFO[0m:     2025-08-28 08:34:32,734 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:34:32,734 - Top hit: Can foreign language characters, such as accented ..., score: 0.5446816682815552
+[32mINFO[0m:     2025-08-28 08:34:32,734 - Similarity: 0.4553183317184448, threshold: 0.65
+[32mINFO[0m:     2025-08-28 08:34:32,735 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 08:34:32,735 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 08:34:36,604 - Saved to temporary cache: 'How to enable the required language in Advanced-Br...' from gemini
+[32mINFO[0m:     2025-08-28 08:34:36,604 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 08:34:45,218 - Checking cache for streaming query: What are the  types of Braille-Screen-Inputs  available in A.B.K.
+[32mINFO[0m:     2025-08-28 08:34:45,853 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:34:45,853 - Top hit: What are the options for locating and configuring ..., score: 0.46827954259155113
+[32mINFO[0m:     2025-08-28 08:34:45,853 - Similarity: 0.5317204574084489, threshold: 0.65
+[32mINFO[0m:     2025-08-28 08:34:45,853 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 08:34:45,853 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 08:34:48,286 - Saved to temporary cache: 'What are the  types of Braille-Screen-Inputs  avai...' from gemini
+[32mINFO[0m:     2025-08-28 08:34:48,286 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 08:35:05,123 - Checking cache for streaming query: What are the steps for adding abbreviations in ABK ?
+[32mINFO[0m:     2025-08-28 08:35:05,708 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:35:05,708 - Top hit: How can a short guide for ABK be created?..., score: 0.4526676535606384
+[32mINFO[0m:     2025-08-28 08:35:05,708 - Similarity: 0.5473323464393616, threshold: 0.65
+[32mINFO[0m:     2025-08-28 08:35:05,708 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 08:35:05,708 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 08:35:09,431 - Saved to temporary cache: 'What are the steps for adding abbreviations in ABK...' from gemini
+[32mINFO[0m:     2025-08-28 08:35:09,431 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 08:35:25,878 - Checking cache for streaming query: Give me the keyboard shortcuts for Open Home Folder in Accessible coconut 
+[32mINFO[0m:     2025-08-28 08:35:26,395 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:35:26,395 - Top hit: How do I use the Advanced Braille Keyboard?..., score: 0.6339921824622005
+[32mINFO[0m:     2025-08-28 08:35:26,395 - Similarity: 0.36600781753779954, threshold: 0.65
+[32mINFO[0m:     2025-08-28 08:35:26,396 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 08:35:26,396 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 08:35:28,887 - Saved to temporary cache: 'Give me the keyboard shortcuts for Open Home Folde...' from gemini
+[32mINFO[0m:     2025-08-28 08:35:28,887 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 08:36:47,647 - Extracted 3 pages from PDF: Accessible-Coconut – Frequently Asked Questions _ Zendalona.pdf
+[32mINFO[0m:     2025-08-28 08:36:48,325 - Indexed 3 new documents to ChromaDB collection 'zendalona'
+[32mINFO[0m:     2025-08-28 08:37:03,281 - Checking cache for streaming query: what is coco patcher
+[32mINFO[0m:     2025-08-28 08:37:03,825 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:37:03,825 - Top hit: Is there an app to correct a specific ABK issue?..., score: 0.8744654216951679
+[32mINFO[0m:     2025-08-28 08:37:03,825 - Similarity: 0.12553457830483206, threshold: 0.65
+[32mINFO[0m:     2025-08-28 08:37:03,825 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 08:37:03,825 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 08:37:09,034 - Saved to temporary cache: 'what is coco patcher...' from gemini
+[32mINFO[0m:     2025-08-28 08:37:09,035 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 08:37:56,394 - Extracted 9 pages from PDF: README(3).md.pdf
+[32mINFO[0m:     2025-08-28 08:37:57,558 - Indexed 9 new documents to ChromaDB collection 'zendalona'

@@ -20,6 +20,11 @@ class Settings(BaseSettings):
     # Disable Gemini calls
     disable_gemini_call: bool = False
 
+    # Vector DB retrieval settings
+    retrieval_k: int = 6
+    retrieval_threshold: float = 0.7
+    max_context_docs: int = 4
+
     class Config:
         extra = Extra.allow
         env_file = ".env"

@@ -5,7 +5,7 @@ from fastapi.responses import JSONResponse
 from sse_starlette.sse import EventSourceResponse
 from typing import Dict, Any, AsyncGenerator, Optional, List
 from utils.models import ChatRequest, ChatResponse, StreamingChatRequest, FeedbackRequest
-from utils.langchain_utils import get_rag_chain, process_query, get_streaming_chain, generate_suggestions
+from utils.langchain_utils import get_rag_chain, process_query, get_streaming_chain
 from utils.cache_utils import get_from_cache, cache_chatbot_response
 from utils.mongo_utils import save_feedback, save_to_temp_cache
 from config import settings
@@ -52,14 +52,13 @@ async def chat(request: ChatRequest):
                     logging.info("Cache match found, returning cached response")
                     answer = top_hit.metadata.get("answer", "")
                     sources = [f"[CACHED - {top_hit.metadata.get('source', 'unknown')} - similarity: {similarity:.2f}]"]
-                    suggestions = await generate_suggestions(request.query, answer)
                     # Save to temporary cache with source information
                     await save_to_temp_cache(request.query, answer, sources, source="cache")
                     logging.info("Returning cached response")
-                    return ChatResponse(response=answer, sources=sources, suggestions=suggestions, feedback_enabled=True)
+                    return ChatResponse(response=answer, sources=sources, suggestions=[], feedback_enabled=True)
                 except Exception as e:
                     logging.error(f"Error processing cached response: {str(e)}")
-                    # Even if there's an error with suggestions or saving to cache, 
+                    # Even if there's an error with saving to cache, 
                     # we should still return the cached answer
                     answer = top_hit.metadata.get("answer", "")
                     sources = [f"[CACHED - {top_hit.metadata.get('source', 'unknown')} - similarity: {similarity:.2f}]"]
@@ -81,12 +80,10 @@ async def chat(request: ChatRequest):
         response, sources = process_query(chain, request.query)
         logging.info(f"Processed query with Gemini: {request.query}")
         
-        suggestions = await generate_suggestions(request.query, response)
-        
         # Save to temporary cache with source information
         await save_to_temp_cache(request.query, response, sources, source="gemini")
         
-        return ChatResponse(response=response, sources=sources, suggestions=suggestions, feedback_enabled=True)
+        return ChatResponse(response=response, sources=sources, suggestions=[], feedback_enabled=True)
     except Exception as e:
         logging.error(f"Error processing chat query: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
@@ -104,13 +101,12 @@ async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, N
             similarity = 1.0 - score
             # Use a more lenient threshold for short queries (like greetings)
             # For longer queries, use a more reasonable threshold
-            threshold = 0.45 if len(query) > 10 else 0.30
+            threshold = 0.65 if len(query) > 10 else 0.40
             logging.info(f"Similarity: {similarity}, threshold: {threshold}")
             if similarity >= threshold:
                 logging.info(f"Streaming cached response for query: {query}")
                 answer = top_hit.metadata.get("answer", "")
                 sources = [f"[CACHED - {top_hit.metadata.get('source', 'unknown')} - similarity: {similarity:.2f}]"]
-                suggestions = await generate_suggestions(query, answer)
 
                 # Stream the cached answer word by word
                 words = answer.split()
@@ -119,7 +115,7 @@ async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, N
                     await asyncio.sleep(0.05)
                 
                 yield {"event": "sources", "data": ",".join(sources)}
-                yield {"event": "suggestions", "data": "|".join(suggestions)}
+                yield {"event": "suggestions", "data": ""}
                 yield {"event": "metadata", "data": json.dumps({"feedback_enabled": True})}
                 yield {"event": "done", "data": ""}
                 
@@ -155,7 +151,19 @@ async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, N
 
         logging.info("Calling Gemini API for streaming response")
         # Use the streaming chain for all responses to ensure consistency
-        chain, retriever = get_streaming_chain()
+        chain = get_streaming_chain()
+        
+        # Get retriever separately to collect sources
+        from utils.chroma_utils import get_chroma_db
+        # Retrieve more documents initially and filter by similarity threshold
+        retriever = get_chroma_db().as_retriever(search_kwargs={"k": settings.retrieval_k})
+        # Get all results with scores
+        all_docs_with_scores = get_chroma_db().similarity_search_with_score(query, k=settings.retrieval_k)
+        # Filter by similarity threshold (higher score = less similar)
+        filtered_docs = [doc for doc, score in all_docs_with_scores if score <= settings.retrieval_threshold]
+        # Limit to maximum number of context documents
+        docs = filtered_docs[:settings.max_context_docs] if filtered_docs else []
+        sources = [doc.metadata.get("source", "") for doc in docs if doc.metadata.get("source")]
 
         # If not in cache and Gemini is enabled, proceed with the streaming chain
         if session_id not in active_sessions:
@@ -163,23 +171,18 @@ async def stream_response(query: str, session_id: str) -> AsyncGenerator[dict, N
         active_sessions[session_id]["queries"].append(query)
         active_sessions[session_id]["last_active"] = time.time()
 
-        docs = retriever.get_relevant_documents(query)
-        sources = [doc.metadata.get("source", "") for doc in docs if doc.metadata.get("source")]
-        context = "\n\n".join([doc.page_content for doc in docs]) if docs else ""
-
         full_response = []
 
-        async for chunk in chain.astream({"context": context, "question": query}):
+        async for chunk in chain.astream(query):  # Now we can pass just the query
             content = chunk.content if hasattr(chunk, "content") else str(chunk)
             full_response.append(content)
             yield {"event": "message", "data": content}
             await asyncio.sleep(0.01)
 
         final_response = "".join(full_response)
-        suggestions = await generate_suggestions(query, final_response)
 
         yield {"event": "sources", "data": ",".join(sources)}
-        yield {"event": "suggestions", "data": "|".join(suggestions)}
+        yield {"event": "suggestions", "data": ""}
         yield {"event": "metadata", "data": json.dumps({"feedback_enabled": True})}
         yield {"event": "done", "data": ""}
 
