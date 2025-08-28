@@ -3675,3 +3675,433 @@ INFO:     2025-08-26 12:30:36,846 - Finished streaming Gemini response
 [32mINFO[0m:     2025-08-28 08:37:09,035 - Finished streaming Gemini response
 [32mINFO[0m:     2025-08-28 08:37:56,394 - Extracted 9 pages from PDF: README(3).md.pdf
 [32mINFO[0m:     2025-08-28 08:37:57,558 - Indexed 9 new documents to ChromaDB collection 'zendalona'
+[32mINFO[0m:     2025-08-28 08:41:24,983 - Cleared temporary cache. Deleted 748 items.
+[32mINFO[0m:     2025-08-28 08:42:04,868 - Checking cache for streaming query: How do I move by word when reading a document in Orca?
+[32mINFO[0m:     2025-08-28 08:42:05,472 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:42:05,473 - Top hit: How can text be read or navigated by sentence in A..., score: 0.5891552567481995
+[32mINFO[0m:     2025-08-28 08:42:05,473 - Similarity: 0.41084474325180054, threshold: 0.65
+[32mINFO[0m:     2025-08-28 08:42:05,473 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 08:42:05,473 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 08:42:08,099 - Saved to temporary cache: 'How do I move by word when reading a document in O...' from gemini
+[32mINFO[0m:     2025-08-28 08:42:08,099 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 08:45:46,585 - Extracted 7 pages from PDF: First steps with the Orca screen reader – Emmabuntüs.pdf
+[32mINFO[0m:     2025-08-28 08:45:47,366 - Indexed 7 new documents to ChromaDB collection 'zendalona'
+[32mINFO[0m:     2025-08-28 08:52:34,680 - Checking cache for streaming query: What are the types of Braille-Screen-Inputs available in A.B.K.
+
+
+[32mINFO[0m:     2025-08-28 08:52:35,454 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:52:35,455 - Top hit: What are the options for locating and configuring ..., score: 0.46827954259155113
+[32mINFO[0m:     2025-08-28 08:52:35,455 - Similarity: 0.5317204574084489, threshold: 0.65
+[32mINFO[0m:     2025-08-28 08:52:35,455 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 08:52:35,455 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 08:52:39,541 - Saved to temporary cache: 'What are the types of Braille-Screen-Inputs availa...' from gemini
+[32mINFO[0m:     2025-08-28 08:52:39,541 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 08:55:07,673 - Checking cache for streaming query: What are the types of Braille-Screen-Inputs available in A.B.K.
+
+
+[32mINFO[0m:     2025-08-28 08:55:09,692 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:55:09,692 - Top hit: What are the options for locating and configuring ..., score: 0.46827954259155113
+[32mINFO[0m:     2025-08-28 08:55:09,692 - Similarity: 0.5317204574084489, threshold: 0.65
+[32mINFO[0m:     2025-08-28 08:55:09,693 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 08:55:09,693 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 08:55:13,862 - Saved to temporary cache: 'What are the types of Braille-Screen-Inputs availa...' from gemini
+[32mINFO[0m:     2025-08-28 08:55:13,863 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 08:59:09,437 - Checking cache for streaming query: What are the types of Braille-Screen-Inputs available in A.B.K.
+
+
+[32mINFO[0m:     2025-08-28 08:59:10,213 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 08:59:10,214 - Top hit: What are the options for locating and configuring ..., score: 0.46827954259155113
+[32mINFO[0m:     2025-08-28 08:59:10,214 - Similarity: 0.5317204574084489, threshold: 0.65
+[32mINFO[0m:     2025-08-28 08:59:10,214 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 08:59:10,214 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 08:59:12,107 - Retrieved 4 documents for query: What are the types of Braille-Screen-Inputs available in A.B.K.
+
+
+[32mINFO[0m:     2025-08-28 08:59:12,107 - Doc 1: You
+ 
+can
+ 
+type
+ 
+faster
+ 
+with
+ 
+your
+ 
+Braille
+ 
+knowledge
+ 
+on
+ 
+platforms
+ 
+like
+ 
+Twitter,
+ 
+F...
+[32mINFO[0m:     2025-08-28 08:59:12,108 - Doc 2:  
+9.
+ 
+Customizable
+ 
+Options
+:
+ 
+Echo
+ 
+by
+ 
+character,
+ 
+Letter
+ 
+Typing
+ 
+Sounds,
+ 
+Announcement
+...
+[32mINFO[0m:     2025-08-28 08:59:12,108 - Doc 3: Advanced-Braille-Keyboard
+ 
+User
+ 
+Guide
+ 
+Author/Publisher:
+ 
+Zendalona
+ 
+Online
+ 
+Version:
+ 
+https...
+[32mINFO[0m:     2025-08-28 08:59:12,108 - Doc 4: 3.Braille-Screen-Input layouts : – Automatic, Lap-Top, Two-Hand-
+Screen-Outward, and Manual Layout.
+...
+[32mINFO[0m:     2025-08-28 08:59:13,980 - Saved to temporary cache: 'What are the types of Braille-Screen-Inputs availa...' from gemini
+[32mINFO[0m:     2025-08-28 08:59:13,981 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 09:04:29,899 - Checking cache for streaming query: What are the types of Braille-Screen-Inputs available in A.B.K.
+
+
+[32mINFO[0m:     2025-08-28 09:04:31,945 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 09:04:31,945 - Top hit: What are the options for locating and configuring ..., score: 0.46827954259155113
+[32mINFO[0m:     2025-08-28 09:04:31,945 - Similarity: 0.5317204574084489, threshold: 0.65
+[32mINFO[0m:     2025-08-28 09:04:31,945 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 09:04:31,945 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 09:04:32,486 - Retrieved 4 documents for query: What are the types of Braille-Screen-Inputs available in A.B.K.
+
+
+[32mINFO[0m:     2025-08-28 09:04:32,486 - Doc 1: You
+ 
+can
+ 
+type
+ 
+faster
+ 
+with
+ 
+your
+ 
+Braille
+ 
+knowledge
+ 
+on
+ 
+platforms
+ 
+like
+ 
+Twitter,
+ 
+F...
+[32mINFO[0m:     2025-08-28 09:04:32,486 - Doc 2:  
+9.
+ 
+Customizable
+ 
+Options
+:
+ 
+Echo
+ 
+by
+ 
+character,
+ 
+Letter
+ 
+Typing
+ 
+Sounds,
+ 
+Announcement
+...
+[32mINFO[0m:     2025-08-28 09:04:32,487 - Doc 3: Advanced-Braille-Keyboard
+ 
+User
+ 
+Guide
+ 
+Author/Publisher:
+ 
+Zendalona
+ 
+Online
+ 
+Version:
+ 
+https...
+[32mINFO[0m:     2025-08-28 09:04:32,487 - Doc 4: 3.Braille-Screen-Input layouts : – Automatic, Lap-Top, Two-Hand-
+Screen-Outward, and Manual Layout.
+...
+[32mINFO[0m:     2025-08-28 09:04:33,698 - Saved to temporary cache: 'What are the types of Braille-Screen-Inputs availa...' from gemini
+[32mINFO[0m:     2025-08-28 09:04:33,698 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 09:07:05,027 - Checking cache for streaming query: How can I toggle caret navigation on or off in Accessible coconut ?
+[32mINFO[0m:     2025-08-28 09:07:06,882 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 09:07:06,883 - Top hit: What are the options for locating and configuring ..., score: 0.6852270758840387
+[32mINFO[0m:     2025-08-28 09:07:06,883 - Similarity: 0.31477292411596125, threshold: 0.65
+[32mINFO[0m:     2025-08-28 09:07:06,883 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 09:07:06,883 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 09:07:07,613 - Retrieved 4 documents for query: How can I toggle caret navigation on or off in Accessible coconut ?
+[32mINFO[0m:     2025-08-28 09:07:07,613 - Doc 1: Firefox screen reader preferences window
+Below is an extract from Orca’s documentation explaining th...
+[32mINFO[0m:     2025-08-28 09:07:07,614 - Doc 2: You can switch to action mode by swiping dot-three to the right.
+You can switch back to typing mode ...
+[32mINFO[0m:     2025-08-28 09:07:07,614 - Doc 3: What is Coco-Patcher ?
+It’s a small software through which one can run scripts
+provided by Accessibl...
+[32mINFO[0m:     2025-08-28 09:07:07,614 - Doc 4: providing speech output from the live mode through installation. Orca starts automatically 
+in live ...
+[32mINFO[0m:     2025-08-28 09:07:08,693 - Saved to temporary cache: 'How can I toggle caret navigation on or off in Acc...' from gemini
+[32mINFO[0m:     2025-08-28 09:07:08,693 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 09:07:56,131 - Checking cache for streaming query: What is Coco-Patcher ?
+[32mINFO[0m:     2025-08-28 09:07:56,857 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 09:07:56,857 - Top hit: What functions are assigned to ABK gestures before..., score: 0.8073129057884216
+[32mINFO[0m:     2025-08-28 09:07:56,857 - Similarity: 0.19268709421157837, threshold: 0.65
+[32mINFO[0m:     2025-08-28 09:07:56,857 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 09:07:56,857 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 09:07:57,474 - Retrieved 1 documents for query: What is Coco-Patcher ?
+[32mINFO[0m:     2025-08-28 09:07:57,474 - Doc 1: What is Coco-Patcher ?
+It’s a small software through which one can run scripts
+provided by Accessibl...
+[32mINFO[0m:     2025-08-28 09:07:58,319 - Saved to temporary cache: 'What is Coco-Patcher ?...' from gemini
+[32mINFO[0m:     2025-08-28 09:07:58,320 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 09:08:03,364 - Checking cache for streaming query: What are the  types of Braille-Screen-Inputs  available in A.B.K.
+[32mINFO[0m:     2025-08-28 09:08:03,924 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 09:08:03,924 - Top hit: What are the options for locating and configuring ..., score: 0.46827954259155113
+[32mINFO[0m:     2025-08-28 09:08:03,925 - Similarity: 0.5317204574084489, threshold: 0.65
+[32mINFO[0m:     2025-08-28 09:08:03,925 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 09:08:03,925 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 09:08:04,640 - Retrieved 4 documents for query: What are the  types of Braille-Screen-Inputs  available in A.B.K.
+[32mINFO[0m:     2025-08-28 09:08:04,640 - Doc 1: You
+ 
+can
+ 
+type
+ 
+faster
+ 
+with
+ 
+your
+ 
+Braille
+ 
+knowledge
+ 
+on
+ 
+platforms
+ 
+like
+ 
+Twitter,
+ 
+F...
+[32mINFO[0m:     2025-08-28 09:08:04,640 - Doc 2:  
+9.
+ 
+Customizable
+ 
+Options
+:
+ 
+Echo
+ 
+by
+ 
+character,
+ 
+Letter
+ 
+Typing
+ 
+Sounds,
+ 
+Announcement
+...
+[32mINFO[0m:     2025-08-28 09:08:04,640 - Doc 3: Advanced-Braille-Keyboard
+ 
+User
+ 
+Guide
+ 
+Author/Publisher:
+ 
+Zendalona
+ 
+Online
+ 
+Version:
+ 
+https...
+[32mINFO[0m:     2025-08-28 09:08:04,640 - Doc 4: 3.Braille-Screen-Input layouts : – Automatic, Lap-Top, Two-Hand-
+Screen-Outward, and Manual Layout.
+...
+[32mINFO[0m:     2025-08-28 09:08:05,903 - Saved to temporary cache: 'What are the  types of Braille-Screen-Inputs  avai...' from gemini
+[32mINFO[0m:     2025-08-28 09:08:05,903 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 09:08:12,150 - Checking cache for streaming query: How to to activate the list of keyboards installed in the device.
+[32mINFO[0m:     2025-08-28 09:08:12,728 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 09:08:12,728 - Top hit: What can I do to avoid changing keyboards repeated..., score: 0.7025783984846404
+[32mINFO[0m:     2025-08-28 09:08:12,728 - Similarity: 0.29742160151535957, threshold: 0.65
+[32mINFO[0m:     2025-08-28 09:08:12,729 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 09:08:12,729 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 09:08:13,345 - Retrieved 4 documents for query: How to to activate the list of keyboards installed in the device.
+[32mINFO[0m:     2025-08-28 09:08:13,345 - Doc 1: 5 Switch to secondary keyboard.
+Note 1 : Two Finger Long Swipe Down – Will close the keyboard.
+Since...
+[32mINFO[0m:     2025-08-28 09:08:13,345 - Doc 2: inside device internal storage.
+2. Adding Tables : Place your tables inside the “ABK” folder created...
+[32mINFO[0m:     2025-08-28 09:08:13,345 - Doc 3: word.
+The middle list refers to the characters which occur after the �rst
+character of the word.
+Lik...
+[32mINFO[0m:     2025-08-28 09:08:13,345 - Doc 4: default language selection.
+3. Go through the list of languages and check desired languages.
+4. Afte...
+[32mINFO[0m:     2025-08-28 09:08:14,614 - Saved to temporary cache: 'How to to activate the list of keyboards installed...' from gemini
+[32mINFO[0m:     2025-08-28 09:08:14,615 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 09:11:35,628 - Checking cache for streaming query: How to to activate the list of keyboards installed in the device.
+
+
+[32mINFO[0m:     2025-08-28 09:11:36,433 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 09:11:36,434 - Top hit: What can I do to avoid changing keyboards repeated..., score: 0.7025783984846404
+[32mINFO[0m:     2025-08-28 09:11:36,434 - Similarity: 0.29742160151535957, threshold: 0.65
+[32mINFO[0m:     2025-08-28 09:11:36,434 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 09:11:36,434 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 09:11:37,036 - Retrieved 4 documents for query: How to to activate the list of keyboards installed in the device.
+
+
+[32mINFO[0m:     2025-08-28 09:11:37,037 - Doc 1: 5 Switch to secondary keyboard.
+Note 1 : Two Finger Long Swipe Down – Will close the keyboard.
+Since...
+[32mINFO[0m:     2025-08-28 09:11:37,037 - Doc 2: inside device internal storage.
+2. Adding Tables : Place your tables inside the “ABK” folder created...
+[32mINFO[0m:     2025-08-28 09:11:37,037 - Doc 3: word.
+The middle list refers to the characters which occur after the �rst
+character of the word.
+Lik...
+[32mINFO[0m:     2025-08-28 09:11:37,037 - Doc 4: default language selection.
+3. Go through the list of languages and check desired languages.
+4. Afte...
+[32mINFO[0m:     2025-08-28 09:11:38,653 - Saved to temporary cache: 'How to to activate the list of keyboards installed...' from gemini
+[32mINFO[0m:     2025-08-28 09:11:38,653 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 09:13:13,033 - Checking cache for streaming query: How to access notifications in Accessible coconut  ?
+[32mINFO[0m:     2025-08-28 09:13:13,812 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 09:13:13,812 - Top hit: Where can I get the Advanced Braille Keyboard app?..., score: 0.6934795108781617
+[32mINFO[0m:     2025-08-28 09:13:13,813 - Similarity: 0.30652048912183827, threshold: 0.65
+[32mINFO[0m:     2025-08-28 09:13:13,813 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 09:13:13,813 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 09:13:14,424 - Retrieved 4 documents for query: How to access notifications in Accessible coconut  ?
+[32mINFO[0m:     2025-08-28 09:13:14,424 - Doc 1: uses latest software libraries like GTK-3 graphical user interface
+toolkit.
+5 It is under active dev...
+[32mINFO[0m:     2025-08-28 09:13:14,424 - Doc 2: Q: Where can I download the latest version of Accessible Coconut? A: The latest version of 
+Accessib...
+[32mINFO[0m:     2025-08-28 09:13:14,424 - Doc 3: providing speech output from the live mode through installation. Orca starts automatically 
+in live ...
+[32mINFO[0m:     2025-08-28 09:13:14,424 - Doc 4: Q: How can I install a desktop OCR application on Accessible Coconut? A: The document 
+does not deta...
+[32mINFO[0m:     2025-08-28 09:13:15,667 - Saved to temporary cache: 'How to access notifications in Accessible coconut ...' from gemini
+[32mINFO[0m:     2025-08-28 09:13:15,667 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 09:17:25,639 - Checking cache for streaming query: How to to activate the list of keyboards installed in the device.
+
+
+[32mINFO[0m:     2025-08-28 09:17:26,543 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 09:17:26,543 - Top hit: What can I do to avoid changing keyboards repeated..., score: 0.7025783984846404
+[32mINFO[0m:     2025-08-28 09:17:26,543 - Similarity: 0.29742160151535957, threshold: 0.65
+[32mINFO[0m:     2025-08-28 09:17:26,543 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 09:17:26,543 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 09:17:29,487 - Saved to temporary cache: 'How to to activate the list of keyboards installed...' from gemini
+[32mINFO[0m:     2025-08-28 09:17:29,487 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 09:18:59,726 - Checking cache for streaming query: How to to activate the list of keyboards installed in the device.
+
+
+[32mINFO[0m:     2025-08-28 09:19:00,548 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 09:19:00,548 - Top hit: What can I do to avoid changing keyboards repeated..., score: 0.7025783984846404
+[32mINFO[0m:     2025-08-28 09:19:00,548 - Similarity: 0.29742160151535957, threshold: 0.65
+[32mINFO[0m:     2025-08-28 09:19:00,548 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 09:19:00,548 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 09:19:03,644 - Saved to temporary cache: 'How to to activate the list of keyboards installed...' from gemini
+[32mINFO[0m:     2025-08-28 09:19:03,645 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 09:19:23,086 - Checking cache for streaming query: Which popular apps support typing using the Advanced-Braille-Keyboard?
+[32mINFO[0m:     2025-08-28 09:19:23,579 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 09:19:23,580 - Top hit: Where can I get the Advanced Braille Keyboard app?..., score: 0.432579888846323
+[32mINFO[0m:     2025-08-28 09:19:23,580 - Similarity: 0.567420111153677, threshold: 0.65
+[32mINFO[0m:     2025-08-28 09:19:23,580 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 09:19:23,580 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 09:19:25,953 - Saved to temporary cache: 'Which popular apps support typing using the Advanc...' from gemini
+[32mINFO[0m:     2025-08-28 09:19:25,954 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 09:19:32,827 - Checking cache for streaming query: How to enable the required language in Advanced-Braille-Keyboard (ABK)
+[32mINFO[0m:     2025-08-28 09:19:33,343 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 09:19:33,343 - Top hit: Can foreign language characters, such as accented ..., score: 0.5446816682815552
+[32mINFO[0m:     2025-08-28 09:19:33,343 - Similarity: 0.4553183317184448, threshold: 0.65
+[32mINFO[0m:     2025-08-28 09:19:33,343 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 09:19:33,343 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 09:19:36,746 - Saved to temporary cache: 'How to enable the required language in Advanced-Br...' from gemini
+[32mINFO[0m:     2025-08-28 09:19:36,746 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 09:19:55,799 - Checking cache for streaming query: What is the gesture used to close keyboard in ABK 
+[32mINFO[0m:     2025-08-28 09:19:56,287 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 09:19:56,287 - Top hit: What can I do to avoid changing keyboards repeated..., score: 0.5029707033524126
+[32mINFO[0m:     2025-08-28 09:19:56,287 - Similarity: 0.49702929664758744, threshold: 0.65
+[32mINFO[0m:     2025-08-28 09:19:56,287 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 09:19:56,287 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 09:19:58,932 - Saved to temporary cache: 'What is the gesture used to close keyboard in ABK ...' from gemini
+[32mINFO[0m:     2025-08-28 09:19:58,933 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 09:20:39,390 - Checking cache for streaming query: What changes were made in the latest ABK update?
+[32mINFO[0m:     2025-08-28 09:20:39,954 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 09:20:39,954 - Top hit: What changes were made in the latest ABK update?..., score: 0.26410067081451416
+[32mINFO[0m:     2025-08-28 09:20:39,954 - Similarity: 0.7358993291854858, threshold: 0.65
+[32mINFO[0m:     2025-08-28 09:20:39,954 - Streaming cached response for query: What changes were made in the latest ABK update?
+[32mINFO[0m:     2025-08-28 09:20:49,539 - Saved to temporary cache: 'What changes were made in the latest ABK update?...' from cache
+[32mINFO[0m:     2025-08-28 09:20:49,539 - Finished streaming cached response
+[32mINFO[0m:     2025-08-28 09:20:58,391 - Checking cache for streaming query: how to install accessible coconut?
+[32mINFO[0m:     2025-08-28 09:20:58,998 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 09:20:58,999 - Top hit: Do I need to install a specific screen reader like..., score: 0.7393946596184826
+[32mINFO[0m:     2025-08-28 09:20:58,999 - Similarity: 0.2606053403815174, threshold: 0.65
+[32mINFO[0m:     2025-08-28 09:20:58,999 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 09:20:58,999 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 09:21:01,702 - Saved to temporary cache: 'how to install accessible coconut?...' from gemini
+[32mINFO[0m:     2025-08-28 09:21:01,702 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 09:21:05,859 - Checking cache for streaming query: Expand ABK?
+[32mINFO[0m:     2025-08-28 09:21:06,475 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 09:21:06,476 - Top hit: Are there valid alternatives to ABK?..., score: 0.4634687959490815
+[32mINFO[0m:     2025-08-28 09:21:06,476 - Similarity: 0.5365312040509185, threshold: 0.65
+[32mINFO[0m:     2025-08-28 09:21:06,476 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 09:21:06,476 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 09:21:08,767 - Saved to temporary cache: 'Expand ABK?...' from gemini
+[32mINFO[0m:     2025-08-28 09:21:08,767 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 09:22:37,127 - Checking cache for streaming query: What types of input methods are supported by the Advanced-Braille-Keyboard (A.B.K)
+[32mINFO[0m:     2025-08-28 09:22:37,925 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 09:22:37,926 - Top hit: What braille keyboard is recommended: ABK or TalkB..., score: 0.4619065225124359
+[32mINFO[0m:     2025-08-28 09:22:37,926 - Similarity: 0.5380934774875641, threshold: 0.65
+[32mINFO[0m:     2025-08-28 09:22:37,926 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 09:22:37,926 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 09:22:40,318 - Saved to temporary cache: 'What types of input methods are supported by the A...' from gemini
+[32mINFO[0m:     2025-08-28 09:22:40,318 - Finished streaming Gemini response
