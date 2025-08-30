@@ -4105,3 +4105,180 @@ does not deta...
 [32mINFO[0m:     2025-08-28 09:22:37,926 - Calling Gemini API for streaming response
 [32mINFO[0m:     2025-08-28 09:22:40,318 - Saved to temporary cache: 'What types of input methods are supported by the A...' from gemini
 [32mINFO[0m:     2025-08-28 09:22:40,318 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 10:18:59,463 - Checking cache for streaming query: how to Shutdown accessible coconut
+
+[32mINFO[0m:     2025-08-28 10:19:06,227 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 10:19:06,228 - Top hit: Why does ABK stop working after typing some letter..., score: 0.8203947745024742
+[32mINFO[0m:     2025-08-28 10:19:06,228 - Similarity: 0.17960522549752578, threshold: 0.65
+[32mINFO[0m:     2025-08-28 10:19:06,228 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 10:19:06,228 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 10:19:08,945 - Saved to temporary cache: 'how to Shutdown accessible coconut
+...' from gemini
+[32mINFO[0m:     2025-08-28 10:19:08,945 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 10:19:25,210 - Checking cache for streaming query: How to access notifications in Accessible coconut  ?
+[32mINFO[0m:     2025-08-28 10:19:25,743 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 10:19:25,743 - Top hit: Where can I get the Advanced Braille Keyboard app?..., score: 0.6934795108781617
+[32mINFO[0m:     2025-08-28 10:19:25,743 - Similarity: 0.30652048912183827, threshold: 0.65
+[32mINFO[0m:     2025-08-28 10:19:25,743 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 10:19:25,743 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 10:19:28,138 - Saved to temporary cache: 'How to access notifications in Accessible coconut ...' from gemini
+[32mINFO[0m:     2025-08-28 10:19:28,138 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 10:19:33,917 - Checking cache for streaming query: Give me the keyboard shortcuts for Open Home Folder in Accessible coconut 
+[32mINFO[0m:     2025-08-28 10:19:34,549 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 10:19:34,550 - Top hit: How do I use the Advanced Braille Keyboard?..., score: 0.6339921824622005
+[32mINFO[0m:     2025-08-28 10:19:34,550 - Similarity: 0.36600781753779954, threshold: 0.65
+[32mINFO[0m:     2025-08-28 10:19:34,550 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 10:19:34,550 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 10:19:37,007 - Saved to temporary cache: 'Give me the keyboard shortcuts for Open Home Folde...' from gemini
+[32mINFO[0m:     2025-08-28 10:19:37,007 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 10:19:40,687 - Checking cache for streaming query: How do I move by word when reading a document in Orca?
+[32mINFO[0m:     2025-08-28 10:19:41,318 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 10:19:41,319 - Top hit: How can text be read or navigated by sentence in A..., score: 0.5891552567481995
+[32mINFO[0m:     2025-08-28 10:19:41,319 - Similarity: 0.41084474325180054, threshold: 0.65
+[32mINFO[0m:     2025-08-28 10:19:41,319 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 10:19:41,319 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 10:19:44,108 - Saved to temporary cache: 'How do I move by word when reading a document in O...' from gemini
+[32mINFO[0m:     2025-08-28 10:19:44,108 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 10:20:07,276 - Checking cache for streaming query: How can I toggle caret navigation on or off in Accessible coconut ?
+[32mINFO[0m:     2025-08-28 10:20:07,828 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 10:20:07,829 - Top hit: What are the options for locating and configuring ..., score: 0.6852270758840387
+[32mINFO[0m:     2025-08-28 10:20:07,829 - Similarity: 0.31477292411596125, threshold: 0.65
+[32mINFO[0m:     2025-08-28 10:20:07,829 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 10:20:07,829 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 10:20:09,911 - Saved to temporary cache: 'How can I toggle caret navigation on or off in Acc...' from gemini
+[32mINFO[0m:     2025-08-28 10:20:09,911 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 10:20:21,394 - Checking cache for streaming query: What is Coco-Patcher ?
+[32mINFO[0m:     2025-08-28 10:20:21,946 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 10:20:21,947 - Top hit: What functions are assigned to ABK gestures before..., score: 0.8073129057884216
+[32mINFO[0m:     2025-08-28 10:20:21,947 - Similarity: 0.19268709421157837, threshold: 0.65
+[32mINFO[0m:     2025-08-28 10:20:21,947 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 10:20:21,947 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 10:20:24,686 - Saved to temporary cache: 'What is Coco-Patcher ?...' from gemini
+[32mINFO[0m:     2025-08-28 10:20:24,687 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 10:20:37,501 - Checking cache for streaming query: What is the gesture used to close keyboard in ABK 
+[32mINFO[0m:     2025-08-28 10:20:44,079 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 10:20:44,079 - Top hit: What can I do to avoid changing keyboards repeated..., score: 0.5029707033524126
+[32mINFO[0m:     2025-08-28 10:20:44,079 - Similarity: 0.49702929664758744, threshold: 0.65
+[32mINFO[0m:     2025-08-28 10:20:44,079 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 10:20:44,080 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 10:20:46,123 - Saved to temporary cache: 'What is the gesture used to close keyboard in ABK ...' from gemini
+[32mINFO[0m:     2025-08-28 10:20:46,124 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 10:21:03,437 - Checking cache for streaming query: How to open A.B.K(Advanced braille keyboard) -abbreviation editor
+[32mINFO[0m:     2025-08-28 10:21:04,046 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 10:21:04,047 - Top hit: What braille keyboard is recommended: ABK or TalkB..., score: 0.5073930025100708
+[32mINFO[0m:     2025-08-28 10:21:04,047 - Similarity: 0.4926069974899292, threshold: 0.65
+[32mINFO[0m:     2025-08-28 10:21:04,047 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 10:21:04,047 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 10:21:06,549 - Saved to temporary cache: 'How to open A.B.K(Advanced braille keyboard) -abbr...' from gemini
+[32mINFO[0m:     2025-08-28 10:21:06,549 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 10:24:37,942 - Extracted 3 pages from PDF: accessible_user.pdf
+[32mINFO[0m:     2025-08-28 10:24:38,573 - Indexed 3 new documents to ChromaDB collection 'zendalona'
+[32mINFO[0m:     2025-08-28 10:25:10,296 - Checking cache for streaming query: How to access notifications in Accessible coconut  ?
+[32mINFO[0m:     2025-08-28 10:25:10,834 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 10:25:10,835 - Top hit: Where can I get the Advanced Braille Keyboard app?..., score: 0.6934795108781617
+[32mINFO[0m:     2025-08-28 10:25:10,835 - Similarity: 0.30652048912183827, threshold: 0.65
+[32mINFO[0m:     2025-08-28 10:25:10,835 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 10:25:10,835 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 10:25:13,353 - Saved to temporary cache: 'How to access notifications in Accessible coconut ...' from gemini
+[32mINFO[0m:     2025-08-28 10:25:13,353 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 10:28:31,447 - Successfully deleted document a69e2107-f256-4cd2-8354-4e5806c655ab from collection zendalona
+[32mINFO[0m:     2025-08-28 10:28:33,619 - Successfully deleted document bf631548-efe3-4d1c-8686-77ac81f375a6 from collection zendalona
+[32mINFO[0m:     2025-08-28 10:28:35,779 - Successfully deleted document 639735f1-bcbf-46e0-80ca-6433d6abece3 from collection zendalona
+[32mINFO[0m:     2025-08-28 10:28:42,465 - Extracted 3 pages from PDF: access_user.pdf
+[32mINFO[0m:     2025-08-28 10:28:43,087 - Indexed 3 new documents to ChromaDB collection 'zendalona'
+[32mINFO[0m:     2025-08-28 10:28:53,921 - Checking cache for streaming query: How to access notifications in Accessible coconut ?
+
+
+[32mINFO[0m:     2025-08-28 10:28:59,601 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 10:28:59,602 - Top hit: Where can I get the Advanced Braille Keyboard app?..., score: 0.6934795108781617
+[32mINFO[0m:     2025-08-28 10:28:59,602 - Similarity: 0.30652048912183827, threshold: 0.65
+[32mINFO[0m:     2025-08-28 10:28:59,602 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 10:28:59,602 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 10:29:01,806 - Saved to temporary cache: 'How to access notifications in Accessible coconut ...' from gemini
+[32mINFO[0m:     2025-08-28 10:29:01,806 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 10:29:13,977 - Checking cache for streaming query: Give me the keyboard shortcuts for Open Home Folder in Accessible coconut 
+[32mINFO[0m:     2025-08-28 10:29:14,557 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 10:29:14,557 - Top hit: How do I use the Advanced Braille Keyboard?..., score: 0.6339921824622005
+[32mINFO[0m:     2025-08-28 10:29:14,557 - Similarity: 0.36600781753779954, threshold: 0.65
+[32mINFO[0m:     2025-08-28 10:29:14,557 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 10:29:14,557 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 10:29:16,940 - Saved to temporary cache: 'Give me the keyboard shortcuts for Open Home Folde...' from gemini
+[32mINFO[0m:     2025-08-28 10:29:16,940 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 10:31:26,758 - Checking cache for streaming query: How can I toggle caret navigation on or off in Accessible coconut ?
+[32mINFO[0m:     2025-08-28 10:31:27,365 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 10:31:27,365 - Top hit: What are the options for locating and configuring ..., score: 0.6852270758840387
+[32mINFO[0m:     2025-08-28 10:31:27,365 - Similarity: 0.31477292411596125, threshold: 0.65
+[32mINFO[0m:     2025-08-28 10:31:27,365 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 10:31:27,365 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 10:31:29,540 - Saved to temporary cache: 'How can I toggle caret navigation on or off in Acc...' from gemini
+[32mINFO[0m:     2025-08-28 10:31:29,540 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 10:31:35,376 - Checking cache for streaming query: How can I toggle caret navigation on or off in Accessible coconut ?
+[32mINFO[0m:     2025-08-28 10:31:35,968 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 10:31:35,968 - Top hit: What are the options for locating and configuring ..., score: 0.6852270758840387
+[32mINFO[0m:     2025-08-28 10:31:35,968 - Similarity: 0.31477292411596125, threshold: 0.65
+[32mINFO[0m:     2025-08-28 10:31:35,968 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 10:31:35,968 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 10:31:38,150 - Saved to temporary cache: 'How can I toggle caret navigation on or off in Acc...' from gemini
+[32mINFO[0m:     2025-08-28 10:31:38,151 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 10:31:44,078 - Checking cache for streaming query: What is Coco-Patcher ?
+[32mINFO[0m:     2025-08-28 10:31:44,581 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 10:31:44,582 - Top hit: What functions are assigned to ABK gestures before..., score: 0.8073129057884216
+[32mINFO[0m:     2025-08-28 10:31:44,582 - Similarity: 0.19268709421157837, threshold: 0.65
+[32mINFO[0m:     2025-08-28 10:31:44,582 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 10:31:44,582 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 10:31:47,182 - Saved to temporary cache: 'What is Coco-Patcher ?...' from gemini
+[32mINFO[0m:     2025-08-28 10:31:47,182 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 10:31:51,582 - Checking cache for streaming query: How do I move by word when reading a document in Orca?
+[32mINFO[0m:     2025-08-28 10:31:52,147 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 10:31:52,148 - Top hit: How can text be read or navigated by sentence in A..., score: 0.5891552567481995
+[32mINFO[0m:     2025-08-28 10:31:52,148 - Similarity: 0.41084474325180054, threshold: 0.65
+[32mINFO[0m:     2025-08-28 10:31:52,148 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 10:31:52,148 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 10:31:54,641 - Saved to temporary cache: 'How do I move by word when reading a document in O...' from gemini
+[32mINFO[0m:     2025-08-28 10:31:54,641 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 10:32:24,637 - Checking cache for streaming query: How can I toggle caret navigation on or off in Accessible coconut ?
+[32mINFO[0m:     2025-08-28 10:32:25,181 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 10:32:25,181 - Top hit: What are the options for locating and configuring ..., score: 0.6852270758840387
+[32mINFO[0m:     2025-08-28 10:32:25,181 - Similarity: 0.31477292411596125, threshold: 0.65
+[32mINFO[0m:     2025-08-28 10:32:25,181 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 10:32:25,181 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 10:32:27,513 - Saved to temporary cache: 'How can I toggle caret navigation on or off in Acc...' from gemini
+[32mINFO[0m:     2025-08-28 10:32:27,513 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 10:39:25,972 - Extracted 7 pages from PDF: access_user2.pdf
+[32mINFO[0m:     2025-08-28 10:39:27,048 - Indexed 7 new documents to ChromaDB collection 'zendalona'
+[32mINFO[0m:     2025-08-28 10:39:31,013 - Checking cache for streaming query: How can I toggle caret navigation on or off in Accessible coconut ?
+
+
+[32mINFO[0m:     2025-08-28 10:39:31,648 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 10:39:31,648 - Top hit: What are the options for locating and configuring ..., score: 0.6852270758840387
+[32mINFO[0m:     2025-08-28 10:39:31,649 - Similarity: 0.31477292411596125, threshold: 0.65
+[32mINFO[0m:     2025-08-28 10:39:31,650 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 10:39:31,650 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 10:39:34,099 - Saved to temporary cache: 'How can I toggle caret navigation on or off in Acc...' from gemini
+[32mINFO[0m:     2025-08-28 10:39:34,099 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-28 10:41:38,962 - Checking cache for streaming query: Give me the keyboard shortcuts for Open Home Folder in Accessible coconut
+
+
+[32mINFO[0m:     2025-08-28 10:41:39,854 - Cache results: 5 items
+[32mINFO[0m:     2025-08-28 10:41:39,855 - Top hit: How do I use the Advanced Braille Keyboard?..., score: 0.6339921824622005
+[32mINFO[0m:     2025-08-28 10:41:39,855 - Similarity: 0.36600781753779954, threshold: 0.65
+[32mINFO[0m:     2025-08-28 10:41:39,855 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-28 10:41:39,855 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-28 10:41:42,602 - Saved to temporary cache: 'Give me the keyboard shortcuts for Open Home Folde...' from gemini
+[32mINFO[0m:     2025-08-28 10:41:42,603 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-29 08:32:22,884 - Checking cache for streaming query: Which languages are supported in Snakes and Ladders
+
+
+[32mINFO[0m:     2025-08-29 08:32:23,740 - Cache results: 5 items
+[32mINFO[0m:     2025-08-29 08:32:23,741 - Top hit: Is purchasing Android apps available in your count..., score: 0.7481682248092458
+[32mINFO[0m:     2025-08-29 08:32:23,741 - Similarity: 0.25183177519075417, threshold: 0.65
+[32mINFO[0m:     2025-08-29 08:32:23,741 - Cache match found but similarity below threshold
+[32mINFO[0m:     2025-08-29 08:32:23,741 - Calling Gemini API for streaming response
+[32mINFO[0m:     2025-08-29 08:32:27,752 - Saved to temporary cache: 'Which languages are supported in Snakes and Ladder...' from gemini
+[32mINFO[0m:     2025-08-29 08:32:27,753 - Finished streaming Gemini response
+[32mINFO[0m:     2025-08-29 08:32:48,336 - Extracted 3 pages from PDF: snakeandladder.pdf
+[32mINFO[0m:     2025-08-29 08:32:49,059 - Indexed 3 new documents to ChromaDB collection 'zendalona'
+[32mINFO[0m:     2025-08-29 08:32:53,248 - Extracted 3 pages from PDF: Snakes&Ladders User guide _ Zendalona.pdf
+[32mINFO[0m:     2025-08-29 08:32:53,868 - Indexed 3 new documents to ChromaDB collection 'zendalona'
+[32mINFO[0m:     2025-08-29 08:32:58,533 - Extracted 6 pages from PDF: Accessible Snakes And Ladders-Frequently Asked Questions _ Zendalona.pdf
+[32mINFO[0m:     2025-08-29 08:32:59,519 - Indexed 6 new documents to ChromaDB collection 'zendalona'
