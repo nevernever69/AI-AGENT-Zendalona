@@ -1,4 +1,6 @@
 
+*.md
+*.csv
 API_DOCUMENTATION.md
 logs/
 .env
