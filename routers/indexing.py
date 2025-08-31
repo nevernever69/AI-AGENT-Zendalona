@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, UploadFile, File, Form, Depends
+from fastapi import APIRouter, HTTPException, UploadFile, File, Form, Depends, Query
 from typing import List
 from utils.chroma_utils import process_pdf, index_documents_to_chroma, list_collections, delete_collection, get_collection_documents, delete_document_from_collection, process_and_index_file
 from crawler.crawler import process_and_index_url
@@ -14,7 +14,7 @@ class CrawlRequest(BaseModel):
 router = APIRouter(prefix="/indexing", tags=["Indexing"])
 
 @router.post("/crawl", summary="Crawl and index a website")
-async def crawl(request: CrawlRequest):
+async def crawl(request: CrawlRequest, force_reindex: bool = Query(False, description="Force reindex even if content already exists")):
     try:
         pages_indexed = await process_and_index_url(request.url, request.max_pages, request.depth)
         return {"message": f"Successfully indexed {pages_indexed} pages from {request.url}", "pages_indexed": pages_indexed}

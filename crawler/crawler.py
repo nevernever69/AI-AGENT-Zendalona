@@ -144,6 +144,7 @@ async def crawl_website(url: str, max_pages: int, depth: int) -> list[Document]:
                 try:
                     internal_result = await crawler.arun(
                         url=internal_url,
+                        bypass_cache=True,
                         user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36",
                         js=False
                     )
@@ -189,4 +190,5 @@ async def crawl_website(url: str, max_pages: int, depth: int) -> list[Document]:
 
 async def process_and_index_url(url: str, max_pages: int, depth: int) -> int:
     documents = await crawl_website(url, max_pages, depth)
-    return index_documents_to_chroma(documents, collection_name="zendalona")
+    # Force reindex to avoid duplicate detection issues in deployment environments
+    return index_documents_to_chroma(documents, collection_name="zendalona", force_reindex=True)

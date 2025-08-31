@@ -24,25 +24,31 @@ def get_chroma_db(collection_name: str = "zendalona"):
         embedding_function=embeddings
     )
 
-def index_documents_to_chroma(documents: list[Document], collection_name: str = "zendalona") -> int:
+def index_documents_to_chroma(documents: list[Document], collection_name: str = "zendalona", force_reindex: bool = False) -> int:
     try:
         db = get_chroma_db(collection_name)
         
-        # Get existing document URLs/sources to avoid duplicates
-        existing_docs = db.get(include=["metadatas"])
-        existing_sources = {doc["source"] for doc in existing_docs["metadatas"] if "source" in doc}
-        
-        # Filter out documents whose sources are already indexed
-        new_documents = [doc for doc in documents if doc.metadata.get("source") not in existing_sources]
-        
-        if not new_documents:
-            logging.info("No new documents to index; all sources already exist in ChromaDB")
-            return 0
-        
-        # Add new documents to ChromaDB
-        db.add_documents(new_documents)
-        logging.info(f"Indexed {len(new_documents)} new documents to ChromaDB collection '{collection_name}'")
-        return len(new_documents)
+        if force_reindex:
+            # If force reindexing, add all documents without checking for duplicates
+            db.add_documents(documents)
+            logging.info(f"Force indexed {len(documents)} documents to ChromaDB collection '{collection_name}'")
+            return len(documents)
+        else:
+            # Get existing document URLs/sources to avoid duplicates
+            existing_docs = db.get(include=["metadatas"])
+            existing_sources = {doc["source"] for doc in existing_docs["metadatas"] if "source" in doc}
+            
+            # Filter out documents whose sources are already indexed
+            new_documents = [doc for doc in documents if doc.metadata.get("source") not in existing_sources]
+            
+            if not new_documents:
+                logging.info("No new documents to index; all sources already exist in ChromaDB")
+                return 0
+            
+            # Add new documents to ChromaDB
+            db.add_documents(new_documents)
+            logging.info(f"Indexed {len(new_documents)} new documents to ChromaDB collection '{collection_name}'")
+            return len(new_documents)
     except Exception as e:
         logging.error(f"Error indexing documents: {str(e)}")
         raise
