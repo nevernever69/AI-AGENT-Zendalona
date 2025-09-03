@@ -1,15 +1,32 @@
-import os
 from pydantic_settings import BaseSettings
+from pydantic import Extra
+import dotenv
 
 class Settings(BaseSettings):
-    gemini_api_key: str  # Renamed from GOOGLE_API_KEY
-    chroma_db_path: str = "chroma_db"
-    log_path: str = "logs/app.log"
-    crawler_depth: int = 2
-    crawler_max_pages: int = 10
-    document_store_path: str = "./document_store"  # Added new field
+    # Existing settings
+    chroma_db_path: str
+    log_path: str
+    gemini_api_key: str
+    crawler_depth: int
+    crawler_max_pages: int
+    document_store_path: str
+    PORT: int = 10000
+
+    # New MongoDB settings
+    mongodb_uri: str
+    mongodb_database: str = "zendalona"
+    mongodb_feedback_collection: str = "feedback"
+
+    # Disable Gemini calls
+    disable_gemini_call: bool = False
+
+    # Vector DB retrieval settings
+    retrieval_k: int = 6
+    retrieval_threshold: float = 0.7
+    max_context_docs: int = 4
 
     class Config:
+        extra = Extra.allow
         env_file = ".env"
         env_file_encoding = "utf-8"
 

@@ -1,4 +1,8 @@
-.env
-__pycache__/
+
+*.md
+*.csv
+API_DOCUMENTATION.md
 logs/
-chroma_db/
+.env
+Zendalona-UI/
+__pycache__/
