@@ -95,6 +95,35 @@ app.include_router(temp_cache.router)
 app.include_router(feedback.router)
 app.include_router(debug.router)
 
+# Root endpoint
+@app.get("/")
+async def root():
+    """
+    Root endpoint providing API information
+    """
+    return {
+        "message": "Welcome to Zendalona AI Chatbot API",
+        "version": "0.3.0",
+        "description": "AI-powered chatbot with RAG capabilities",
+        "endpoints": {
+            "chat": "/chat",
+            "streaming_chat": "/chat/stream",
+            "websocket_chat": "/chat/ws/{session_id}",
+            "indexing": "/indexing",
+            "documentation": "/docs",
+            "openapi": "/openapi.json"
+        },
+        "status": "running",
+        "features": [
+            "RAG (Retrieval-Augmented Generation)",
+            "Document indexing (PDF, web crawling)",
+            "Streaming responses",
+            "WebSocket support",
+            "Caching system",
+            "Feedback collection"
+        ]
+    }
+
 # Custom OpenAPI endpoint
 @app.get("/openapi.json", include_in_schema=False)
 async def get_open_api_endpoint():

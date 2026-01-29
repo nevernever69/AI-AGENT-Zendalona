@@ -20,6 +20,56 @@ active_sessions: Dict[str, Dict[str, Any]] = {}
 
 from utils.chroma_utils import get_chroma_db
 
+@router.get(
+    "",
+    summary="Get chat API information",
+    description="Returns information about available chat endpoints",
+    response_description="Chat API information",
+)
+async def get_chat_info():
+    """
+    GET endpoint for chat API information
+    """
+    return {
+        "message": "Zendalona AI Chatbot API",
+        "version": "0.3.0",
+        "endpoints": {
+            "post_chat": {
+                "method": "POST",
+                "path": "/chat",
+                "description": "Send a chat message and get response",
+                "body": {
+                    "query": "string (required)",
+                    "session_id": "string (optional)"
+                }
+            },
+            "streaming_chat": {
+                "method": "POST", 
+                "path": "/chat/stream",
+                "description": "Send a chat message and get streaming response",
+                "body": {
+                    "query": "string (required)",
+                    "session_id": "string (optional)"
+                }
+            },
+            "websocket_chat": {
+                "method": "WebSocket",
+                "path": "/chat/ws/{session_id}",
+                "description": "Real-time chat via WebSocket"
+            }
+        },
+        "features": [
+            "RAG (Retrieval-Augmented Generation)",
+            "Context-aware responses",
+            "Document-based knowledge",
+            "Streaming support",
+            "Session management"
+        ],
+        "usage_example": {
+            "curl": 'curl -X POST "http://localhost:10000/chat" -H "Content-Type: application/json" -d \'{"query": "What is Zendalona?"}\''
+        }
+    }
+
 @router.post(
     "",
     response_model=ChatResponse,
