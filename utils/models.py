@@ -9,7 +9,7 @@ class ChatRequest(BaseModel):
                            description="Unique identifier for the chat session")
     
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "query": "What features do Zendalona products have?",
                 "session_id": "550e8400-e29b-41d4-a716-446655440000"
@@ -23,7 +23,7 @@ class StreamingChatRequest(BaseModel):
                            description="Optional unique identifier for the chat session")
     
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "query": "What features do Zendalona products have?",
                 "session_id": "550e8400-e29b-41d4-a716-446655440000"
@@ -37,7 +37,7 @@ class ChatResponse(BaseModel):
     feedback_enabled: bool = Field(True, description="Whether feedback can be submitted for this response")
     
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "response": "Zendalona products offer accessibility features...",
                 "sources": ["zendalona_website.pdf", "product_guide.pdf"],
@@ -54,7 +54,7 @@ class CrawlRequest(BaseModel):
                       description="Maximum crawl depth")
     
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "url": "https://example.com",
                 "max_pages": 15,
@@ -67,7 +67,7 @@ class CrawlResponse(BaseModel):
     documents_indexed: int = Field(..., description="Number of documents indexed")
     
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "message": "Successfully crawled and indexed 12 documents from https://example.com",
                 "documents_indexed": 12
@@ -79,7 +79,7 @@ class PdfUploadResponse(BaseModel):
     documents_indexed: int = Field(..., description="Number of pages indexed from the PDF")
     
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "message": "Successfully processed and indexed 5 pages from PDF: product_manual.pdf",
                 "documents_indexed": 5
@@ -90,7 +90,7 @@ class ErrorResponse(BaseModel):
     detail: str = Field(..., description="Error message")
     
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "detail": "An error occurred while processing your request"
             }
@@ -117,7 +117,7 @@ class CacheEntryRequest(BaseModel):
                       example="manual")
     
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "question": "What is Zendalona's flagship product?",
                 "answer": "Zendalona's flagship product is Accessible-Coconut, which provides screen reading capabilities.",
@@ -144,7 +144,7 @@ class FeedbackRequest(BaseModel):
     user_name: Optional[str] = Field(None, description="User display name")
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "session_id": "550e8400-e29b-41d4-a716-446655440000",
                 "query": "What features do Zendalona products have?",
